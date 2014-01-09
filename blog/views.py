@@ -9,20 +9,31 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 class comment_form(forms.Form):
+<<<<<<< HEAD
     """"""
     comment = forms.CharField(
                widget=forms.Textarea())
+=======
+    """
+    Comment Form
+    """
+    comment = forms.CharField(widget=forms.TextInput())
+
+>>>>>>> 6efd77ee927a3e40beb6c654d3ec66d83558f37a
 
 
 def post_view(request):
-    """view to collect post"""
-    template_name = "post.html"
+    """view to display all post"""
+    template_name = "posts.html"
     ci = RequestContext(request)
     posts=Post.objects.all()
     return render_to_response(template_name ,{'posts':posts,}, ci)
 
 
+<<<<<<< HEAD
 @csrf_exempt
+=======
+>>>>>>> 6efd77ee927a3e40beb6c654d3ec66d83558f37a
 def detail_view(request ,post_id):
     """view to get post detail and add comment"""
     template_name = "detail.html"  
@@ -71,4 +82,10 @@ def add_comment(request , post_id):
 	    return render_to_response(template_name ,{'form':form} , ci )
     else:
         return render_to_response(template_name ,{'form':form} , ci )
+
+
+
+def get_blog_by_tag(request, tag):
+    posts = Post.objects.filter(tags__name=tag)
+    return render_to_response('blog/search_result.html', {'object_list':posts, 'tag': tag})
 	
