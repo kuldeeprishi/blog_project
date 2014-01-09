@@ -1,7 +1,7 @@
 # Create your views here.
 from django.http import HttpResponse , HttpResponseRedirect
 from django.shortcuts import render_to_response
-from django.templates import RequestContext
+from django.template import RequestContext
 from .models import Post
 from .models import Comment
 from django import  forms
@@ -20,18 +20,19 @@ def post_view(request):
     return render_to_response(template_name ,{'posts':posts,}, ci)
 
 
-def detail_view(request ,post_id)
+def detail_view(request ,post_id):
     """view to get post detail and add comment"""
     template_name = "detail.html"  
     ci = RequestContext(request)
-    post=Post.objects.get(id=id)
+    form= comment_form()
+    post=Post.objects.get(id=post_id)
     if request.method=="POST":
-        form= comment_form(request)
+        form= comment_form(request.POST)
         if form.is_valid():
             comment=form.cleaned_data['comment']
             user=request.user           
             comment = Comment.objects.create(post=post,user=user,body=post)
-            return HttpResponseRedirect("/detail/")
+            return render_to_response("comment.html",{'comment':comment},ci)
         else:
             return render_to_response(template_name ,{'form':form, 'post':post} , ci )
     else:
