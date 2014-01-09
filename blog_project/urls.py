@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
 
     # url(r'^auth/', include('auth.urls')),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    
+    (r'^tinymce/', include('tinymce.urls')),
 )

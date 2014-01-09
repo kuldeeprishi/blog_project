@@ -1,3 +1,4 @@
+import os
 # Django settings for blog_project project.
 
 DEBUG = True
@@ -50,7 +51,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/home/kuldeeprishi/project/blog_project/blog_project/static/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -72,6 +73,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    ('assets', '/home/kuldeeprishi/project/blog_project/blog_project/static/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -111,6 +113,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '/home/kuldeeprishi/project/blog_project/blog_project/templates/',
 )
 
 INSTALLED_APPS = (
@@ -128,6 +131,8 @@ INSTALLED_APPS = (
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

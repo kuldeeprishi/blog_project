@@ -1,26 +1,28 @@
 # Create your views here.
 from django.http import HttpResponse , HttpResponseRedirect
 from django.shortcuts import render_to_response
-from django.templates import RequestContext
+from django.template import RequestContext
 from .models import Post
 from .models import Comment
 from django import  forms
 
 class comment_form(forms.Form):
-    """"""
+    """
+    Comment Form
+    """
     comment = forms.CharField(widget=forms.TextInput())
 
 
 
 def post_view(request):
-    """view to collect post"""
-    template_name = "post.html"
+    """view to display all post"""
+    template_name = "posts.html"
     ci = RequestContext(request)
     posts=Post.objects.all()
     return render_to_response(template_name ,{'posts':posts,}, ci)
 
 
-def detail_view(request ,post_id)
+def detail_view(request ,post_id):
     """view to get post detail and add comment"""
     template_name = "detail.html"  
     ci = RequestContext(request)
@@ -57,4 +59,10 @@ def add_comment(request , post_id):
 	    return render_to_response(template_name ,{'form':form} , ci )
     else:
         return render_to_response(template_name ,{'form':form} , ci )
+
+
+
+def get_blog_by_tag(request, tag):
+    posts = Post.objects.filter(tags__name=tag)
+    return render_to_response('blog/search_result.html', {'object_list':posts, 'tag': tag})
 	
