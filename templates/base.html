@@ -3,20 +3,49 @@
 		<title>Moocs Blog</title>
 		<style>
 			.wrapper {
-				width: 800px;
 				margin: 0 auto;
 				border: 1px solid black;
+				position: absolute;
+			}
+			.post {
+				width: 800px;
+				margin: 0 auto;
+				border: 1px solid red;
+				float: right;
+			}
+			.sidebar {
+				position: relative;
+				float: left;
+				border: 1px solid yellow;
 			}
 		</style>
 	</head>
 
 	<body>
 		<div class="wrapper">
-			<h1>Brentwoods Blog</h1>
-			{% block content %}
-			{% endblock %}
+			<h1>BRENTWOODS BLOG</h1>
 
-			{% block sidebar %}
+			<div class="sidebar">
+				{% block sidebar %}
+					<form action="#">
+						<input type="text">
+						<input type="submit" value="Search">
+					</form>
+					<ul>
+						<li><a href="/blog/">Home</a></li>
+						<li><a href="/blog/#">Yearly Archive</a></li>
+					</ul>
+				{% endblock %}
+			</div>
+
+
+			<div class="post">
+				{% block content %}
+				{% endblock %}
+			</div>
+
+			
+			{% block tags %}
 			{% endblock %}
 		</div>
 		

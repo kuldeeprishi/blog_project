@@ -1,11 +1,12 @@
 from django.conf.urls import *
+from django.conf import settings
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from blog.models import Post
 
 post_info_dict = {
 	'model': Post,
 	'date_field': 'pub_date',
-	'paginate_by': 2,
+	'paginate_by': 10,
 	'template_name': 'blog/display_object_list.html',
 }
 
@@ -19,3 +20,9 @@ urlpatterns = patterns('',
 
    
 )
+
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}))
