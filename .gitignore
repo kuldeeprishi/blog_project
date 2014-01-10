@@ -1,3 +1,5 @@
 *.pyc
+blog/*.pyc
+blog_project/*.pyc
 *.*~
 settings.py
