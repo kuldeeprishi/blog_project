@@ -9,17 +9,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 class comment_form(forms.Form):
-<<<<<<< HEAD
     """"""
     comment = forms.CharField(
                widget=forms.Textarea())
-=======
-    """
-    Comment Form
-    """
-    comment = forms.CharField(widget=forms.TextInput())
-
->>>>>>> 6efd77ee927a3e40beb6c654d3ec66d83558f37a
 
 
 def post_view(request):
@@ -30,12 +22,10 @@ def post_view(request):
     return render_to_response(template_name ,{'posts':posts,}, ci)
 
 
-<<<<<<< HEAD
+
 @csrf_exempt
-=======
->>>>>>> 6efd77ee927a3e40beb6c654d3ec66d83558f37a
 def detail_view(request ,post_id):
-    """view to get post detail and add comment"""
+    """ view to get post detail and add comment """
     template_name = "detail.html"  
     ci = RequestContext(request)
     form= comment_form()
@@ -64,24 +54,6 @@ def detail_view(request ,post_id):
 
 
 
-
-def add_comment(request , post_id):
-    """views to store comment"""
-    template_name="detail.html"
-    ci = RequestContext(request)
-    form = comment_form()
-    if request.method=="POST":
-	form= comment_form(request)
-	if form.is_valid():
-	    comment=form.cleaned_data['comment']
-	    post = Post.objects.get(id=id)
-	    user=request.user		
-            comment = Comment.objects.create(post=post,user=user,body=post)
-	    return HttpResponseRedirect("/detail/")
-	else:
-	    return render_to_response(template_name ,{'form':form} , ci )
-    else:
-        return render_to_response(template_name ,{'form':form} , ci )
 
 
 

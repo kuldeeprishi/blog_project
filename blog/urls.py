@@ -1,16 +1,5 @@
-<<<<<<< HEAD
 from django.conf.urls import patterns, include, url
 
-urlpatterns = patterns('',
-    # Examples:
-    #
-     url(r'^$', 'blog.views.post_view', name='home'),
-     url(r'detail/(?P<post_id>\d+)/$', 'blog.views.detail_view', name='detail'),
-
-     
-)
-  
-=======
 from django.conf.urls import *
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from blog.models import Post
@@ -29,7 +18,6 @@ urlpatterns = patterns('',
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/$', DayArchiveView.as_view(**post_info_dict), name='post_archive_day'),
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', DateDetailView.as_view(model=Post, date_field='pub_date'), name='post_entry_detail'),
     url(r'^tag/(?P<tag>[-\w]+)/$', 'blog.views.get_blog_by_tag', name='blog_by_tag'),
-
+    url(r'detail/(?P<post_id>\d+)/$','blog.views.detail_view', name="get_post_detail")
    
 )
->>>>>>> 6efd77ee927a3e40beb6c654d3ec66d83558f37a

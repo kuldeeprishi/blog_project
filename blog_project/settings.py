@@ -51,7 +51,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/home/kuldeeprishi/project/blog_project/blog_project/static/'
+MEDIA_ROOT = '/home/irshad/blog/blog_project/static/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -73,11 +73,9 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-<<<<<<< HEAD
-    "/home/irshad/blog/blog_project/static/",
-=======
-    ('assets', '/home/kuldeeprishi/project/blog_project/blog_project/static/'),
->>>>>>> 6efd77ee927a3e40beb6c654d3ec66d83558f37a
+#    os.path.join(PROJECT_ROOT, "templates"),
+
+('assests' ,  "/home/irshad/blog/blog_project/static/"),
 )
 
 # List of finder classes that know how to find static files in
@@ -117,12 +115,9 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-<<<<<<< HEAD
 
 "/home/irshad/blog/blog_project/templates/",
-=======
-    '/home/kuldeeprishi/project/blog_project/blog_project/templates/',
->>>>>>> 6efd77ee927a3e40beb6c654d3ec66d83558f37a
+
 )
 
 INSTALLED_APPS = (
