@@ -1,16 +1,31 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends 'base.html' %}
+
+{%block content%}
+<h1>{{post.title}}</h1>
+<br>
+
+{%if post.image%}
+<img src="/static/assets/{{post.image}}" alt="Image" width=600px; \><br>
+{%endif%}
+
+<p>Published on: {{post.pub_date}}</p>
+<p>{{post.body}}</p>
+
+<hr>
+
+{% for comment in post.comment_set.all %}
+	<div class="comentbody">
+		<b>{{comment.user.username}}</b>: <span>{{comment.body}}</span><br>
+	</div>
+{%endfor%}
+
+<!-- Posting Comment -->
+<form method="POST" action="/blog/add_comment/{{post.id}}/">
+{%csrf_token%}
+{{form.as_p}}
+<input type="submit" value="submit">
+<input type="button" id="{{post.id}}" value="Ajax Submit" class="addcomment" \>
+</form>
 
 
-{% block content %}
-
-{% if object.image %}
-<img src="/static/assets/{{object.image}}" alt="Image" width=600px; \>
-{% endif %}
-<h2>{{object.title}}</h2>
-<p>Published on: {{object.pub_date}}</p>
-<p>{{object.body}}</p>
-
-
-
-{% endblock %}
+{%endblock content%}
