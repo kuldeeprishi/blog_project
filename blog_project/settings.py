@@ -75,6 +75,7 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 #    os.path.join(PROJECT_ROOT, "templates"),
 
+  "/home/irshad/blog/blog_project/static/",
 ('assests' ,  "/home/irshad/blog/blog_project/static/"),
 )
 

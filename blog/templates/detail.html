@@ -11,6 +11,7 @@
 
 {%for comment in post.comment_set.all%}
 	<div class="comentbody">
+		<div>{{comment.user.username}}</div><br>
 		<div>{{comment.body}}</div><br>
 	</div>
 {%endfor%}
