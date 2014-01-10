@@ -6,7 +6,7 @@ from .models import Post
 from .models import Comment
 from django import  forms
 from django.views.decorators.csrf import csrf_exempt
-
+from django.views.decorators.csrf import csrf_protect
 
 class comment_form(forms.Form):
     """"""
@@ -23,7 +23,7 @@ def post_view(request):
 
 
 
-@csrf_exempt
+
 def detail_view(request ,post_id):
     """ view to get post detail and add comment """
     template_name = "detail.html"  

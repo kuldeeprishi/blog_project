@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
 
 from django.conf.urls import *
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
@@ -21,3 +22,13 @@ urlpatterns = patterns('',
     url(r'detail/(?P<post_id>\d+)/$','blog.views.detail_view', name="get_post_detail")
    
 )
+
+
+
+
+from django.conf import settings
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'%s(?P<path>.*)' % settings.MEDIA_URL[1:], 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    )
