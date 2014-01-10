@@ -1,4 +1,8 @@
 
-<div class="comment">
-{{comment.body}}
-</div>
+{% if error %}
+{{error}}
+
+{% else %}
+<b>{{comment.user.username}}</b>: <span>{{comment.body}}</span><br>
+{% endif %}
+

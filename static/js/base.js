@@ -10,11 +10,11 @@ $(document).ready(function(){
 
         $.ajax({
                 type: "POST",
-                url: "/blog/detail/"+post_id+"/",
+                url: "/blog/add_comment/"+post_id+"/",
                 data: {'comment':comment} ,
                 success: function(data){
-                        $( ".comentbody div:last" ).after( "<div>"+data+"</div>" );
-                        //  $("#bodyContent").html(data);
+                        // alert(data);
+                        $( ".commentbody li:last" ).after( "<li>"+data+"</li>" );
                         },
 
                 });
