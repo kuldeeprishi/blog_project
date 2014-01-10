@@ -1,5 +1,7 @@
 from django.contrib import admin
 from blog.models import Tag, Post, Comment
+from django.forms import *
+from django.db.models import *
 
 class TagAdmin(admin.ModelAdmin):
 	pass

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+{% if object.image %}
+<img src="/static/assets/{{object.image}}" alt="Image" width=600px; \>
+{% endif %}
+<h2>{{object.title}}</h2>
+<p>Published on: {{object.pub_date}}</p>
+<p>{{object.body}}</p>
+
+
+
+{% endblock %}

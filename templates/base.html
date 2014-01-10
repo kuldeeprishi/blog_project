@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js"
+      			  type="text/javascript"></script>
+		<script src="/static/js/base.js"
+        type="text/javascript"></script>
+	
+		<title>Moocs Blog</title>
+		<style>
+			.wrapper {
+				width: 800px;
+				margin: 0 auto;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<h1>Brentwoods Blog</h1>
+			{% block content %}
+			{% endblock %}
+
+			{% block sidebar %}
+			{% endblock %}
+		</div>
+		
+	</body>
+</html>
