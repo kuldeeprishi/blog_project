@@ -1,3 +1,4 @@
 *.pyc
 *.*~
-blog_project/settings.py
+local_settings.py
+uploaded_files

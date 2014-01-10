@@ -1,12 +1,19 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+
 {%block content%}
 {{post.title}}<br>
+<<<<<<< HEAD
 {%if post.image%}
 
 <img src="/{{post.image.url}}" \><br>
 
+=======
+>>>>>>> 8448609a6a0ee70760e3a1a1371293f11e9914e6
 
+{%if post.image%}
+<img src="{{post.image}}" \><br>
 {%endif%}
+
 {{post.body}}
 
 {%for comment in post.comment_set.all%}
