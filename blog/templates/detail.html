@@ -2,16 +2,8 @@
 
 {%block content%}
 {{post.title}}<br>
-<<<<<<< HEAD
 {%if post.image%}
-
-<img src="/{{post.image.url}}" \><br>
-
-=======
->>>>>>> 8448609a6a0ee70760e3a1a1371293f11e9914e6
-
-{%if post.image%}
-<img src="{{post.image}}" \><br>
+<img src="/static/assets/{{post.image.url}}" \><br>
 {%endif%}
 
 {{post.body}}
@@ -30,4 +22,5 @@
 <input type="submit" value="submit">
 <input type="button" id="{{post.id}}" value="submit" class="addcomment" \>
 </form>
+
 {%endblock content%}

@@ -52,11 +52,9 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-<<<<<<< HEAD:blog_project/settings.py
-MEDIA_ROOT = '/home/irshad/blog/blog_project/'
-=======
+
 MEDIA_ROOT = here("../..", "static")
->>>>>>> 8448609a6a0ee70760e3a1a1371293f11e9914e6:blog_project/settings/base.py
+
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

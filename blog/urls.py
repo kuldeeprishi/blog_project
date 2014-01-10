@@ -14,30 +14,23 @@ post_info_dict = {
 }
 
 urlpatterns = patterns('',
+
+    url(r'detail/(?P<post_id>\d+)/$','blog.views.detail_view', name="get_post_detail"),
     url(r'^$', ArchiveIndexView.as_view(**post_info_dict), name='post_archive_index'),
     url(r'^(?P<year>\d{4})/$', YearArchiveView.as_view(make_object_list = True, allow_future = True, **post_info_dict), name='post_archive_year'),
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/$', MonthArchiveView.as_view(**post_info_dict), name='post_archive_month'),
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/$', DayArchiveView.as_view(**post_info_dict), name='post_archive_day'),
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', DateDetailView.as_view(model=Post, date_field='pub_date'), name='post_entry_detail'),
     url(r'^tag/(?P<tag>[-\w]+)/$', 'blog.views.get_blog_by_tag', name='blog_by_tag'),
-    url(r'detail/(?P<post_id>\d+)/$','blog.views.detail_view', name="get_post_detail")
    
 )
 
 
-<<<<<<< HEAD
 
 
-from django.conf import settings
 
 if settings.DEBUG:
     urlpatterns += patterns('',
         (r'%s(?P<path>.*)' % settings.MEDIA_URL[1:], 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     )
-=======
-# if settings.DEBUG:
-#     # static files (images, css, javascript, etc.)
-#     urlpatterns += patterns('',
-#         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-#         'document_root': settings.MEDIA_ROOT}))
->>>>>>> 8448609a6a0ee70760e3a1a1371293f11e9914e6
+
