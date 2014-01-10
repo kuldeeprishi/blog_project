@@ -23,14 +23,16 @@ urlpatterns = patterns('',
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', DateDetailView.as_view(model=Post, date_field='pub_date'), name='post_entry_detail'),
     url(r'^tag/(?P<tag>[-\w]+)/$', 'blog.views.get_blog_by_tag', name='blog_by_tag'),
    
+
+    
+    # Blog Post Entry Detail View
+    url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 'blog.views.detail_view', name="get_post_detail"),
+
+
+    # Add Comment
+    url(r'^add_comment/(?P<post_id>\d+)', 'blog.views.add_comment', name='add_comment'),
+    #url(r'detail/(?P<post_id>\d+)/$','blog.views.add_comment', name="get_post_detail_by_id")
+
 )
 
-
-
-
-
-if settings.DEBUG:
-    urlpatterns += patterns('',
-        (r'%s(?P<path>.*)' % settings.MEDIA_URL[1:], 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    )
 

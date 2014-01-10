@@ -40,6 +40,14 @@ $.ajaxSetup({
 
 	$(".addcomment").click(function(e){
 
+        $.ajax({
+                type: "POST",
+                url: "/blog/add_comment/"+post_id+"/",
+                data: {'comment':comment} ,
+                success: function(data){
+                        // alert(data);
+                        $( ".commentbody li:last" ).after( "<li>"+data+"</li>" );
+                        },
 
 	 var post_id = this.id ;
 	 var comment = $("#id_comment").val();
@@ -65,12 +73,6 @@ $.ajaxSetup({
             e.preventDefault();
         }
          });
-
-
-
-
-
-
 
 
 });
