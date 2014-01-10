@@ -22,12 +22,10 @@ urlpatterns = patterns('',
     url(r'detail/(?P<post_id>\d+)/$','blog.views.detail_view', name="get_post_detail")
    
 )
-<<<<<<< HEAD
 
-if settings.DEBUG:
-    # static files (images, css, javascript, etc.)
-    urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-        'document_root': settings.MEDIA_ROOT}))
-=======
->>>>>>> 8ae2b46b8a6cc863ee65e34d0097d7711b4f7a05
+
+# if settings.DEBUG:
+#     # static files (images, css, javascript, etc.)
+#     urlpatterns += patterns('',
+#         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+#         'document_root': settings.MEDIA_ROOT}))
