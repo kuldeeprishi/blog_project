@@ -1,3 +1,5 @@
+from django.conf.urls import patterns, include, url
+
 from django.conf.urls import *
 from django.conf import settings
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
@@ -17,12 +19,15 @@ urlpatterns = patterns('',
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/$', DayArchiveView.as_view(**post_info_dict), name='post_archive_day'),
     url(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', DateDetailView.as_view(model=Post, date_field='pub_date'), name='post_entry_detail'),
     url(r'^tag/(?P<tag>[-\w]+)/$', 'blog.views.get_blog_by_tag', name='blog_by_tag'),
-
+    url(r'detail/(?P<post_id>\d+)/$','blog.views.detail_view', name="get_post_detail")
    
 )
+<<<<<<< HEAD
 
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT}))
+=======
+>>>>>>> 8ae2b46b8a6cc863ee65e34d0097d7711b4f7a05

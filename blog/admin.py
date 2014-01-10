@@ -2,7 +2,6 @@ from django.contrib import admin
 from blog.models import Tag, Post, Comment
 from django.forms import *
 from django.db.models import *
-from tinymce.widgets import TinyMCE
 
 class TagAdmin(admin.ModelAdmin):
 	pass
