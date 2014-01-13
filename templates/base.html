@@ -41,13 +41,6 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<br>	
-			<div style="display:block;">
-				{% block news%}
-				{% endblock news %}
-			</div>
-=======
 			<!-- Header Ends -->
 
 			<!-- Navigation Begin -->
@@ -80,7 +73,8 @@
 				</div>
 			</nav>
 			<!-- Navigation Ends -->
->>>>>>> 9d3a61b77874ca345ff7641217f2cb74e2da22ed
+			{% block news%}
+            {% endblock news %}
 
 			<div id="content">
 				<div class="content_container">
@@ -90,7 +84,7 @@
 				</div>
 				<div class="sidebar_big" style="margin-left:25px">
 					<div id="tabbedwidget-3" class="widget-area">
-						<script type='text/javascript' src='js/jquery-1.8.2.min.js'>
+						<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
 </script> <script type="text/javascript">
 var $j=jQuery.noConflict();$j(function(){$j("#tabbedwidget-3").tabs()});
 						</script>

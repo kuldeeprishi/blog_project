@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 
 class NewsList(ListView):
     context_object_name = "news_list"
-    queryset = News.objects.filter(status = "pub")	
+    queryset = News.get_published.all()[:4]	
     template_name = 'news/newslist.html'
 
 
