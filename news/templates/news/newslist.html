@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{%block news%}
+<h2> NEWS </h2>
+
+{% for news in news_list%}
+<h3> 	{{news.title}}  </h3><br>
+ <img	src="/static/assets/{{news.image.url}}"   alt="{{news.title}}"\><br>
+	{{news.description | truncatewords:6}}<br>
+	{{news.posted_on}}<br><br>
+
+{%endfor%}
+
+{%endblock news%}
