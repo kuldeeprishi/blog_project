@@ -1,39 +1,36 @@
 {% extends 'base.html' %}
 
 {%block content%}
-<h1>{{post.title}}</h1>
-<br>
+<h1>{{post.title|title}}</h1>
 
-{%if post.image%}
+{%if post.image %}
 <img src="/static/assets/{{post.image}}" alt="Image" width=600px; \><br>
-{%endif%}
-
+{% endif %}
+<br>
 <p>Published on: {{post.pub_date}}</p>
 <p>{{post.body}}</p>
 
 <hr>
-
+{% if post.comment_set.all %}
 <div class="commentbody">
 {% for comment in post.comment_set.all %}
 		<li><b>{{comment.user.username}}</b>: <span>{{comment.body}}</span><br></li>
 {% endfor %}
 </div>
+{% else %}
+	<p>No Comments yet. Add yours now.</p>
+{% endif %}
+<br>
 
-<!-- Posting Comment --> 
-<div class="login_required" style="display:none">Kindly Login/Signup to Comment</div>
-{{login_required_msg}}
-
-
+<!-- Posting Comment -->
 {% if user.is_authenticated %}
-<form method="POST" action="/blog/add_comment/{{post.id}}/">
-{%csrf_token%}
-{%if msg%}
-	{{msg}}
-{%endif%}
-{{form.as_p}}
-<input type="submit" value="submit">
-<input type="button" id="{{post.id}}" value="Ajax Submit" class="addcomment" \>
-</form>
-{%endif%}
+	<form method="POST" action="/blog/add_comment/{{post.id}}/">
+		{{form.as_p}}
+	<input type="submit" value="Comment">
+	<input type="button" id="{{post.id}}" value="Ajax Submit" class="addcomment"\>
+	</form>
+{% else %}
+<p>Kindly login/signup to add comments </p>
+{% endif %}
 
 {%endblock content%}
