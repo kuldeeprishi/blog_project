@@ -136,6 +136,7 @@ DJANGO_APPS = (
 CUSTOM_APPS = (
     # Apps that we create
     'blog',
+    'homepage',
 )
 
 THIRD_PARTY_APPS = (

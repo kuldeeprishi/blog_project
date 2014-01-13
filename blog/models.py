@@ -1,6 +1,7 @@
 import datetime
 from time import time
 from django.conf import settings
+from django.db import models
 from django.core.urlresolvers import reverse
 
 from django.db import models
@@ -18,24 +19,29 @@ class Tag(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class PostManager(models.Manager):
+	def get_query_set(self):
+		return super(PostManager, self).get_query_set().filter(status='l')
 
-STATUS_CHOICES = (
-	('d', 'Draft'),
-	('l', 'Live'),
-)
 
 class Post(models.Model):
+	STATUS_CHOICES = (
+	('d', 'Draft'),
+	('l', 'Live'),
+	)
 	title = models.CharField(max_length=200, help_text='Give a Short and Meaningful Title')
 	body = models.TextField(blank=True, null=True)
 	image = models.FileField(upload_to=get_upload_file_name, default='', blank=True, null=True, help_text='\
 		Post with Descriptive Image attract more Visitors.')
-	pub_date = models.DateTimeField(default=datetime.datetime.now)
+	pub_date = models.DateTimeField(default=datetime.datetime.now, verbose_name='Publish Date')
 	last_modified = models.DateTimeField(auto_now=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='l')
 	allow_comment = models.BooleanField(default=True, help_text='Allow Users to Comment on this Post?')
-	featured = models.BooleanField(default=False, verbose_name="Featured Article", help_text='Check if this Post has to be Featured on Home Page!')
+	featured = models.BooleanField(default=False, verbose_name="Is Featured Article?", help_text='Check if this Post has to be Featured on Home Page!')
 	tags = models.ManyToManyField(Tag, blank=True, null=True, help_text='Descriptive Tags let user search your article with ease.')
 	slug = models.SlugField(max_length=20, unique=True, help_text="Slug Value is unique and generated automatically. If Slug error occur on save, please try to make it unique but keeping it meaningful.")
+	objects = models.Manager()
+	published_objects = PostManager()
 
 	class Meta:
 		verbose_name_plural = ("Posts")
