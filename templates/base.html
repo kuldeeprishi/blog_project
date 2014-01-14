@@ -12,6 +12,7 @@
 		<link rel='stylesheet' href='/static/assets/css/stylesheet.css' type="text/css">
 		<link rel='stylesheet' href='/static/assets/css/bootstrap.css' type="text/css">
 		<link rel='stylesheet' href='/static/assets/css/jquery.mCustomScrollbar.css' type="text/css">
+		<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'></script>
 	</head>
 	<body>
 		<div class="all_container">
@@ -79,9 +80,13 @@
 
 			<div id="content">
 				<div class="content_container">
+
 						{% block content %}
 						{% endblock %}
+
 				</div>
+
+
 				<div class="sidebar_big" style="margin-left:25px">
 					<div id="tabbedwidget-3" class="widget-area">
 						<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
@@ -106,7 +111,9 @@
 						<!-- Popular Post begins -->
 						{% block popular_posts %}
 						{% endblock %}
+						</div>
 						<!-- Popular post ends -->
+
 
 						<!-- Recent comments begins -->
 						<div class="cat_style_3" id="posts_comments02">
@@ -114,6 +121,7 @@
 						{% endblock %}
 						</div>
 						<!-- Recent Comments ends -->
+
 					</div>
 					<div class="join_newsletter">
 						<div class="nice_heading">
@@ -197,15 +205,16 @@
 					</div>
 				</div>
 			</footer>
-		</div><script type='text/javascript' src='/static/assets/js/bootstrap.min.js'>
-</script><script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
-</script><script type='text/javascript' src='/static/assets/js/jquery.mCustomScrollbar.js'>
-</script><script type='text/javascript' src='/static/assets/js/jquery.fitvids.js'>
-</script><script type='text/javascript' src='/static/assets/js/jquery-ui.js'>
-</script><script type='text/javascript' src='/static/assets/js/magnific-popup.js'>
-</script><script type='text/javascript' src='/static/assets/js/jquery.bxslider.min.js'>
-</script><script type="text/javascript">
-var $j=jQuery.noConflict();$j(function(){var b=0;var a=$j(".bxslider_2").show().bxSlider({pagerCustom:".bxslider-pager, .featured_vids",auto:true,speed:500,pause:5000,autoHover:true,easing:"easeOutCirc",useCSS:false,onSliderLoad:function(){$j(".featured_item").removeClass("current_slide");$j('.featured_item h3 a[data-slide-index="'+b+'"]').parents(".featured_item").addClass("current_slide");$j(".featured_vids").mCustomScrollbar("scrollTo",'.featured_item[data-slide-index="'+b+'"]')},onSlideAfter:function(){var c=a.getCurrentSlide();$j(".featured_item").removeClass("current_slide");$j('.featured_item h3 a[data-slide-index="'+c+'"]').parents(".featured_item").addClass("current_slide");$j(".featured_vids").mCustomScrollbar("scrollTo",'.featured_item[data-slide-index="'+c+'"]')},});$j("#bxslider_next").click(function(){a.goToNextSlide();return false});$j("#bxslider_prev").click(function(){a.goToPrevSlide();return false})});$j(function(){$j(".featured_vids").mCustomScrollbar({theme:"light-thick"})});
+		</div>
+		<script type='text/javascript' src='/static/assets/js/bootstrap.min.js'></script>
+		<script type='text/javascript' src='/static/assets/js/jquery.mCustomScrollbar.js'></script>
+		<script type='text/javascript' src='/static/assets/js/jquery.fitvids.js'></script>
+		<script type='text/javascript' src='/static/assets/js/jquery-ui.js'></script>
+		<script type='text/javascript' src='/static/assets/js/magnific-popup.js'></script>
+		<script type='text/javascript' src='/static/assets/js/jquery.bxslider.min.js'></script>
+		<script type='text/javascript' src='/static/assets/js/base.js'></script>
+		<script type="text/javascript">
+			var $j=jQuery.noConflict();$j(function(){var b=0;var a=$j(".bxslider_2").show().bxSlider({pagerCustom:".bxslider-pager, .featured_vids",auto:true,speed:500,pause:5000,autoHover:true,easing:"easeOutCirc",useCSS:false,onSliderLoad:function(){$j(".featured_item").removeClass("current_slide");$j('.featured_item h3 a[data-slide-index="'+b+'"]').parents(".featured_item").addClass("current_slide");$j(".featured_vids").mCustomScrollbar("scrollTo",'.featured_item[data-slide-index="'+b+'"]')},onSlideAfter:function(){var c=a.getCurrentSlide();$j(".featured_item").removeClass("current_slide");$j('.featured_item h3 a[data-slide-index="'+c+'"]').parents(".featured_item").addClass("current_slide");$j(".featured_vids").mCustomScrollbar("scrollTo",'.featured_item[data-slide-index="'+c+'"]')},});$j("#bxslider_next").click(function(){a.goToNextSlide();return false});$j("#bxslider_prev").click(function(){a.goToPrevSlide();return false})});$j(function(){$j(".featured_vids").mCustomScrollbar({theme:"light-thick"})});
 		</script>
 	</body>
 </html>
