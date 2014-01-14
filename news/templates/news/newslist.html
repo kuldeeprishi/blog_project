@@ -1,67 +1,70 @@
-{% extends "base.html"%}
-{%block news%}
-<div class="wrapper-wrapper">
-				<div class="slider_container_full">
-					<div class="slider_container">
-						<div class="slider-2-container">
-							<div id="slider-2" class="slider-3">
-								<div class="bxslider_controls">
-									<span class="next fa fa-chevron-right" id="bxslider_next"></span> <span class="prev fa fa-chevron-left" id="bxslider_prev"></span>
-								</div>
-								<div class="bxslider bxslider_2">
-									{% for news in news_list%}
-									<div class="bxslider_item">
-										<div class="bxslider_photo">
-											<img src="/static/assets/{{news.image.url}}" class="attachment-very-large wp-post-image" alt="Slider Images01">
-											<div class="bxslider_info">
-												<div class="date">
-													<table>
-														<tr>
-															<td>
-																<a href="/new/detail/{{news.id}}/" class="date_cat">Documentaries</a> {{ news.posted_on|date:"d" }}</span> <span class="date_month">{{ news.posted_on|date:"b" }}</span>
-															</td>
-														</tr>
-													</table>
-												</div>
-												<h2>
-													<a href="/new/detail/{{news.id}}/" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 }}</a> <a class="view_more" href="/new/detail/{{news.id}}/">View more</a>
-												</h2>
-											</div>
-										</div>
-									</div>
-									{%endfor%}	
-								</div>
+{% extends "base.html" %}
 
-								<div class="featured_vids">
-									{% for news in news_list%}
-									<div class="featured_item" data-slide-index="{{forloop.counter0}">
-										<div class="featured_item_photo">
-											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="/static/assets/{{news.image.url}}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
-										</div>
-										<div class="featured_item_info">
-											<h3>
-												<a data-slide-index="{{forloop.counter0}}"
-											 href="#">{{news.title|truncatewords_html:5 }}</a>
-											</h3>
-											<div class="meta-info">
-												&nbsp;&nbsp;{{news.created_on | timesince }} weeks ago&nbsp;&nbsp;
-											</div>
-										</div>
-										<div class="clear"></div>
-
-									</div>
-									{%endfor%}	
-									
-								</div>
-								<div class="clear"></div>
-
-							
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-			</div>
+{% block content %}
+    {% for news in news_list %}
+        <div class="blog_section">
+            <div class="blogs">
+                <!-- news image begin -->
+                <div class="cat_style_image">
+                    {% if news.image %}
+                    <img src="/static/assets/{{news.image}}">
+                    {% else %}
+                    <img src="/static/assets/images/default.png">
+                    {% endif %}
+                </div>
+                <!-- news image end -->
+                <div class="speacer"></div>
+                <div class="cat_style_info">
+                    <h3>
+                        {{news.title|title}}
+                    </h3>
+                    <span>{{news.posted|date:"F j, Y @ f a"}}</span>
+                    <p>
+                        {{news.description|truncatewords_html:"20"|safe}}
+                    </p>
+                    <div class="readmore">
+                        <a href="{{news.get_absolute_url}}">Read More </a>
+                        <span class="fa fa-chevron-right"></span> 
+                    </div>
+                    <div class="meta-info">
+                        <span class="fa fa-clock-o"></span> 
+                        {{news.posted_on|timesince}} ago 
+                     <!--   <span class="fa fa-comments"></span>
+                        {% if news.comment_set.all.count > 0 %}
+                        <a href="{{news.get_absolute_url}}" title="{{news.comment_set.all.count}} comments">{{news.comment_set.all.count}} comment{{comment|pluralize}}</a>
+                        {% else %}
+                            No Comments
+                        {% endif %} -->
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No newss yet!</p>
+    {% endfor %}
 
 
-{%endblock news%}
+    <!-- Pagination -->
+   {% if is_paginated %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">&larr;prev</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next&rarr;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+    {{block.super}}
+{% endblock %}

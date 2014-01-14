@@ -1,6 +1,15 @@
-{{news.title}}<br>
-<img scr="{{news.image.title}}" \><br>
+{% extends 'base.html' %}
 
-{{news.description}}<br>
+{%block content%}
+<h1>{{news_detail.title|title}}</h1>
 
-{{news.posted_on}}
+{%if news_detail.image %}
+<img src="/static/assets/{{news_detail.image}}" alt="Image" width=600px; \><br>
+{% endif %}
+<br>
+<p>Published on: {{news_detail.posted_on}}</p>
+<p>{{news_detail.description}}</p>
+
+<hr>
+
+{%endblock%}
