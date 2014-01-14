@@ -20,13 +20,13 @@
 													<table>
 														<tr>
 															<td>
-																<a href="/news/detail/{{news.id}}/" class="date_cat">Documentaries</a> {{ news.posted_on|date:"d" }}</span> <span class="date_month">{{ news.posted_on|date:"b" }}</span>
+																<a href="{{ news.get_absolute_url}}" class="date_day">Documentaries</a> {{ news.posted_on|date:"d" }}</span> <span class="date_month">{{ news.posted_on|date:"b" }}</span>
 															</td>
 														</tr>
 													</table>
 												</div>
 												<h2>
-													<a href="/news/detail/{{news.id}}/" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 }}</a> <a class="view_more" href="/new/detail/{{news.id}}/">View more</a>
+													<a href="{{ news.get_absolute_url}}" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 | safe}}</a> <a class="view_more" href="{{ news.get_absolute_url}}">View more</a>
 												</h2>
 											</div>
 										</div>
