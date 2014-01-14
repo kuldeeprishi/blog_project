@@ -78,6 +78,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     ('assets' ,  here("../..", "static")),
+   
 )
 
 # List of finder classes that know how to find static files in
@@ -87,6 +88,18 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+
+TINYMCE_JS_ROOT =  os.path.join(MEDIA_ROOT, "/js/tiny_mce/")
+TINYMCE_JS_URL = os.path.join(MEDIA_ROOT, "/js/tiny_mce/tiny_mce.js")
+#TINYMCE_JS_URL = here("../..", "static/js/tiny_mce/tiny_mce_src.js")
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'blx1ppeqn%5&^xj&5h-7yu8-9!p&t$(q+twp_*j-##i=73-n#9'
@@ -136,10 +149,12 @@ DJANGO_APPS = (
 CUSTOM_APPS = (
     # Apps that we create
     'blog',
+    'news',
     'homepage',
 )
 
 THIRD_PARTY_APPS = (
+    'tinymce',
     # Third Party Django Apps
 )
 

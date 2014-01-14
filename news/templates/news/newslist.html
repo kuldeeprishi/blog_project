@@ -1,0 +1,67 @@
+{% extends "base.html"%}
+{%block news%}
+<div class="wrapper-wrapper">
+				<div class="slider_container_full">
+					<div class="slider_container">
+						<div class="slider-2-container">
+							<div id="slider-2" class="slider-3">
+								<div class="bxslider_controls">
+									<span class="next fa fa-chevron-right" id="bxslider_next"></span> <span class="prev fa fa-chevron-left" id="bxslider_prev"></span>
+								</div>
+								<div class="bxslider bxslider_2">
+									{% for news in news_list%}
+									<div class="bxslider_item">
+										<div class="bxslider_photo">
+											<img src="/static/assets/{{news.image.url}}" class="attachment-very-large wp-post-image" alt="Slider Images01">
+											<div class="bxslider_info">
+												<div class="date">
+													<table>
+														<tr>
+															<td>
+																<a href="/new/detail/{{news.id}}/" class="date_cat">Documentaries</a> {{ news.posted_on|date:"d" }}</span> <span class="date_month">{{ news.posted_on|date:"b" }}</span>
+															</td>
+														</tr>
+													</table>
+												</div>
+												<h2>
+													<a href="/new/detail/{{news.id}}/" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 }}</a> <a class="view_more" href="/new/detail/{{news.id}}/">View more</a>
+												</h2>
+											</div>
+										</div>
+									</div>
+									{%endfor%}	
+								</div>
+
+								<div class="featured_vids">
+									{% for news in news_list%}
+									<div class="featured_item" data-slide-index="{{forloop.counter0}">
+										<div class="featured_item_photo">
+											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="/static/assets/{{news.image.url}}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
+										</div>
+										<div class="featured_item_info">
+											<h3>
+												<a data-slide-index="{{forloop.counter0}}"
+											 href="#">{{news.title|truncatewords_html:5 }}</a>
+											</h3>
+											<div class="meta-info">
+												&nbsp;&nbsp;{{news.created_on | timesince }} weeks ago&nbsp;&nbsp;
+											</div>
+										</div>
+										<div class="clear"></div>
+
+									</div>
+									{%endfor%}	
+									
+								</div>
+								<div class="clear"></div>
+
+							
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+{%endblock news%}
