@@ -1229,7 +1229,7 @@ a.view_more {
 	border: 2px #fff solid
 }
 .widget-area .cat_style_3_item .cat_style_info {
-	overflow: hidden;
+	/*overflow: hidden;*/
 	width: auto;
 	float: none
 }

@@ -1,1 +1,110 @@
 {% extends "base.html" %}
+
+{% block slider %}
+			<!-- Slider Begins -->
+			<div class="wrapper-wrapper">
+				<div class="slider_container_full">
+					<div class="slider_container">
+						<div class="slider-2-container">
+							<div id="slider-2" class="slider-3">
+								<div class="bxslider_controls">
+									<span class="next fa fa-chevron-right" id="bxslider_next"></span> <span class="prev fa fa-chevron-left" id="bxslider_prev"></span>
+								</div>
+								<div class="bxslider bxslider_2">
+
+									{% for post in posts %}
+									<div class="bxslider_item">
+										<div class="bxslider_photo">
+											<img src="/static/assets/{{post.image}}" class="attachment-very-large wp-post-image" alt="Slider Images01">
+											<div class="bxslider_info">
+												<div class="date">
+													<table>
+														<tr>
+															<td>
+																<a href="#" class="date_cat">Featured</a> <span class="date_day">{{post.pub_date|date:"y"}}</span> <span class="date_month">{{post.pub_date|date:"F"}}</span>
+															</td>
+														</tr>
+													</table>
+												</div>
+												<h2>
+													<a href="{{post.get_absolute_url}}" title="{{post.title|title}}">{{post.title|title|truncatewords_html:"10"}}</a> <a class="view_more" href="{{post.get_absolute_url}}">View more</a>
+												</h2>
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+
+								</div>
+								<div class="featured_vids">
+									{% for post in posts %}
+									<div class="featured_item" data-slide-index="{{forloop.counter0}}">
+										<div class="featured_item_photo">
+											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="/static/assets/{{post.image}}" class="attachment-small wp-post-image" alt="Slider Image {{forloop.counter0}}"></a>
+										</div>
+										<div class="featured_item_info">
+											<h3>
+												<a data-slide-index="{{forloop.counter0}}" href="#">{{post.title|title|truncatewords_html:"5"}}</a>
+											</h3>
+											<div class="meta-info">
+												&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>
+									{% endfor %}
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<!-- Slider Ends -->
+{% endblock %}
+
+{% block popular_posts %}
+	{% for post in popular_posts %}
+		<div class="cat_style_item cat_style_3_item">
+			<div class="cat_style_image">
+				<div class="cat_style_photo">
+					<a href="#123">
+						<img src="/static/assets/{{post.image}}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
+					</a>
+				</div>
+			</div>
+			<div class="speacer"></div>
+			<div class="cat_style_info">
+				<h3>
+					<a href="#123">{{post.title|title|truncatewords_html:"6"}}</a>
+				</h3>
+				<div class="meta-info">&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	{% endfor %}
+{% endblock %}
+
+
+{% block recent_comments %}
+	{% for comment in comments %}
+	{{comment}}
+		<div class="cat_style_item cat_style_3_item comment_style_item">
+			<div class="cat_style_image">
+				<div class="cat_style_photo">
+					<a href="#123"><img src="/static/assets/images/comments.png" alt="Comment" title="Merrasse Mouhcine"></a>
+				</div>
+			</div>
+			<div class="speacer"></div>
+			<div class="cat_style_info">
+				<h3>
+					<a href="#123">Lorem Ipsum is simply...</a>
+				</h3>
+				<div class="meta-info">
+					&nbsp;&nbsp;December 24, 2013
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	{% endfor %}
+{% endblock %}

@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>
-			Brentwoods Education
+			{% block page_title %}Brentwoods Education{% endblock %}
 		</title>
 		<link rel='stylesheet' href='/static/assets/css/font-awesome.css' type="text/css">
 		<link rel='stylesheet' href='/static/assets/css/bootstrap-responsive.css' type="text/css">
@@ -74,17 +74,19 @@
 			</nav>
 			<!-- Navigation Ends -->
 
+			{% block slider %}
+			{% endblock %}
+
 			<div id="content">
 				<div class="content_container">
-						{% block content %}
+						{% block blog_content %}
 						{% endblock %}
-
 				</div>
 				<div class="sidebar_big" style="margin-left:25px">
 					<div id="tabbedwidget-3" class="widget-area">
-						<script type='text/javascript' src='js/jquery-1.8.2.min.js'>
-</script> <script type="text/javascript">
-var $j=jQuery.noConflict();$j(function(){$j("#tabbedwidget-3").tabs()});
+						<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
+						</script>
+						<script type="text/javascript">var $j=jQuery.noConflict();$j(function(){$j("#tabbedwidget-3").tabs()});
 						</script>
 						<div class="tabbed_widget cat_style_6">
 							<ul class="tabs_ul" style="margin-bottom:30px">
@@ -100,147 +102,18 @@ var $j=jQuery.noConflict();$j(function(){$j("#tabbedwidget-3").tabs()});
 							</ul>
 						</div>
 						<div class="cat_style_3" id="popular_posts_01">
-							<div class="cat_style_item cat_style_3_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/popular_img01.jpg" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;2 weeks ago&nbsp;&nbsp;
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="cat_style_item cat_style_3_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/popular_img02.jpg" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;2 weeks ago&nbsp;&nbsp;
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="cat_style_item cat_style_3_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/popular_img03.jpg" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;2 weeks ago&nbsp;&nbsp;
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="cat_style_item cat_style_3_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/popular_img04.jpg" class="attachment-mini wp-post-image" alt="Popular" title="Maecenas in enim id sapien condimentum posuere"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;2 weeks ago&nbsp;&nbsp;
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-						</div>
+						
+						<!-- Popular Post begins -->
+						{% block popular_posts %}
+						{% endblock %}
+						<!-- Popular post ends -->
+
+						<!-- Recent comments begins -->
 						<div class="cat_style_3" id="posts_comments02">
-							<div class="cat_style_item cat_style_3_item comment_style_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/comments.png" alt="Comment" title="Merrasse Mouhcine"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;December 24, 2013
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="cat_style_item cat_style_3_item comment_style_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/comments.png" alt="Merrasse Mouhcine" title="Merrasse Mouhcine"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;December 24, 2013
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="cat_style_item cat_style_3_item comment_style_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/comments.png" alt="Merrasse Mouhcine" title="Merrasse Mouhcine"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;December 24, 2013
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="cat_style_item cat_style_3_item comment_style_item">
-								<div class="cat_style_image">
-									<div class="cat_style_photo">
-										<a href="#123"><img src="/static/assets/images/comments.png" alt="Merrasse Mouhcine" title="Merrasse Mouhcine"></a>
-									</div>
-								</div>
-								<div class="speacer"></div>
-								<div class="cat_style_info">
-									<h3>
-										<a href="#123">Lorem Ipsum is simply...</a>
-									</h3>
-									<div class="meta-info">
-										&nbsp;&nbsp;December 24, 2013
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
+						{% block recent_comments %}
+						{% endblock %}
 						</div>
+						<!-- Recent Comments ends -->
 					</div>
 					<div class="join_newsletter">
 						<div class="nice_heading">
