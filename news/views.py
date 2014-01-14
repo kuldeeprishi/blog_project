@@ -12,7 +12,7 @@ class NewsList(ListView):
     context_object_name = "news_list"
     queryset = News.get_published.all()
     template_name = 'news/newslist.html'
-    paginate_by = 5
+    paginate_by = 7
 
 
 class NewsDetail(View):
