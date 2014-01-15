@@ -10,6 +10,9 @@ from django import forms
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 
+from tinymce.widgets import TinyMCE
+
+
 
 def post_archive_index(request):
     all_posts = Post.published_objects.all()
@@ -30,7 +33,7 @@ def post_archive_index(request):
 
 
 class CommentForm(forms.Form):
-    comment = forms.CharField(widget = forms.Textarea())
+    comment = forms.CharField(widget=TinyMCE(attrs={'cols': 30, 'rows': 10}))
 
 
 def detail_view(request ,year, month, day, slug):

@@ -3,6 +3,9 @@ from blog.models import Tag, Post, Comment
 from django.forms import *
 from django.db.models import *
 
+
+
+
 class TagAdmin(admin.ModelAdmin):
 	pass
 
@@ -17,6 +20,7 @@ class PostAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('title',)}
 	ordering = ('-pub_date',)
 	filter_horizontal = ('tags',)
+
 
 
 
