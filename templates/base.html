@@ -16,36 +16,39 @@
 	</head>
 	<body>
 		<div class="all_container">
+			{% block page_header %}
 			<!-- Header Begins -->
-			<div id="header">
-				<div id="content">
-					<div class="header_main">
-						<div class="span3 logo">
-							<a href="/" title="Brentwoods Education"><img src="/static/assets/images/logo.png" alt="Brentwoods Education"></a>
-						</div>
-						<div class="span9 header-right">
-							<a href="#123"></a>
-							<div class="top_box color_blue">
-								<img src="/static/assets/images/groups_icon.png"><span>groups</span>
+				<div id="header">
+					<div id="content">
+						<div class="header_main">
+							<div class="span3 logo">
+								<a href="/" title="Brentwoods Education"><img src="/static/assets/images/logo.png" alt="Brentwoods Education"></a>
 							</div>
-							<a href="/blog/">
-								<div class="top_box color_orange">
-								<img src="/static/assets/images/blog_icon.png">
-								<span>Blog</span>
+							<div class="span9 header-right">
+								<a href="#123"></a>
+								<div class="top_box color_blue">
+									<img src="/static/assets/images/groups_icon.png"><span>groups</span>
 								</div>
-							</a>
-								<a href="/news/">
-							<div class="top_box color_green">
-								<img src="/static/assets/images/news_icon.png">
-								<span>News</span>
+								<a href="/blog/">
+									<div class="top_box color_orange">
+									<img src="/static/assets/images/blog_icon.png">
+									<span>Blog</span>
+									</div>
+								</a>
+									<a href="/news/">
+								<div class="top_box color_green">
+									<img src="/static/assets/images/news_icon.png">
+									<span>News</span>
+								</div>
+								</a>
 							</div>
-							</a>
 						</div>
 					</div>
 				</div>
-			</div>
 			<!-- Header Ends -->
+			{% endblock %}
 
+			{% block navigation %}
 			<!-- Navigation Begin -->
 			<div class="clear"></div>
 			<nav>
@@ -53,143 +56,44 @@
 					<div id="content">
 						<ul>
 							<li class="active">
-								<a href="#123">home</a>
+								<a href="{% url 'homepage' %}">home</a>
 							</li>
 							<li>
-								<a href="#123">About Us</a>
+								<a href="{% url 'about' %}">About Us</a>
 							</li>
 							<li>
-								<a href="#123">Contact Us</a>
+								<a href="{% url 'contact' %}">Contact Us</a>
 							</li>
 						</ul>
-						<form action="" method="post" id="search" name="contact-form">
+						<form action="/search" method="get" id="search" name="contact-form">
 							<input placeholder="Enter your search term..." type="text" id="" name="search" class="field">
 							<div class="search_icon">
-								<a href="#123"><img src="/static/assets/images/search_icon.jpg"></a>
+								<img src="/static/assets/images/search_icon.jpg">
 							</div>
 							<div class="clear"></div>
 						</form>
 						<div class="login-txt">
-							<a href="#123">Login / Sign up</a>
+							<a href="/login">Login</a> / <a href="/account/add">Sign up</a>
 						</div><br class="clear">
 					</div>
 				</div>
 			</nav>		
 			<!-- Navigation Ends -->
+			{% endblock %}
 
 			{% block slider %}
 			{% endblock %}
 
-			<div id="content">
-				<div class="content_container">
+			{% block sidebar %}
+			{% endblock %}
 
-						{% block content %}
-						{% endblock %}
-
-				</div>
-
-
-				<div class="sidebar_big" style="margin-left:25px">
-					<div id="tabbedwidget-3" class="widget-area">
-						<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
-						</script>
-						<script type="text/javascript">var $j=jQuery.noConflict();$j(function(){$j("#tabbedwidget-3").tabs()});
-						</script>
-						<div class="tabbed_widget cat_style_6">
-							<ul class="tabs_ul" style="margin-bottom:30px">
-								<li>
-									<a href="#popular_posts_01">Popular</a>
-								</li>
-								<li>
-									<a href="#posts_comments02">Comments</a>
-								</li>
-								<li style="list-style: none; display: inline">
-									<div class="clear"></div>
-								</li>
-							</ul>
-						</div>
-						<div class="cat_style_3" id="popular_posts_01">
-						
-						<!-- Popular Post begins -->
-						{% block popular_posts %}
-						{% endblock %}
-						</div>
-						<!-- Popular post ends -->
-
-
-						<!-- Recent comments begins -->
-						<div class="cat_style_3" id="posts_comments02">
-						{% block recent_comments %}
-						{% endblock %}
-						</div>
-						<!-- Recent Comments ends -->
-
-					</div>
-					<div class="join_newsletter">
-						<div class="nice_heading">
-							<h3>
-								Join our Newsletter
-							</h3>
-						</div>
-						<form action="" method="post" id="join_newsletter" name="contact-form">
-							<p>
-								Subscribe to our free weekly newsletter for news and new courses
-							</p><input placeholder="Enter your email address" type="text" id="2" name="Email ID" class="field"> <input type="submit" value="Subscribe" class="submit-button" name="" id="submit-button">
-							<div class="clear"></div>
-						</form>
-					</div>
-					<div class="archive">
-						<div class="nice_heading">
-							<h3>
-								Archive
-							</h3>
-						</div>
-						<ul>
-							<li>
-								<a href="#123">March 2013</a>
-							</li>
-							<li>
-								<a href="#123">February 2013</a>
-							</li>
-							<li>
-								<a href="#123">January 2013</a>
-							</li>
-							<li>
-								<a href="#123">December 2012</a>
-							</li>
-							<li>
-								<a href="#123">May 2012</a>
-							</li>
-						</ul>
-					</div>
-					<div class="video">
-						<div class="nice_heading">
-							<h3>
-								Video Box
-							</h3>
-						</div>
-						<div>
-							<img src="/static/assets/images/video_images.jpg">
-						</div>
-					</div>
-					<div class="popular_tags">
-						<div class="nice_heading">
-							<h3>
-								Popular Tags
-							</h3>
-						</div>
-						<div class="tagcloud">
-							<a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a> <a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a>
-						</div>
-					</div>
-				</div>
-			</div>
+			{% block footer %}
 			<div class="clear"></div>
 			<footer>
 				<div id="footer">
 					<div id="content">
 						<div class="copyrights">
-							© 2013 Brentwoods Education All rights reserved
+							© 2014 Brentwoods Education All rights reserved
 						</div>
 						<div class="social_footer">
 							<ul>
@@ -207,6 +111,7 @@
 					</div>
 				</div>
 			</footer>
+			{% endblock %}
 		</div>
 		<script type='text/javascript' src='/static/assets/js/bootstrap.min.js'></script>
 		<script type='text/javascript' src='/static/assets/js/jquery.mCustomScrollbar.js'></script>
