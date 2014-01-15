@@ -10,8 +10,11 @@
 
             {% for result in page.object_list %}
                 <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a> <br>
-                    <p>{{ result.object.body |truncatewords_html:13 | safe }}</p>
+                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.get_class_name }} :  {{ result.object.title | capfirst}}</a> 
+
+
+                    <p>{{ result.object.body |truncatewords_html:13 | safe |capfirst }}</p>
+                    <p>{{ result.object.description |truncatewords_html:13 | safe |capfirst}}</p>
                 </p>
             {% empty %}
                 <p>No results found.</p>

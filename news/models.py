@@ -1,7 +1,10 @@
 from django.db import models
 from time import time
+
 from django.core.urlresolvers import reverse
 
+from django import template
+register = template.Library()
 
 def get_upload_file_name(instance, filename):
         return 'uploaded_files/%s_%s'%(str(time()).replace('.','_'), filename)
@@ -24,6 +27,11 @@ class News(models.Model):
     posted_on = models.DateTimeField(auto_now=True)
     objects = models.Manager()
     get_published = PublishedManager()
+
+    @register.filter
+    def get_class_name(value):
+        return value.__class__.__name__
+
 
     @models.permalink
     def get_absolute_url(self):

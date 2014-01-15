@@ -3,11 +3,11 @@ from time import time
 from django.conf import settings
 from django.db import models
 from django.core.urlresolvers import reverse
-
+from django import template
 from django.db import models
 from django.contrib.auth.models import User
 
-
+register = template.Library()
 # Generate timestamp based filename of uploaded articles
 def get_upload_file_name(instance, filename):
 	return 'uploaded_files/%s_%s'%(str(time()).replace('.','_'), filename)
@@ -49,6 +49,10 @@ class Post(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+	@register.filter
+	def get_class_name(value):
+		return value.__class__.__name__
 
 
 	@models.permalink
