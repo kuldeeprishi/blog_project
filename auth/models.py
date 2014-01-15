@@ -4,8 +4,14 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
 	"""user profile model"""
-        user=models.OneToOneField(User)
-        
-        def __unicode__(self):
-                return self.First_name
+	class Meta:
+		verbose_name="Blog Users"
+		verbose_name_plural="Blog Users"
+	
+	user=models.OneToOneField(User)
+	image=models.ImageField(upload_to='django_upload')
+	def __unicode__(self):
+		return self.user.username
+
+
 

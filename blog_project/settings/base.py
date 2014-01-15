@@ -1,7 +1,13 @@
 import os
+import django.conf.global_settings as DEFAULT_SETTINGS
+
 
 # here() gives us file paths from the root of the system to the directory
 # holding the current file.
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'auth.processor.current_user',
+)
+
 here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
 PROJECT_ROOT = here("..")
@@ -152,6 +158,7 @@ CUSTOM_APPS = (
     'blog',
     'news',
     'homepage',
+    'auth',
 )
 
 THIRD_PARTY_APPS = (

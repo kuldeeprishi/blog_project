@@ -75,7 +75,11 @@
 							<div class="clear"></div>
 						</form>
 						<div class="login-txt">
-							<a href="/login">Login</a> / <a href="/account/add">Sign up</a>
+							  {% if UP %}
+						     Welcome, {{UP.user.username}} <a href="/logout"> &nbsp;&nbsp;&nbsp;Logout</a>
+						    {%else%}
+						     <a href="/login"> Login / </a>  <a href="/signup/">Signup </a>
+						    {%endif%}
 						</div><br class="clear">
 					</div>
 				</div>
