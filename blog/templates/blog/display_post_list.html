@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_with_structure.html" %}
 
 {% block content %}
     {% for post in posts %}
@@ -18,7 +18,7 @@
                     <h3>
                         {{post.title|title}}
                     </h3>
-                    <span>{{post.pub_date|date:"F j, Y @ f a"}}</span>
+
                     <p>
                         {{post.body|truncatewords_html:"20"|safe}}
                     </p>
@@ -36,12 +36,6 @@
                             No Comments
                         {% endif %}
                     </div>
-                        {% if post.tags.all %}
-                            Tags: {% for tag in post.tags.all %}
-                                {{tag|lower}}{% if forloop.last %}{% else %},{% endif %}
-                            {% endfor %}
-                        {% else %}
-                        {% endif %}
                 </div>
                 <div class="clear"></div>
             </div>

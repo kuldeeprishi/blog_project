@@ -155,8 +155,8 @@ CUSTOM_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    'tinymce',
     # Third Party Django Apps
+    'tinymce',
 )
 
 
@@ -200,3 +200,15 @@ LOGGING = {
         },
     }
 }
+
+
+# Newsletter Setting
+
+# Email subscription confirmation setting
+NEWSLETTER_CONFIRM_EMAIL = False
+# NEWSLETTER_CONFIRM_EMAIL_SUBSCRIBE = True
+# NEWSLETTER_CONFIRM_EMAIL_UNSUBSCRIBE = True
+# NEWSLETTER_CONFIRM_EMAIL_UPDATE = True
+
+# Text Editor settings
+NEWSLETTER_RICHTEXT_WIDGET = 'tinymce.widgets.TinyMCE'

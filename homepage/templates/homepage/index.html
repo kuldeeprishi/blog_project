@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_with_structure.html" %}
 
 
 {% block slider %}
@@ -12,7 +12,7 @@
 									<span class="next fa fa-chevron-right" id="bxslider_next"></span> <span class="prev fa fa-chevron-left" id="bxslider_prev"></span>
 								</div>
 								<div class="bxslider bxslider_2">
-									{% for news in news_list%}
+									{% for news in news_list %}
 									<div class="bxslider_item">
 										<div class="bxslider_photo">
 											<img src="/static/assets/{{news.image.url}}" class="attachment-very-large wp-post-image" alt="Slider Images01">
@@ -21,13 +21,17 @@
 													<table>
 														<tr>
 															<td>
-																<a href="{{ news.get_absolute_url}}" class="date_day">Documentaries</a> {{ news.posted_on|date:"d" }}</span> <span class="date_month">{{ news.posted_on|date:"b" }}</span>
+											<a href="{{ news.get_absolute_url}}" class="date_cat">Latest</a>
+																	<span class="date_day">{{news.posted_on|date:"d"}}</span> <span class="date_month">{{news.posted_on|date:"b"}}</span>
+																</td>
+
 															</td>
 														</tr>
 													</table>
 												</div>
 												<h2>
-													<a href="{{ news.get_absolute_url}}" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 | safe}}</a> <a class="view_more" href="{{ news.get_absolute_url}}">View more</a>
+
+													<a href="{{ news.get_absolute_url}}" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 | safe}}</a> <a class="view_more" href="{{ news.get_absolute_url}}">View 
 												</h2>
 											</div>
 										</div>
@@ -44,10 +48,9 @@
 										<div class="featured_item_info">
 											<h3>
 												<a data-slide-index="{{forloop.counter0}}"
-											 href="#">{{news.title|truncatewords_html:5 }}</a>
+											 href="#">{{news.title|truncatewords_html:9 }}</a>
 											</h3>
-											<div class="meta-info">
-												&nbsp;&nbsp;{{news.created_on | timesince }} weeks ago&nbsp;&nbsp;
+											<div class="meta-info"><span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{news.posted_on|timesince}} ago&nbsp;&nbsp;
 											</div>
 										</div>
 										<div class="clear"></div>
@@ -92,7 +95,7 @@
                     <h3>
                         {{post.title|title}}
                     </h3>
-                    <span>{{post.pub_date|date:"F j, Y @ f a"}}</span>
+
                     <p>
                         {{post.body|truncatewords_html:"20"|safe}}
                     </p>
@@ -110,12 +113,6 @@
                             No Comments
                         {% endif %}
                     </div>
-                        {% if post.tags.all %}
-                            Tags: {% for tag in post.tags.all %}
-                                {{tag|lower}}{% if forloop.last %}{% else %},{% endif %}
-                            {% endfor %}
-                        {% else %}
-                        {% endif %}
                 </div>
                 <div class="clear"></div>
             </div>

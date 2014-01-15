@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+
+{% block sidebar %}
+<div id="content" class="margin-top40">
+	<div class="content_container">
+
+			{% block content %}
+			{% endblock %}
+
+	</div>
+
+
+	<div class="sidebar_big" style="margin-left:25px">
+		<div id="tabbedwidget-3" class="widget-area">
+			<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
+			</script>
+			<script type="text/javascript">var $j=jQuery.noConflict();$j(function(){$j("#tabbedwidget-3").tabs()});
+			</script>
+			<div class="tabbed_widget cat_style_6">
+				<ul class="tabs_ul" style="margin-bottom:30px">
+					<li>
+						<a href="#popular_posts_01">Popular</a>
+					</li>
+					<li>
+						<a href="#posts_comments02">Comments</a>
+					</li>
+					<li style="list-style: none; display: inline">
+						<div class="clear"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="cat_style_3" id="popular_posts_01">
+			
+			<!-- Popular Post begins -->
+			{% block popular_posts %}
+			{% endblock %}
+			</div>
+			<!-- Popular post ends -->
+
+
+			<!-- Recent comments begins -->
+			<div class="cat_style_3" id="posts_comments02">
+			{% block recent_comments %}
+			{% endblock %}
+			</div>
+			<!-- Recent Comments ends -->
+
+		</div>
+		<div class="join_newsletter">
+			<div class="nice_heading">
+				<h3>
+					Join our Newsletter
+				</h3>
+			</div>
+
+			<form action="newsletter/newsletter/subscribe/." enctype="multipart/form-data" method="post" id="join_newsletter" name="contact-form">
+			{% csrf_token %}
+				<p>
+					Subscribe to our free weekly newsletter for news and new courses
+				</p><input placeholder="Enter your email address" type="text" id="id_email_field" name="email_field" class="field"> <input type="submit" value="Subscribe" class="submit-button" name="" id="submit-button">
+				<div class="clear"></div>
+			</form>
+
+
+		</div>
+		<div class="archive">
+			<div class="nice_heading">
+				<h3>
+					Archive
+				</h3>
+			</div>
+			<ul>
+				<li>
+					<a href="#123">March 2013</a>
+				</li>
+				<li>
+					<a href="#123">February 2013</a>
+				</li>
+				<li>
+					<a href="#123">January 2013</a>
+				</li>
+				<li>
+					<a href="#123">December 2012</a>
+				</li>
+				<li>
+					<a href="#123">May 2012</a>
+				</li>
+			</ul>
+		</div>
+		<div class="video">
+			<div class="nice_heading">
+				<h3>
+					Video Box
+				</h3>
+			</div>
+			<div>
+				<img src="/static/assets/images/video_images.jpg">
+			</div>
+		</div>
+		<div class="popular_tags">
+			<div class="nice_heading">
+				<h3>
+					Popular Tags
+				</h3>
+			</div>
+			<div class="tagcloud">
+				<a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a> <a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
