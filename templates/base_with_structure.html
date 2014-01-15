@@ -53,12 +53,16 @@
 					Join our Newsletter
 				</h3>
 			</div>
-			<form action="" method="post" id="join_newsletter" name="contact-form">
+
+			<form action="newsletter/newsletter/subscribe/." enctype="multipart/form-data" method="post" id="join_newsletter" name="contact-form">
+			{% csrf_token %}
 				<p>
 					Subscribe to our free weekly newsletter for news and new courses
-				</p><input placeholder="Enter your email address" type="text" id="2" name="Email ID" class="field"> <input type="submit" value="Subscribe" class="submit-button" name="" id="submit-button">
+				</p><input placeholder="Enter your email address" type="text" id="id_email_field" name="email_field" class="field"> <input type="submit" value="Subscribe" class="submit-button" name="" id="submit-button">
 				<div class="clear"></div>
 			</form>
+
+
 		</div>
 		<div class="archive">
 			<div class="nice_heading">
