@@ -47,6 +47,11 @@ class Post(models.Model):
 		verbose_name_plural = ("Posts")
 		ordering = ["-pub_date"]
 
+	def save(self, *args, **kwargs):
+		if self.body == '':
+			self.status = 'd'
+		super(Post, self).save(*args, **kwargs)
+
 	def __unicode__(self):
 		return self.title
 

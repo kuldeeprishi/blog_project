@@ -1,7 +1,7 @@
-{% extends "base.html" %}
+{% extends "base_with_structure.html" %}
 
 {% block content %}
-    {% for news in news_list %}
+    {% for news in queryset %}
         <div class="blog_section">
             <div class="blogs">
                 <!-- news image begin -->

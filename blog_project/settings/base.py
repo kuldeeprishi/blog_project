@@ -91,7 +91,7 @@ STATICFILES_FINDERS = (
 
 
 TINYMCE_JS_ROOT =  os.path.join(MEDIA_ROOT, "/js/tiny_mce/")
-TINYMCE_JS_URL = os.path.join(MEDIA_ROOT, "/js/tiny_mce/tiny_mce.js")
+TINYMCE_JS_URL = os.path.join(MEDIA_ROOT, "/js/tiny_mce/utils.js")
 #TINYMCE_JS_URL = here("../..", "static/js/tiny_mce/tiny_mce_src.js")
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
@@ -156,6 +156,9 @@ CUSTOM_APPS = (
 THIRD_PARTY_APPS = (
     # Third Party Django Apps
     'tinymce',
+    'django_extensions',
+    'sorl.thumbnail',
+    'newsletter',
 )
 
 
