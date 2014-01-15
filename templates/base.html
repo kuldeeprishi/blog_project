@@ -62,8 +62,8 @@
 								<a href="#123">Contact Us</a>
 							</li>
 						</ul>
-						<form action="" method="post" id="search" name="contact-form">
-							<input placeholder="Enter your search term..." type="text" id="" name="search" class="field">
+						<form action="/search/" method="get" id="search" name="contact-form">{% csrf_token %}
+							<input placeholder="Enter your search term..." type="text" id="id_q" name="q" class="field">
 							<div class="search_icon">
 								<a href="#123"><img src="/static/assets/images/search_icon.jpg"></a>
 							</div>
