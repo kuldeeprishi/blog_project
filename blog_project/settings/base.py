@@ -164,9 +164,9 @@ CUSTOM_APPS = (
 THIRD_PARTY_APPS = (
     # Third Party Django Apps
     'tinymce',
-    # 'django_extensions',
-    # 'sorl.thumbnail',
-    # 'newsletter',
+    'django_extensions',
+    'sorl.thumbnail',
+    'newsletter',
 )
 
 

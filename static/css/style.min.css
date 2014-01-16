@@ -1077,7 +1077,8 @@ a.view_more {
 #content {
 	padding: 0 0 40px 0;
 	margin: 0 auto;
-	width: 1000px
+	width: 1000px;
+	overflow: hidden;
 }
 .first_item img {
 	height: auto

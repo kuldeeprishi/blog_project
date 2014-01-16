@@ -1,4 +1,4 @@
-<!DOCTYPE html">
+<!DOCTYPE html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>
@@ -53,13 +53,14 @@
 				<div id="navigation">
 					<div id="content">
 						<ul>
-							<li class="active">
+							<li {% if page == '/' %}class="active"{% endif %}>
 								<a href="{% url 'homepage' %}">home</a>
 							</li>
-							<li>
+							<li {% if page == '/about/' %}class="active"{% endif %}>
+
 								<a href="{% url 'about' %}">About Us</a>
 							</li>
-							<li>
+							<li {% if page == '/contact/' %}class="active"{% endif %}>
 								<a href="{% url 'contact' %}">Contact Us</a>
 							</li>
 						</ul>
