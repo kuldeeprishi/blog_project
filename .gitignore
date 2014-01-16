@@ -2,3 +2,6 @@
 *.*~
 local_settings.py
 uploaded_files
+.project
+.pydevproject
+*.swp

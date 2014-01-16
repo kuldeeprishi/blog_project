@@ -12,6 +12,13 @@ class UserProfile(models.Model):
 	image=models.ImageField(upload_to='django_upload')
 	def __unicode__(self):
 		return self.user.username
+	
+	def isActive(self):
+		if self.user.is_active:
+			return True
+		else:
+			return False
+
 
 
 
