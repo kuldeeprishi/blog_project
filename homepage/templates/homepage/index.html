@@ -22,13 +22,16 @@
 														<tr>
 															<td>
 											<a href="{{ news.get_absolute_url}}" class="date_cat">Latest</a>
-																	<span class="date_day">{{news.posted_on|date:"d"}}</span> <span class="date_month">{{news.posted_on|date:"b"}}</span>
-																</td>
+																	<span class="date_day">{{news.posted_on|date:"d"}} </span>
+
+																	<span class="date_month">{{news.posted_on|date:"b"}} </span>
+															</td>
 
 															</td>
 														</tr>
 													</table>
 												</div>
+
 												<h2>
 
 													<a href="{{ news.get_absolute_url}}" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 | safe}}</a> <a class="view_more" href="{{ news.get_absolute_url}}">View 
@@ -41,14 +44,17 @@
 
 								<div class="featured_vids">
 									{% for news in news_list%}
-									<div class="featured_item" data-slide-index="{{forloop.counter0}">
+									
+
+
+									<div class="featured_item" data-slide-index="{{forloop.counter0}}">
 										<div class="featured_item_photo">
 											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="/static/assets/{{news.image.url}}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
 										</div>
 										<div class="featured_item_info">
 											<h3>
-												<a data-slide-index="{{forloop.counter0}}"
-											 href="#">{{news.title|truncatewords_html:9 }}</a>
+											<a data-slide-index="{{forloop.counter0}}"
+											 href="#" > {{news.title|truncatewords_html:9 }}</a>
 											</h3>
 											<div class="meta-info"><span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{news.posted_on|timesince}} ago&nbsp;&nbsp;
 											</div>

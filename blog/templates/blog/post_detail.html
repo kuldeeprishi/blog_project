@@ -76,7 +76,7 @@
         <form method="POST" action="/blog/add_comment/{{post.id}}/">
             {{form.as_p}}
         <input type="submit" value="Comment">
-        <input type="button" id="{{post.id}}" value="Ajax Submit" class="addcomment"\>
+        <input type="button" id="{{post.id}}" value="Ajax Submit" class="addcomment" \>
         </form>
     {% else %}
     <p>Kindly login/signup to add comments </p>
