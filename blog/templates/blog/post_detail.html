@@ -1,4 +1,5 @@
 {% extends "base_with_structure.html" %}
+{%load popular%}
 
 {% block sidebar %}
 
@@ -99,25 +100,8 @@
 </div>
 <div class="cat_style_3" id="popular_posts_01">
 
-{% for post in popular_posts %}
-        <div class="cat_style_item cat_style_3_item">
-            <div class="cat_style_image">
-                <div class="cat_style_photo">
-                    <a href="#123">
-                        <img src="/static/assets/{{post.image}}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
-                    </a>
-                </div>
-            </div>
-            <div class="speacer"></div>
-            <div class="cat_style_info">
-                <h3>
-                    <a href="#123">{{post.title|title|truncatewords_html:"6"}}</a>
-                </h3>
-                <div class="meta-info">&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;</div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    {% endfor %}
+{%popularposts%}
+
 </div>
 
 

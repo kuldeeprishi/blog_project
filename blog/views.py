@@ -88,5 +88,5 @@ def add_comment(request, post_id):
 
 def get_blog_by_tag(request, tag):
     posts = Post.objects.filter(tags__name=tag)
-    return render_to_response('blog/search_result.html', {'object_list':posts, 'tag': tag})
+    return render_to_response('homepage/index.html', {'posts':posts, 'tag': tag})
 	

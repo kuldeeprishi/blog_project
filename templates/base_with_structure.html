@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{%load popular%}
 
 {% block sidebar %}
 <div id="content" class="margin-top40">
@@ -105,7 +105,8 @@
 				</h3>
 			</div>
 			<div class="tagcloud">
-				<a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a> <a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a>
+                 {%populartags%}
+				<!--<a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a> <a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a>-->
 			</div>
 		</div>
 	</div>
