@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block sidebar %}
+{% block main %}
 <div id="content" class="margin-top40">
 	<div class="content_container">
 
@@ -10,8 +10,8 @@
 
 	</div>
 
-
-	<div class="sidebar_big" style="margin-left:25px">
+	{% block sidebar %}
+		<div class="sidebar_big" style="margin-left:25px">
 		<div id="tabbedwidget-3" class="widget-area">
 			<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
 			</script>
@@ -47,6 +47,9 @@
 			<!-- Recent Comments ends -->
 
 		</div>
+
+
+		{% block newletter %}
 		<div class="join_newsletter">
 			<div class="nice_heading">
 				<h3>
@@ -54,7 +57,7 @@
 				</h3>
 			</div>
 
-			<form action="newsletter/newsletter/subscribe/." enctype="multipart/form-data" method="post" id="join_newsletter" name="contact-form">
+			<form action="newsletter/latest-new-sites/subscribe/" enctype="multipart/form-data" method="post" id="join_newsletter" name="contact-form">
 			{% csrf_token %}
 				<p>
 					Subscribe to our free weekly newsletter for news and new courses
@@ -64,6 +67,10 @@
 
 
 		</div>
+		{% endblock%}
+
+
+		{% block archive %}
 		<div class="archive">
 			<div class="nice_heading">
 				<h3>
@@ -88,6 +95,10 @@
 				</li>
 			</ul>
 		</div>
+		{% endblock %}
+
+
+		{% block video %}
 		<div class="video">
 			<div class="nice_heading">
 				<h3>
@@ -98,6 +109,9 @@
 				<img src="/static/assets/images/video_images.jpg">
 			</div>
 		</div>
+		{% endblock %}
+
+		{% block popular_tags %}
 		<div class="popular_tags">
 			<div class="nice_heading">
 				<h3>
@@ -108,6 +122,9 @@
 				<a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a> <a href="#123">demo</a> <a href="#123">magazine</a> <a href="#123">post</a> <a href="#123">template</a> <a href="#123">video</a> <a href="#123">vipress</a> <a href="#123">wordpress</a>
 			</div>
 		</div>
+		{% endblock %}
 	</div>
+	{% endblock %}
+	
 </div>
 {% endblock %}

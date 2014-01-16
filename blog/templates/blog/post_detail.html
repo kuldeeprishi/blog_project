@@ -1,4 +1,5 @@
 {% extends "base_with_structure.html" %}
+{% load blog_tags %}
 
 {% block sidebar %}
 
@@ -98,7 +99,7 @@
 </ul>
 </div>
 <div class="cat_style_3" id="popular_posts_01">
-
+{% get_latest_content blog.Post 5 as popular_posts %}
 {% for post in popular_posts %}
         <div class="cat_style_item cat_style_3_item">
             <div class="cat_style_image">
@@ -122,19 +123,21 @@
 
 
 <div class="cat_style_3" id="posts_comments02">
-        {% for comment in recent_comments %}
+{% block recent_comments %}
+{% get_latest_content blog.Comment 4 as recent_comments %}
+    {% for comment in recent_comments %}
         <div class="cat_style_item cat_style_3_item comment_style_item">
             <div class="cat_style_image">
                 <div class="cat_style_photo">
                     <a href="#123">
-                        <img src="static/assets/images/comments.png" alt="Comment" title="Merrasse Mouhcine" />
+                        <img src="/static/assets/images/comments.png" alt="Comment" title="{{comment.user.username}}" />
                     </a>
                 </div>
             </div>
             <div class="speacer"></div>
             <div class="cat_style_info">
                 <h3>
-                    <a href="#123">{{comment.body}}</a>
+                    <a href="{{comment.post.get_absolute_url}}">{{comment.body}}</a>
                 </h3>
                 <div class="meta-info">
                     <span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{comment.pub_date|date:"F j, Y"}}
@@ -143,6 +146,7 @@
             <div class="clear"></div>
         </div>
     {% endfor %}
+{% endblock %}
 </div>
 
 <div class="join_newsletter">

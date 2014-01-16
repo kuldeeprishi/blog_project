@@ -1,4 +1,5 @@
 {% extends "base_with_structure.html" %}
+{% load blog_tags %}
 
 {% block slider %}
 			<!-- Slider Begins -->
@@ -141,6 +142,7 @@
 {% endblock %}
 
 {% block popular_posts %}
+{% get_latest_content blog.Post 5 as popular_posts %}
 	{% for post in popular_posts %}
 		<div class="cat_style_item cat_style_3_item">
 			<div class="cat_style_image">
@@ -164,6 +166,7 @@
 
 
 {% block recent_comments %}
+{% get_latest_content blog.Comment 4 as recent_comments %}
 	{% for comment in recent_comments %}
 		<div class="cat_style_item cat_style_3_item comment_style_item">
 			<div class="cat_style_image">

@@ -1,7 +1,8 @@
 {% extends "base_with_structure.html" %}
+{% load blog_tags %}
 
 {% block content %}
-    {% for news in queryset %}
+    {% for news in news_list %}
         <div class="blog_section">
             <div class="blogs">
                 <!-- news image begin -->
@@ -65,6 +66,25 @@
 
 {% endblock %}
 
-{% block sidebar %}
-    {{block.super}}
+{% block popular_posts %}
+{% get_latest_content news.News 5 as popular_posts %}
+    {% for post in popular_posts %}
+        <div class="cat_style_item cat_style_3_item">
+            <div class="cat_style_image">
+                <div class="cat_style_photo">
+                    <a href="#123">
+                        <img src="/static/assets/{{post.image}}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
+                    </a>
+                </div>
+            </div>
+            <div class="speacer"></div>
+            <div class="cat_style_info">
+                <h3>
+                    <a href="#123">{{post.title|title|truncatewords_html:"6"}}</a>
+                </h3>
+                <div class="meta-info">&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    {% endfor %}
 {% endblock %}
