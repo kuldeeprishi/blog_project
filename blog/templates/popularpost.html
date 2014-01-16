@@ -3,7 +3,14 @@
             <div class="cat_style_image">
                 <div class="cat_style_photo">
                     <a href="#123">
-                        <img src="/static/assets/{{post.image}}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
+                        <img src=
+                        {%if post.image%}
+
+                        "/static/assets/{{post.image}}" 
+                        {%else%}
+                        "/static/assets/images/default.png"
+                        {%endif%}
+                        class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
                     </a>
                 </div>
             </div>

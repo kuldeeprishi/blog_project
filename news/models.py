@@ -46,7 +46,3 @@ class News(models.Model):
 
     
 
-
-
-
-# Create your models here.
