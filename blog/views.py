@@ -42,7 +42,9 @@ def detail_view(request ,year, month, day, slug):
     ci = RequestContext(request)
     form = CommentForm()
     post = get_object_or_404(Post.published_objects, slug=slug)
-    popular_posts = Post.published_objects.all()[:5]
+    post.no_views = post.no_views + 1
+    post.save()
+    popular_posts = Post.published_objects.order_by('-no_views')[:5]
     recent_comments = Comment.objects.all()[:4]
     return render_to_response(template_name ,{'form':form, 'post':post, 'popular_posts': popular_posts, 
                         'recent_comments': recent_comments,} , ci )

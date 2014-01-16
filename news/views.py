@@ -21,7 +21,7 @@ class NewsDetail(View):
     def get(self, request,pk):
         ci = RequestContext(request)
         news=get_object_or_404(News.get_published , pk=pk)
-        popular_posts = Post.published_objects.all()[:5]
+        popular_posts = Post.published_objects.order_by('-no_views')[:5]
     	recent_comments = Comment.objects.all()[:4]
         return render_to_response(self.template_name ,{'news_detail':news, 'popular_posts': popular_posts, 
                         'recent_comments': recent_comments,}, ci)
