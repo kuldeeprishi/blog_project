@@ -6,6 +6,18 @@ from django.template.context import RequestContext
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 
+# 
+# def if_login(f):
+#     print "in "
+#     def f(request,*args,**kwargs):
+#         #print "args=",args
+#         if not request.user.is_authenticated():
+#             return HttpResponseRedirect("/")
+#         else:
+#             return f
+#     print "out "
+#     return f
+
 
 def v_login(request):
     if request.user.is_authenticated():
@@ -105,10 +117,7 @@ def v_resetPassword(request):
     else:
         return HttpResponseRedirect('/')
     
-    
-     
-    
-    
+
     
     
     

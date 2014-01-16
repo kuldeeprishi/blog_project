@@ -3,11 +3,11 @@ from time import time
 from django.conf import settings
 from django.db import models
 from django.core.urlresolvers import reverse
-
+from django import template
 from django.db import models
 from django.contrib.auth.models import User
 
-
+register = template.Library()
 # Generate timestamp based filename of uploaded articles
 def get_upload_file_name(instance, filename):
 	return 'uploaded_files/%s_%s'%(str(time()).replace('.','_'), filename)
@@ -40,6 +40,7 @@ class Post(models.Model):
 	featured = models.BooleanField(default=False, verbose_name="Is Featured Article?", help_text='Check if this Post has to be Featured on Home Page!')
 	tags = models.ManyToManyField(Tag, blank=True, null=True, help_text='Descriptive Tags let user search your article with ease.')
 	slug = models.SlugField(max_length=20, unique=True, help_text="Slug Value is unique and generated automatically. If Slug error occur on save, please try to make it unique but keeping it meaningful.")
+	no_views = models.IntegerField(max_length = 5 , verbose_name ="No of views " , default=0)
 	objects = models.Manager()
 	published_objects = PostManager()
 
@@ -54,6 +55,10 @@ class Post(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+	@register.filter
+	def get_class_name(value):
+		return value.__class__.__name__
 
 
 	@models.permalink

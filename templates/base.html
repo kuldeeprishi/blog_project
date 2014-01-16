@@ -63,15 +63,21 @@
 								<a href="{% url 'contact' %}">Contact Us</a>
 							</li>
 						</ul>
-						<form action="/search" method="get" id="search" name="contact-form">
-							<input placeholder="Enter your search term..." type="text" id="" name="search" class="field">
+
+						<form action="/search/" method="get" id="search" name="contact-form">{% csrf_token %}
+							<input placeholder="Enter your search term..." type="text" id="id_q" name="q" class="field">
+
 							<div class="search_icon">
 								<img src="/static/assets/images/search_icon.jpg">
 							</div>
 							<div class="clear"></div>
 						</form>
 						<div class="login-txt">
-							<a href="/login">Login</a> / <a href="/account/add">Sign up</a>
+							  {% if UP %}
+						     Welcome, {{UP.user.username}} <a href="/logout"> &nbsp;&nbsp;&nbsp;Logout</a>
+						    {%else%}
+						     <a href="/login"> Login / </a>  <a href="/signup/">Signup </a>
+						    {%endif%}
 						</div><br class="clear">
 					</div>
 				</div>

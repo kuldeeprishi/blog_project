@@ -1,7 +1,13 @@
 import os
+import django.conf.global_settings as DEFAULT_SETTINGS
+
 
 # here() gives us file paths from the root of the system to the directory
 # holding the current file.
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'auth.processor.current_user',
+)
+
 here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
 PROJECT_ROOT = here("..")
@@ -142,6 +148,7 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'haystack',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -151,14 +158,15 @@ CUSTOM_APPS = (
     'blog',
     'news',
     'homepage',
+    'auth',
 )
 
 THIRD_PARTY_APPS = (
     # Third Party Django Apps
     'tinymce',
-    'django_extensions',
-    'sorl.thumbnail',
-    'newsletter',
+    # 'django_extensions',
+    # 'sorl.thumbnail',
+    # 'newsletter',
 )
 
 
@@ -166,7 +174,13 @@ INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
-
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'haystack',
+    },
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

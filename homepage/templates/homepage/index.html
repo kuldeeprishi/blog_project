@@ -1,6 +1,7 @@
 {% extends "base_with_structure.html" %}
 {% load blog_tags %}
 
+
 {% block slider %}
 			<!-- Slider Begins -->
 			<div class="wrapper-wrapper">
@@ -21,16 +22,17 @@
 													<table>
 														<tr>
 															<td>
-																<td>
-																	<a href="#" class="date_cat">Latest</a>
+											<a href="{{ news.get_absolute_url}}" class="date_cat">Latest</a>
 																	<span class="date_day">{{news.posted_on|date:"d"}}</span> <span class="date_month">{{news.posted_on|date:"b"}}</span>
 																</td>
+
 															</td>
 														</tr>
 													</table>
 												</div>
 												<h2>
-													<a href="/news/detail/{{news.id}}/" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:9 }}</a> <a class="view_more" href="/news/detail/{{news.id}}/">View more</a>
+
+													<a href="{{ news.get_absolute_url}}" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 | safe}}</a> <a class="view_more" href="{{ news.get_absolute_url}}">View 
 												</h2>
 											</div>
 										</div>

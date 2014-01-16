@@ -6,6 +6,6 @@ from django.template import RequestContext
 
 def homepage(request):
     posts = Post.published_objects.all()[:4]
-    news = News.get_published.all()[:4]
+    # popular_posts = Post.published_objects.order_by('-no_views')[:5]
     ci = RequestContext(request)
     return render_to_response('homepage/index.html', {'posts': posts, 'news_list': news}, ci)

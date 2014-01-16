@@ -30,12 +30,7 @@
                     <div class="meta-info">
                         <span class="fa fa-clock-o"></span> 
                         {{news.posted_on|timesince}} ago 
-                     <!--   <span class="fa fa-comments"></span>
-                        {% if news.comment_set.all.count > 0 %}
-                        <a href="{{news.get_absolute_url}}" title="{{news.comment_set.all.count}} comments">{{news.comment_set.all.count}} comment{{comment|pluralize}}</a>
-                        {% else %}
-                            No Comments
-                        {% endif %} -->
+                    
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -66,6 +61,7 @@
 
 {% endblock %}
 
+
 {% block popular_posts %}
 {% get_latest_content news.News 5 as popular_posts %}
     {% for post in popular_posts %}
@@ -88,3 +84,31 @@
         </div>
     {% endfor %}
 {% endblock %}
+
+
+
+{% block recent_comments %}
+{% get_latest_content blog.Comment 5 as recent_comments %}
+    {% for comment in recent_comments %}
+        <div class="cat_style_item cat_style_3_item comment_style_item">
+            <div class="cat_style_image">
+                <div class="cat_style_photo">
+                    <a href="#123">
+                        <img src="static/assets/images/comments.png" alt="Comment" title="Merrasse Mouhcine" />
+                    </a>
+                </div>
+            </div>
+            <div class="speacer"></div>
+            <div class="cat_style_info">
+                <h3>
+                    <a href="#123">{{comment.body}}</a>
+                </h3>
+                <div class="meta-info">
+                    <span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{comment.pub_date|date:"F j, Y"}}
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
