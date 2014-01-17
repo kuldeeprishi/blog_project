@@ -13,7 +13,7 @@ def current_user(req):
             return {'UP':UserProfile.objects.get(user=req.user),
                     'page': str(req.get_full_path()).strip()}
     except:
-        return {}
+        return {'page': str(req.get_full_path()).strip()}
 
 
 
