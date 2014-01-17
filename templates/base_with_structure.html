@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {%load popular%}
-
+{% load staticfiles %}
 
 
 {% load blog_tags %}
@@ -50,8 +50,14 @@
 					<div class="cat_style_item cat_style_3_item comment_style_item">
 						<div class="cat_style_image">
 							<div class="cat_style_photo">
-								<a href="#123">
-									<img src="static/assets/images/comments.png" alt="Comment" title="Merrasse Mouhcine" />
+								<a href="#">
+									<img src= {% if comment.user.userprofile.image.url %}
+											"{% static comment.user.userprofile.image.url %}"
+										{% else %}
+										"/static/assets/images/comments.png"
+									{% endif %}
+										
+									 alt="Comment" title="{{comment.user.username}}" />
 								</a>
 							</div>
 						</div>
@@ -118,21 +124,11 @@
 				</h3>
 			</div>
 			<ul>
+				{% for month in months %}
 				<li>
-					<a href="#123">March 2013</a>
+					<a href="/blog/{{month.1}}/{{month.0|lower|slice:"3"}}">{{month.0}} - {{month.1}}</a>
 				</li>
-				<li>
-					<a href="#123">February 2013</a>
-				</li>
-				<li>
-					<a href="#123">January 2013</a>
-				</li>
-				<li>
-					<a href="#123">December 2012</a>
-				</li>
-				<li>
-					<a href="#123">May 2012</a>
-				</li>
+				{% endfor %}
 			</ul>
 		</div>
 		{% endblock %}
@@ -141,12 +137,12 @@
 		{% block video %}
 		<div class="video">
 			<div class="nice_heading">
-				<h3>
-					Video Box
-				</h3>
+			<h3>Video Box</h3>
 			</div>
 			<div>
-				<img src="/static/assets/images/video_images.jpg">
+
+				<iframe width="300" height="170" src="//www.youtube.com/embed/DpN5ko0C2y8" frameborder="0" allowfullscreen></iframe>
+
 			</div>
 		</div>
 		{% endblock %}

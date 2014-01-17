@@ -6,6 +6,7 @@ import django.conf.global_settings as DEFAULT_SETTINGS
 # holding the current file.
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'auth.processor.current_user',
+    'auth.processor.mkmonth_lst',
 )
 
 here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
