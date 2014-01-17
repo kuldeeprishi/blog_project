@@ -25,10 +25,6 @@
 								<a href="/" title="Brentwoods Education"><img src="/static/assets/images/logo.png" alt="Brentwoods Education"></a>
 							</div>
 							<div class="span9 header-right">
-								<a href="#123"></a>
-								<div class="top_box color_blue">
-									<img src="/static/assets/images/groups_icon.png"><span>groups</span>
-								</div>
 								<a href="/blog/">
 									<div class="top_box color_orange">
 									<img src="/static/assets/images/blog_icon.png">
@@ -56,7 +52,9 @@
 					<div id="content">
 						<ul>
 							<li {% if page == '/' %}class="active"{% endif %}>
-								<a href="{% url 'homepage' %}">home</a>
+								<a href="{% url 'homepage' %}">
+								<span class="fa fa-home"></span>
+								home</a>
 							</li>
 							<li {% if page == '/about/' %}class="active"{% endif %}>
 
