@@ -51,7 +51,9 @@
 											</h3>
 											<div class="meta-info"><span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{news.posted_on|timesince}} ago&nbsp;&nbsp;
 											</div>
+											<!-- <a href="{{news.get_absolute_url}}">Read More...</a> -->
 										</div>
+										     
 										<div class="clear"></div>
 
 									</div>
@@ -92,7 +94,7 @@
                 <div class="speacer"></div>
                 <div class="cat_style_info">
                     <h3>
-                        {{post.title|title}}
+                       <a href="{{post.get_absolute_url}}"> {{post.title|title}}</a>
                     </h3>
 
                     <p>
@@ -103,13 +105,21 @@
                         <span class="fa fa-chevron-right"></span> 
                     </div>
                     <div class="meta-info">
-                        <span class="fa fa-clock-o"></span> 
+                        <span class="fa fa-clock-o"></span>
+                        {%if post.time_hours > 0  %} 
+                        {{post.pub_date}} 
+                       
+                        {%else%}
                         {{post.pub_date|timesince}} ago 
+           
+                        {%endif%}
+
                         <span class="fa fa-comments"></span>
                         {% if post.comment_set.all.count > 0 %}
                         <a href="{{post.get_absolute_url}}" title="{{post.comment_set.all.count}} comments">{{post.comment_set.all.count}} comment{{comment|pluralize}}</a>
                         {% else %}
-                            No Comments
+                         <a href="{{post.get_absolute_url}}" title="{{post.comment_set.all.count}} comments">   No Comments
+                         </a>
                         {% endif %}
                     </div>
                 </div>

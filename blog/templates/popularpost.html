@@ -17,7 +17,7 @@
             <div class="speacer"></div>
             <div class="cat_style_info">
                 <h3>
-                    <a href="#123">{{post.title|title|truncatewords_html:"6"}}</a>
+                    <a href="{{post.get_absolute_url}}">{{post.title|title|truncatewords_html:"6"}}</a>
                 </h3>
                 <div class="meta-info">&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;</div>
             </div>

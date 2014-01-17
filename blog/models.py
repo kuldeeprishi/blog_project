@@ -6,6 +6,9 @@ from django.core.urlresolvers import reverse
 from django import template
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import timedelta
+from django.utils.timezone import utc
+
 
 register = template.Library()
 # Generate timestamp based filename of uploaded articles
@@ -55,6 +58,10 @@ class Post(models.Model):
 
 	def __unicode__(self):
 		return self.title
+	@register.filter
+	def time_hours(self):
+		t= (datetime.datetime.now().replace(tzinfo=utc)-self.pub_date).days
+		return t
 
 	@register.filter
 	def get_class_name(value):
@@ -78,3 +85,6 @@ class Comment(models.Model):
 	
 	def __unicode__(self):
 		return self.user.username
+
+	def time_hours(self):
+		return timedelta(self.pub_date).hours
