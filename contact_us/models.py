@@ -1,0 +1,19 @@
+from django.db import models
+
+# Create your models here.
+
+
+class ContactUs(models.Model):
+    name=models.CharField(max_length=150)
+    contact_no=models.CharField(max_length=15)
+    email=models.EmailField()
+    message=models.TextField()
+    
+    def __unicode__(self):
+        return "%s - %s "%(self.name,self.email)
+    
+    
+    
+    
+    
+    

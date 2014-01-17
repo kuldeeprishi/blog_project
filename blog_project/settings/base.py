@@ -160,6 +160,7 @@ CUSTOM_APPS = (
     'news',
     'homepage',
     'auth',
+    'contact_us'
 )
 
 THIRD_PARTY_APPS = (

@@ -25,14 +25,14 @@ def v_login(request):
         
     if request.method=="POST":
         errors=[]
-        username = request.POST.get('username','').strip()
+        email = request.POST.get('email','').strip()
         password = request.POST.get('password','').strip()
         
-        if not username or not password:
-            errors.append('Please enter your username and password .')
+        if not email or not password:
+            errors.append('Please enter your email and password .')
             
         if not errors:
-            user = authenticate(username=username, password=password)
+            user = authenticate(username=email, password=password)
             if user is not None:
                 if user.is_active:
                     login(request, user)
@@ -40,7 +40,7 @@ def v_login(request):
                 else:
                     errors.append("Your account is  temporary disabled . ")
             else:
-                errors.append("Invalid Username Or Password . ")
+                errors.append("Invalid email Or password . ")
             
     return render_to_response('authenticate/login.html',locals(),context_instance=RequestContext(request))
     
