@@ -1,6 +1,7 @@
 {% extends "base_with_structure.html" %}
 
 
+
 {% block slider %}
 			<!-- Slider Begins -->
 			<div class="wrapper-wrapper">
@@ -12,43 +13,41 @@
 									<span class="next fa fa-chevron-right" id="bxslider_next"></span> <span class="prev fa fa-chevron-left" id="bxslider_prev"></span>
 								</div>
 								<div class="bxslider bxslider_2">
+
+
 									{% for news in news_list %}
-									<div class="bxslider_item">
-										<div class="bxslider_photo">
-											<img src="/static/assets/{{news.image.url}}" class="attachment-very-large wp-post-image" alt="Slider Images01">
-											<div class="bxslider_info">
-												<div class="date">
-													<table>
-														<tr>
-															<td>
-											<a href="{{ news.get_absolute_url}}" class="date_cat">Latest</a>
-																	<span class="date_day">{{news.posted_on|date:"d"}}</span> <span class="date_month">{{news.posted_on|date:"b"}}</span>
-																</td>
 
-															</td>
-														</tr>
-													</table>
-												</div>
-												<h2>
-
-													<a href="{{ news.get_absolute_url}}" title="Fusce vitae accumsan neque">{{news.title|truncatewords_html:4 | safe}}</a> <a class="view_more" href="{{ news.get_absolute_url}}">View 
-												</h2>
-											</div>
+										<div class="bxslider_item">
+										<div class="bxslider_photo"> <img src="/static/assets/{{news.image.url}}" class="attachment-very-large wp-post-image" alt="Image" />
+										<div class="bxslider_info">
+										<div class="date">
+										<table>
+										<tr>
+										<td><a href="{% url 'newslist' %}" class="date_cat">Recent News</a> <span class="date_day">{{news.posted_on|date:"d"}}</span> <span class="date_month">{{news.posted_on|date:"b"}}</span></td>
+										</tr>
+										</table>
 										</div>
-									</div>
-									{%endfor%}	
+										<h2><a href="#" title="{{news.title}}">{{news.title|truncatewords_html:"6"}}</a> <a class="view_more" href="{{news.get_absolute_url}}">Read Story...</a> </h2>
+										</div>
+										</div>
+
+										</div>
+									{% endfor %}	
 								</div>
 
 								<div class="featured_vids">
-									{% for news in news_list%}
-									<div class="featured_item" data-slide-index="{{forloop.counter0}">
+									{% for news in news_list %}
+									
+
+
+									<div class="featured_item" data-slide-index="{{forloop.counter0}}">
 										<div class="featured_item_photo">
 											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="/static/assets/{{news.image.url}}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
 										</div>
 										<div class="featured_item_info">
 											<h3>
-												<a data-slide-index="{{forloop.counter0}}"
-											 href="#">{{news.title|truncatewords_html:9 }}</a>
+											<a data-slide-index="{{forloop.counter0}}"
+											 href="#" > {{news.title|truncatewords_html:9 }}</a>
 											</h3>
 											<div class="meta-info"><span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{news.posted_on|timesince}} ago&nbsp;&nbsp;
 											</div>
@@ -56,7 +55,7 @@
 										<div class="clear"></div>
 
 									</div>
-									{%endfor%}	
+									{% endfor %}	
 									
 								</div>
 								<div class="clear"></div>
@@ -142,49 +141,3 @@
     {% endif %}
 {% endblock %}
 
-{% block popular_posts %}
-	{% for post in popular_posts %}
-		<div class="cat_style_item cat_style_3_item">
-			<div class="cat_style_image">
-				<div class="cat_style_photo">
-					<a href="#123">
-						<img src="/static/assets/{{post.image}}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
-					</a>
-				</div>
-			</div>
-			<div class="speacer"></div>
-			<div class="cat_style_info">
-				<h3>
-					<a href="#123">{{post.title|title|truncatewords_html:"6"}}</a>
-				</h3>
-				<div class="meta-info">&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;</div>
-			</div>
-			<div class="clear"></div>
-		</div>
-	{% endfor %}
-{% endblock %}
-
-
-{% block recent_comments %}
-	{% for comment in recent_comments %}
-		<div class="cat_style_item cat_style_3_item comment_style_item">
-			<div class="cat_style_image">
-				<div class="cat_style_photo">
-					<a href="#123">
-						<img src="static/assets/images/comments.png" alt="Comment" title="Merrasse Mouhcine" />
-					</a>
-				</div>
-			</div>
-			<div class="speacer"></div>
-			<div class="cat_style_info">
-				<h3>
-					<a href="#123">{{comment.body}}</a>
-				</h3>
-				<div class="meta-info">
-					<span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{comment.pub_date|date:"F j, Y"}}
-				</div>
-			</div>
-			<div class="clear"></div>
-		</div>
-	{% endfor %}
-{% endblock %}

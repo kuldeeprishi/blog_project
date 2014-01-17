@@ -25,11 +25,8 @@ def post_archive_index(request):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    popular_posts = Post.published_objects.all()[:5]
-    recent_comments = Comment.objects.all()[:4]
     ci = RequestContext(request)
-    return render_to_response('blog/display_post_list.html', {'posts': posts, 'popular_posts': popular_posts, 
-                        'recent_comments': recent_comments,}, ci)
+    return render_to_response('blog/display_post_list.html', {'posts': posts}, ci)
 
 
 class CommentForm(forms.Form):
@@ -44,10 +41,7 @@ def detail_view(request ,year, month, day, slug):
     post = get_object_or_404(Post.published_objects, slug=slug)
     post.no_views = post.no_views + 1
     post.save()
-    popular_posts = Post.published_objects.order_by('-no_views')[:5]
-    recent_comments = Comment.objects.all()[:4]
-    return render_to_response(template_name ,{'form':form, 'post':post, 'popular_posts': popular_posts, 
-                        'recent_comments': recent_comments,} , ci )
+    return render_to_response(template_name ,{'form':form, 'post':post} , ci )
 
 
 @login_required
@@ -88,5 +82,5 @@ def add_comment(request, post_id):
 
 def get_blog_by_tag(request, tag):
     posts = Post.objects.filter(tags__name=tag)
-    return render_to_response('blog/search_result.html', {'object_list':posts, 'tag': tag})
+    return render_to_response('blog/display_post_list.html', {'posts':posts, 'tag': tag})
 	
