@@ -85,6 +85,8 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     ('assets' ,  here("../..", "static")),
+
+  #  "/home/irshad/blog/blog_project/static",
    
 )
 

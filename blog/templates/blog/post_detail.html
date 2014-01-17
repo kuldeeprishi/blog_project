@@ -1,11 +1,20 @@
 {% extends "base_with_structure.html" %}
-
+{%load staticfiles %}
 {%load popular%}
 
 {% load blog_tags %}
 
 {% block content %}
 
+                        <div class="breadcrumbs_block">
+                            <p id="breadcrumbs">
+                                <a href="{% url 'homepage' %}">Home</a> / <a href="/blog/">Blog</a> / <strong>Post with comments</strong>
+                            </p>
+                        </div>
+                                        <pre>
+
+                    
+</pre>
 
             <!-- post title -->
             <h1>
@@ -54,7 +63,7 @@
     <h3>Comments:</h3>
     <div class="commentbody">
     {% for comment in post.comment_set.all %}
-            <li><b>{{comment.user.username}}</b>: <span>{{comment.body}}</span><br></li>
+            <li><img scr="{% static comment.user.profile.image.url %}"/><b>{{comment.user.username}}</b><br> <span>{{comment.body}}</span><br></li>
     {% endfor %}
     </div>
     {% else %}

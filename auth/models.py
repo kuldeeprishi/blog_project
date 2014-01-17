@@ -9,7 +9,7 @@ class UserProfile(models.Model):
 		verbose_name_plural="Blog Users"
 	
 	user=models.OneToOneField(User , related_name="profile")
-	image=models.ImageField(upload_to='django_upload')
+	image=models.ImageField(upload_to='django_upload/')
 	def __unicode__(self):
 		return self.user.username
 

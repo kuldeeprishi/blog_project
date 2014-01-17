@@ -1,6 +1,15 @@
 {% extends 'base_with_structure.html' %}
 
 {%block content%}
+  <div class="breadcrumbs_block">
+                            <p id="breadcrumbs">
+                                <a href="{% url 'homepage' %}">Home</a> / <a href="/news/">News</a> / <strong>News with information</strong>
+                            </p>
+                        </div>
+                                        <pre>
+
+                    
+</pre>
 <h1>{{news_detail.title|title}}</h1>
 
 {%if news_detail.image %}
@@ -15,27 +24,6 @@
 {%endblock%}
 
 
-{% block popular_posts %}
-    {% for post in popular_posts %}
-        <div class="cat_style_item cat_style_3_item">
-            <div class="cat_style_image">
-                <div class="cat_style_photo">
-                    <a href="#123">
-                        <img src="/static/assets/{{post.image}}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
-                    </a>
-                </div>
-            </div>
-            <div class="speacer"></div>
-            <div class="cat_style_info">
-                <h3>
-                    <a href="#123">{{post.title|title|truncatewords_html:"6"}}</a>
-                </h3>
-                <div class="meta-info">&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;</div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    {% endfor %}
-{% endblock %}
 
 
 {% block recent_comments %}
