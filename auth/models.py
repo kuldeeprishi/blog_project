@@ -18,6 +18,10 @@ class UserProfile(models.Model):
 			return True
 		else:
 			return False
+	
+	def display_name(self):
+		return self.user.email.split('@')[0]
+		
 
 
 

@@ -26,15 +26,13 @@
 
 <table>
    <legend>Edit Details</legend>
+   
    <tr>
-   <td>Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   <td><input type="text" disabled value="{{request.user.username}}"/></td>
+   <td>Email <sup>*</sup>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td><input type="text" disabled value="{{request.user.email}}"/></td>
    </tr>
     
-   <tr>
-   <td>{{form.email.label}} <sup>*</sup>&nbsp;&nbsp;&nbsp;</td>
-   <td>{{form.email}}</td>
-   </tr>
+   
    
    <tr>
    <td>First Name <sup>*</sup></td>
