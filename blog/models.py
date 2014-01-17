@@ -76,5 +76,9 @@ class Comment(models.Model):
 	pub_date = models.DateTimeField(auto_now=True)
 	visible = models.BooleanField(default=True)
 	
+	class Meta:
+		ordering = ["-pub_date"]
+
 	def __unicode__(self):
 		return self.user.username
+
