@@ -1,6 +1,8 @@
 {% extends "base_with_structure.html" %}
 
 {% load blog_tags %}
+{% load staticfiles %}
+
 
 {% block content %}
     {% for post in object_list %}
@@ -9,9 +11,9 @@
                 <!-- Post image begin -->
                 <div class="cat_style_image">
                     {% if post.image %}
-                    <img src="/static/assets/{{post.image}}">
+                    <img src="{% static post.image %}">
                     {% else %}
-                    <img src="/static/assets/images/default.png">
+                    <img src="/static/images/default.png">
                     {% endif %}
                 </div>
                 <!-- post image end -->

@@ -18,7 +18,7 @@
 		<div class="sidebar_big" style="margin-left:25px">
 		<div id="tabbedwidget-3" class="widget-area ui-tabs ui-widget ui-widget-content ui-corner-all">
 
-			<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'>
+			<script type='text/javascript' src='/static/js/jquery-1.8.2.min.js'>
 			</script>
 			<script type="text/javascript">var $j=jQuery.noConflict();$j(function(){$j("#tabbedwidget-3").tabs()});
 			</script>
@@ -37,7 +37,7 @@
 			<div class="cat_style_3" id="popular_posts_01">
 			
 			<!-- Popular Post begins -->
-{%popularposts%}
+{% popularposts %}
 			</div>
 			<!-- Popular post ends -->
 
@@ -54,7 +54,7 @@
 									<img src= {% if comment.user.userprofile.image.url %}
 											"{% static comment.user.userprofile.image %}"
 										{% else %}
-										"/static/assets/images/comments.png"
+										"/static/images/comments.png"
 									{% endif %}
 										
 									 alt="Comment" title="{{comment.user.username}}" />

@@ -1,5 +1,6 @@
 {% extends "base_with_structure.html" %}
-
+{% load staticfiles %}
+{% load thumbnail %}
 
 
 {% block slider %}
@@ -18,7 +19,7 @@
 									{% for news in news_list %}
 
 										<div class="bxslider_item">
-										<div class="bxslider_photo"> <img src="/static/assets/{{news.image.url}}" class="attachment-very-large wp-post-image" alt="Image" />
+										<div class="bxslider_photo"> <img src="{% static news.image.url %}" class="attachment-very-large wp-post-image" alt="Image" />
 										<div class="bxslider_info">
 										<div class="date">
 										<table>
@@ -42,7 +43,7 @@
 
 									<div class="featured_item" data-slide-index="{{forloop.counter0}}">
 										<div class="featured_item_photo">
-											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="/static/assets/{{news.image.url}}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
+											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="{% static news.image.url %}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
 										</div>
 										<div class="featured_item_info">
 											<h3>
@@ -82,11 +83,17 @@
             <div class="blogs">
                 <!-- Post image begin -->
                 <div class="cat_style_image">
-                    {% if post.image %}
-                    <img src="/static/assets/{{post.image}}">
-                    {% else %}
-                    <img src="/static/assets/images/default.png">
-                    {% endif %}
+
+
+
+					{% thumbnail post.image "100x100" crop="center" as im %}
+					    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+					{% endthumbnail %}
+
+
+
+
+
                 </div>
                 <!-- post image end -->
                 <div class="speacer"></div>
