@@ -1,4 +1,8 @@
+import time
+from calendar import month_name
+
 from auth.models import UserProfile
+from blog.models import Post
 
 
 
@@ -14,6 +18,17 @@ def current_user(req):
                     'page': str(req.get_full_path()).strip()}
     except:
         return {'page': str(req.get_full_path()).strip()}
+
+
+def mkmonth_lst(req):
+    """ Make a list of months to show archive links"""
+    months = []
+    all = Post.objects.filter().dates('pub_date','month',order='DESC')[:6]
+    for e in all:
+        months.append([month_name[e.month], e.year])
+    return {'months':months}
+
+
 
 
 

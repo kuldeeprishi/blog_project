@@ -8,4 +8,5 @@ def homepage(request):
     posts = Post.published_objects.all()[:4]
     news = News.get_published.all()[:4]
     ci = RequestContext(request)
-    return render_to_response('homepage/index.html', {'posts': posts, 'news_list': news}, ci)
+    return render_to_response('homepage/index.html', {'posts': posts, 
+    	'news_list': news,}, ci)
