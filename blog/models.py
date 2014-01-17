@@ -17,7 +17,7 @@ def get_upload_file_name(instance, filename):
 
 
 class Tag(models.Model):
-	name = models.CharField(max_length=30)
+	name = models.CharField(max_length=30, unique=True)
 	
 	def __unicode__(self):
 		return self.name
@@ -36,7 +36,7 @@ class Post(models.Model):
 	body = models.TextField(blank=True, null=True)
 	image = models.FileField(upload_to=get_upload_file_name, default='', blank=True, null=True, help_text='\
 		Post with Descriptive Image attract more Visitors.')
-	pub_date = models.DateTimeField(default=datetime.datetime.now, verbose_name='Publish Date')
+	pub_date = models.DateTimeField(auto_now_add=True, verbose_name='Publish Date')
 	last_modified = models.DateTimeField(auto_now=True)
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='l')
 	allow_comment = models.BooleanField(default=True, help_text='Allow Users to Comment on this Post?')
