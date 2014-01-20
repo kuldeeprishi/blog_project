@@ -55,4 +55,38 @@ $('#id_comment').keypress(function(e){
      });
 
 
+$(".submit-button").click(function(e){
+
+    var email_field = $('#id_email_field').val();
+    
+    $('#id_email_field').fadeOut(1000);
+
+    $.ajax({
+        type: "POST",
+        url: "/subscribe/",
+        data: {'email_field': email_field},
+        success: function(data){
+              
+            if(data==""){
+             $(".errormsg").text('plaese enter a valid email id ');
+            $(".errormsg").fadeIn(2000).fadeOut("1000");
+           
+           
+           
+        }
+            else{
+                $(".errormsg").text('Thanks for subcription');
+                 $(".errormsg").fadeIn(2000).fadeOut("1000");
+            }
+        },
+    })
+    $('#id_email_field').val("");
+    $('#id_email_field').fadeIn(1000);
+
+    e.preventDefault();
 });
+
+
+});
+
+

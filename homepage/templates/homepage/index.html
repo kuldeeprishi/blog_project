@@ -1,6 +1,6 @@
 {% extends "base_with_structure.html" %}
 {% load staticfiles %}
-{% load thumbnail %}
+
 
 
 {% block slider %}
@@ -86,15 +86,11 @@
                 <!-- Post image begin -->
                 <div class="cat_style_image">
 
-
-
-{% thumbnail post.image "100x100" crop="center" as im %}
-    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-{% endthumbnail %}
-
-
-
-
+                    {% if post.image %}
+                    <img src="{% static post.image.url %}">
+                    {% else %}
+                    <img src="/static/images/default.png">
+                    {% endif %}
 
                 </div>
                 <!-- post image end -->
