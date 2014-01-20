@@ -58,9 +58,10 @@
     {% if post.comment_set.all %}
 <h1>Comments</h1>
 <!-- comment begin -->
+<ul class="commentbody">
 {% for comment in post.comment_set.all %}
 
-
+<li style="list-style:none;">
 
 <div class="floatL w18">
     <a href="#">
@@ -90,15 +91,18 @@
 </div>
   <p>{{comment.body | safe}}</p>
   </div>
-
+</li>
   {% endfor %}
+</ul>
 {% endif %}
 <!-- comments end-->
 
 
   <form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
-<textarea aria-required="true" rows="5" cols="35" name="comment" id="comment"></textarea>
+<textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment"></textarea>
 <input type="submit" value="Comments" class="submit-button" name="" id="submit-button">
+
+<input type="button" value="Comments" class="addcomment submit-button" name="" id="{{post.id}}">
   </form>
 </div>
 
