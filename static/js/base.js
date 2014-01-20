@@ -55,7 +55,7 @@ $('#id_comment').keypress(function(e){
      });
 
 
-$(".submit-button").click(function(e){
+$("#submit-button").click(function(e){
 
     var email_field = $('#id_email_field').val();
     

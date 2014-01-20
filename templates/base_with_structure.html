@@ -51,7 +51,7 @@
 						<div class="cat_style_image">
 							<div class="cat_style_photo">
 								<a href="#">
-									<img src= {% if comment.user.profile.image %}
+									<img src= {% if comment.user.profile.image.url %}
 											"{% static comment.user.profile.image %}"
 										{% else %}
 										"/static/images/comments.png"
@@ -63,7 +63,7 @@
 						<div class="speacer"></div>
 						<div class="cat_style_info">
 							<h3>
-								<a href="#123">{{comment.body}}</a>
+								<a href="{{comment.post.get_absolute_url}}">{{comment.body|truncatewords_html:"4"|safe}}</a>
 							</h3>
 							<div class="meta-info">
 								<span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{comment.pub_date|date:"F j, Y"}}

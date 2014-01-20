@@ -84,7 +84,7 @@ ul.list03 li {
 .header-right
 {
 	float:right !important;
-	width:260px !important;
+	width:390px!important;
 }
 form#search
 {
@@ -122,6 +122,7 @@ input, textarea, .uneditable-input {
 	float:right;
 	margin-top:10px;
 	margin-right:15px;
+	position:relative;
 }
 .login-txt a
 {
@@ -179,6 +180,7 @@ input, textarea, .uneditable-input {
     background:#e0e0e0;
     border-bottom: 5px solid #9d231f;
 	border-top: 1px solid #d4d4d4;
+	font-weight: 400;
 }
 
 #navigation ul {
@@ -528,6 +530,426 @@ li.rss a:hover
 .margin-top40
 {
 	margin-top:40px !important;
+}
+
+
+nav#nav-container {
+    border-top:solid 1px rgb(220,220,220);
+    border-bottom:solid 1px rgb(220,220,220);
+    margin-bottom:18px;
+    line-height:40px;
+}
+
+nav#links {
+    width:724px;
+    float:left;
+}
+
+nav#links ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+#links ul li {
+    margin:0 12px;
+    padding:0;
+    float:left;
+    text-align:center;
+}
+
+#links ul li a {
+    display:block;
+    padding:0 12px;
+}
+
+
+nav#login {
+    width:300px;
+    float:left;
+    position:relative;
+}
+
+#login p {
+    margin:0;
+    padding-left:24px;
+    cursor:pointer;
+    background-image:url('../img/open.png');
+    background-position:left;
+    background-repeat:no-repeat;
+	float:left;
+	padding:0px;
+	font-size:16px;
+	padding-right: 5px;
+	font-weight: 400;
+	color: #2B2A29;
+}
+
+#login p.close {
+    background-image:url('../img/close.png');
+	font-weight: 400;
+    line-height: 26px;
+    padding-right: 5px;
+	color: #2B2A29;
+}
+
+#login-form {
+    position:absolute;
+    z-index:999;
+    /*background-color:#fff;
+    border:solid 1px rgb(220,220,220);
+	width:300px;
+	box-shadow:1px 1px 4px rgb(220,220,220);*/
+    padding:12px 12px 12px 0;
+    top:40px;
+    left:0;
+    display:none;
+}
+
+#login-form label {
+    display:block;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    display:block;
+}
+
+#login-form input,
+#login-form label {
+ 
+    margin-bottom:4px;
+}
+input#searchsubmit {
+    background: url("../images/search_icon.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0)!important;
+    border: medium none;
+    height: 28px;
+    text-indent: -9999px;
+    width: 28px;
+	 right: 6px;
+	 top: 13px; 
+	 position: absolute;
+}
+.w80
+{
+	width:80%
+}
+.w18
+{
+	width:18%;
+}
+.comments h1
+{
+	font-size:28px!important;
+	color: #9D231F;
+	font-family: 'Oswald',sans-serif;
+	padding-bottom:10px;
+	border-bottom:#CCC solid 1px;
+	margin-bottom:30px;
+}
+
+.comments h3
+{
+	font-size:16px!important;
+	color: #2B2A29;
+	font-family: 'Oswald',sans-serif;
+	text-transform:uppercase;
+	font-weight:400;
+	padding:0px!important;
+	margin:0px 0px 10px 0px!important;
+	line-height:18px!important;
+}
+.comments p
+{
+	font-size:12px;
+	padding-bottom:15px;
+}
+#comments textarea
+{
+ 	float: right;
+    margin-top: 20px;
+    width: 80%;
+}
+#comments input[type="submit"] {
+    clear: left;
+    float: left;
+    margin-left: 18%;
+    padding: 9px 15px !important;
+	margin-top:20px;
+}
+.comments .meta-info
+{
+	border:none;
+	margin-top:0px;
+	padding-top:0px;
+}
+.comments .meta-info span
+{
+	margin-left:0px;
+}
+
+
+
+
+
+
+/* Download Button (Demo Only) */
+.download {
+	display: block;
+	position: absolute;
+	float: right;
+	right: 25px;
+	bottom: 25px;
+	padding: 5px;
+	
+	font-weight: bold;
+	font-size: 11px;
+	text-align: right;
+	text-decoration: none;
+	color: rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
+}
+
+.download:hover {
+	color: rgba(0,0,0,0.75);
+	text-shadow: 1px 1px 0 rgba(256,256,256,0.5);
+}
+
+.download:focus {
+	bottom: 24px;
+}
+
+/*
+.gradient {
+	width: 600px;
+	height: 600px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -300px;
+	
+	background: url(http://www.demo.amitjakhu.com/login-form/images/gradient.png) no-repeat;
+}
+*/
+
+.gradient {
+	/* Center Positioning */
+	width: 600px;
+	height: 600px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -300px;
+	z-index: -2;
+	
+	/* Fallback */ 
+	background-image: url(http://www.demo.amitjakhu.com/login-form/images/gradient.png); 
+	background-repeat: no-repeat; 
+	
+	/* CSS3 Gradient */
+	background-image: -webkit-gradient(radial, 0% 0%, 0% 100%, from(rgba(213,246,255,1)), to(rgba(213,246,255,0)));
+	background-image: -webkit-radial-gradient(50% 50%, 40% 40%, rgba(213,246,255,1), rgba(213,246,255,0));
+	background-image: -moz-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
+	background-image: -ms-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
+	background-image: -o-radial-gradient(50% 50%, 50% 50%, rgba(213,246,255,1), rgba(213,246,255,0));
+}
+
+/*******************
+LOGIN FORM
+*******************/
+
+.login-form {
+	width: 300px;
+	margin: 0 auto;
+	position: relative;
+	
+	background: #f3f3f3;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/*******************
+HEADER
+*******************/
+
+.login-form .header {
+	padding: 40px 30px 30px 30px;
+}
+
+.login-form .header h1 {
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 28px;
+	line-height:34px;
+	color: #414848;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	margin-bottom: 10px;
+}
+
+.login-form .header span {
+	font-size: 11px;
+	line-height: 16px;
+	color: #678889;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+}
+
+/*******************
+CONTENT
+*******************/
+
+.login-form .content {
+	padding: 25px 30px ;
+}
+
+/* Input field */
+.login-form .content .input {
+	width: 188px;
+	padding: 10px 25px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+/* Second input field */
+.login-form .content .password, .login-form .content .pass-icon {
+	margin-top: 25px;
+}
+
+.login-form .content .input:hover {
+	background: #EAEBEB;
+	color: #2B2A29;
+}
+
+.login-form .content .input:focus {
+	background: #eaebeb;
+	color: #2B2A29;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.user-icon, .pass-icon {
+	width: 46px;
+	height: 47px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	padding-right: 2px;
+	z-index: -1;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+
+.user-icon {
+	top:25px; /* Positioning fix for slide-in, got lazy to think up of simpler method. */
+	background: rgba(65,72,72,0.75)  url(../images/user-icon.png) no-repeat center;	
+}
+
+.pass-icon {
+	top:70px;
+	background: rgba(65,72,72,0.75) url(../images/pass-icon.png) no-repeat center;
+}
+
+.content input:focus + div{
+	left: -46px;
+}
+
+/* Animation */
+.input, .user-icon, .pass-icon, .button, .register {
+	transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+}
+
+/*******************
+FOOTER
+*******************/
+
+.login-form .footer {
+	padding: 20px 0px 15px 30px;
+	overflow: auto;
+	
+	background: #E0E0E0;
+	border-top: 1px solid #fff;
+	
+	box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+}
+
+/* Login button */
+.login-form .footer .button {
+	float:left;
+	padding: 7px 20px;
+	font-family: 'Open Sans',sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	color: #fff;
+	background: #9D231F;
+	border: 0px solid #46b3d3;
+	cursor: pointer;
+}
+
+.login-form .footer .button:hover {
+	background: #2B2A29;
+	border: 0px solid rgba(256,256,256,0.75);
+}
+
+.login-form .footer .button:focus {
+	position: relative;
+	bottom: -1px;
+	background: #56c2e1;
+}
+
+/* Register button */
+.login-form .footer .register {
+	display: block;
+	float: right;
+	padding: 10px;
+	margin-right: 20px;
+	
+	background: none;
+	border: none;
+	cursor: pointer;
+	
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #414848;
+	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
+}
+
+.login-form .footer .register:hover {
+	color: #3f9db8;
+}
+
+.login-form .footer .register:focus {
+	position: relative;
+	bottom: -1px;
+}
+.close
+{
+	color: #9D231F !important;
+    opacity: 1 !important;
 }
 
 

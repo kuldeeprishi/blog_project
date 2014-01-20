@@ -37,6 +37,13 @@ class News(models.Model):
     def get_absolute_url(self):
         return ('newsdetail', (), {'pk': self.id})
 
+
+    @register.filter
+    def time_hours(self):
+        t= (datetime.datetime.now().replace(tzinfo=utc)-self.posted_on).days
+        return t
+
+
     class Meta:
 	verbose_name_plural = "News"
 	ordering = ["-posted_on"]

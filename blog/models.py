@@ -81,11 +81,11 @@ class Comment(models.Model):
 	post = models.ForeignKey(Post)
 	user = models.ForeignKey(User)
 	body = models.TextField()
-	pub_date = models.DateTimeField(auto_now=True)
+	pub_date = models.DateTimeField(auto_now_add=True)
 	visible = models.BooleanField(default=True)
 	
 	class Meta:
-		ordering = ["-pub_date"]
+		ordering = ["pub_date"]
 
 	def __unicode__(self):
 		return self.user.username

@@ -28,7 +28,7 @@
 										</tr>
 										</table>
 										</div>
-										<h2><a href="#" title="{{news.title}}">{{news.title|truncatewords_html:"6"}}</a> <a class="view_more" href="{{news.get_absolute_url}}">Read Story...</a> </h2>
+										<h2><a href="{{news.get_absolute_url}}" title="{{news.title}}">{{news.title|truncatewords_html:"6"}}</a> <a class="view_more" href="{{news.get_absolute_url}}">Read Story...</a> </h2>
 										</div>
 										</div>
 
@@ -50,7 +50,16 @@
 											<a data-slide-index="{{forloop.counter0}}"
 											 href="#" > {{news.title|truncatewords_html:9 }}</a>
 											</h3>
-											<div class="meta-info"><span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{news.posted_on|timesince}} ago&nbsp;&nbsp;
+											<div class="meta-info"><span class="fa fa-clock-o"></span>
+												  {%if news.time_hours > 0  %} 
+                     							&nbsp;&nbsp;{{news.posted_on}} &nbsp;&nbsp;
+                       
+                      							  {%else%}
+                      						  &nbsp;&nbsp;{{news.posted_on|timesince}} ago&nbsp;&nbsp;
+                      						  {%endif%}
+
+
+											
 											</div>
 											<!-- <a href="{{news.get_absolute_url}}">Read More...</a> -->
 										</div>
@@ -86,11 +95,13 @@
                 <!-- Post image begin -->
                 <div class="cat_style_image">
 
+
                     {% if post.image %}
                     <img src="{% static post.image.url %}">
                     {% else %}
                     <img src="/static/images/default.png">
                     {% endif %}
+
 
                 </div>
                 <!-- post image end -->
