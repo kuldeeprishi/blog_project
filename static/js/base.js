@@ -32,8 +32,10 @@ jQuery.ajaxSetup({
 
  
 $(".addcomment").click(function(e){
-    var post_id = $(this).attr("name");
-    alert(post_id);
+
+    e.preventDefault();
+    var post_id = this.id;
+
     var comment = $("#id_comment").val(); 
     $("#id_comment").val('');
     $.ajax({
@@ -56,19 +58,70 @@ $('#id_comment').keypress(function(e){
      });
 
 
-// $('#id_q').keypress(function(e){
+
+function validateEmail($email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  if( !emailReg.test( $email ) ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+
+$("#submit-button").click(function(e){
+
+    var email_field = $('#id_email_field').val();
+    if (email_field==""){ 
+
+        $(".errormsg").css({'color':'red'});
+        $(".errormsg").text('This field id required');
+        $(".errormsg").show(500) ;
+    e.preventDefault();
+    return false;
+};
+
+
+    if( !validateEmail(email_field)) {  
+$(".errormsg").css({'color':'red'});
+        $(".errormsg").text('Please enter a valid email id');
+        $(".errormsg").show(500) ;
+    e.preventDefault();
+    return false;
+
+    }
+  if( validateEmail(email_field))  {
+            
+    $('#id_email_field').slideUp(500);
+
+        $(".errormsg").css({'color':'green'});
+       $(".errormsg").text('Your request has been send for subcription');
+            $(".errormsg").show(00,function(){ 
+                $(".errormsg").delay(3000).fadeOut(500 ,function(){
+                $('#id_email_field').val("");
+                $('#id_email_field').slideDown(1000); 
+                });
+                });
+
+            $.ajax({
+        type: "POST",
+        url: "/subscribe/",
+        data: {'email_field': email_field},
+        success: function(data){
+            console.log(data) ; 
+            }
+               
+    });
+   
+e.preventDefault();
+}
+
     
-//             var data =$(this).val()
-//             if(e.which == 13){
 
-
-//             if(data == ""){
-                
-//              e.preventDefault();
-//        }
-//     }
-//      });
+});
 
 
 
 });
+
+
