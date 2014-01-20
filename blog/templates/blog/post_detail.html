@@ -82,33 +82,6 @@
 
 
 
-      <h3>{{comment.user.username}}</h3>
-        <div class="meta-info">
-            <span class="fa fa-clock-o"></span>
-            {%if comment.time_hours > 0  %} 
-                {{comment.pub_date}}                 
-            {%else%}
-                {{comment.pub_date|timesince}} ago 
-            {%endif%}
-            <span class="fa fa-comments"></span>
-        </div>
-      <p>{{comment.body | safe | capfirst}}</p>
-  </div>
-</li>
-  {% endfor %}
-</ul>
-{% endif %}
-<!-- comments end-->
-
-
-
-
-
-
-<input type="submit" value="Comment" class="addcomment submit-button" name="" id="{{post.id}}">
-
-  </form>
-
 </div>
 
 

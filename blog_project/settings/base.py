@@ -240,7 +240,7 @@ THUMBNAIL_PROCESSORS = (
 )
 
 
-IMAGEFIT_ROOT = here("../../static")
+IMAGEFIT_ROOT = here("../../static/")
 
 
 
