@@ -35,7 +35,6 @@ $(".addcomment").click(function(e){
     e.preventDefault();
     var post_id = this.id;
     var comment = $("#id_comment").val(); 
-    $("#id_comment").val('');
     $.ajax({
             type: "POST",
             url: "/blog/add_comment/"+post_id+"/",

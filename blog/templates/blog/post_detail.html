@@ -4,7 +4,7 @@
 
 {% load blog_tags %}
 {% load staticfiles %}
-
+{% load imagefit %}
 {% block content %}
 
 
@@ -37,7 +37,7 @@
         </div> 
 
         <div class="content_content">
-            {{post.body|safe|linebreaks|title}}
+            {{post.body|safe|linebreaks|capfirst}}
         </div>
         </article>
         {% if post.tags.count %}
@@ -56,39 +56,42 @@
 <h1>Comments</h1>
 
 <div class="floatL">
+<ul class="commentbody" style="list-style:none">
 {% for comment in post.comment_set.all %}
-<div class="floatL margin-top20">
-  <div class="floatL w18"><a href="#123"><img src="images/popular_img02.jpg" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments" /></a></div>
-          <div class="floatL w80">
-          <h3>marzirk</h3>
-          <div class="meta-info">
-        <span class="fa fa-clock-o"></span>
-        3 weeks ago
-        <span class="fa fa-comments"></span>
-        <a href="#123" title="No comments">No comments</a>
+<li>
+<div class="floatL w100 margin-top20">
+  <div class="floatL w18"><a href="#"><img src=
+    {% if comment.user.profile.image.url %}
+            "{% static comment.user.profile.image|resize:"65x65,C" %}"
+        {% else %}
+        "/static/images/comments.png"
+        {% endif %}
+
+   class="attachment-mini wp-post-image" alt="Popular" title="Post with comments" /></a></div>
+        
+
+        <div class="floatL w80">
+              <h3>{{comment.user.username}}</h3>
+                  <div class="meta-info">
+                    <span class="fa fa-clock-o"></span>
+                    {{comment.pub_date|timesince}} ago
+                  </div>
+              <p>{{comment.body|safe|capfirst}}</p>
         </div>
-          <p>Ut in eleifend est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer lacus ante, tempus at risus id, tempor congue elit. Sed ac hendrerit dui. Ut in convallis sapien. Aliquam tincidunt sem a dui ...</p>
-          </div>
-  </div>
-  {% endfor %}
   
-  <form action="blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
+
+  </div>
+</li>
+  {% endfor %}
+</ul>  
+<form action="blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
 <textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment"></textarea>
 <input type="submit" value="Comment" class="addcomment submit-button" name="" id="{{post.id}}">
   </form>
 
 
 
-
-
 </div>
-
-
-
-
 </div>
-
-
-
 
 {% endblock %}
