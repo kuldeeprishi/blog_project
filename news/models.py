@@ -24,7 +24,7 @@ class News(models.Model):
     image=models.ImageField(upload_to=get_upload_file_name,blank = True , null= True)
     description = models.TextField()
     status = models.CharField(max_length=10, choices=STATUS , default='pub')
-    posted_on = models.DateTimeField(auto_now=True)
+    posted_on = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
     get_published = PublishedManager()
 

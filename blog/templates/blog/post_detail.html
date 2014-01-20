@@ -3,13 +3,14 @@
 {%load popular%}
 
 {% load blog_tags %}
+{% load staticfiles %}
 
 {% block content %}
 
 
             <!-- post title -->
             <h1>
-                <a href="#123" title="Post with comments">{{post.title|upper}}</a>
+                <a href="#123" title="{{post.title}}">{{post.title|upper}}</a>
             </h1>
                 <div class="meta-info">
                     Posted on {{post.pub_date}}
@@ -23,7 +24,7 @@
                 </div>
             <br/>
             {%if post.image %}
-            <img src="/static/assets/{{post.image}}" alt="Post Image" width='inherit'; />
+            <img src="{% static post.image %}" alt="Post Image" width='inherit'; />
             {% endif %}
             
 

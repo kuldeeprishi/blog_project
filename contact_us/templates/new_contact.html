@@ -3,20 +3,22 @@
 {%block content%}
 
 <br/><br/>
-
-
-         
- {%for e in errors%}
- <div style="color:maroon;font-size:15px">	[ {{e}} ] </div> 
- {%endfor%}
-
-
-
+<ul style="color:red;">
+{%for field in contact_form %}
+    {% for e in field.errors %}
+    <li>{{e}}</li>
+    {%endfor%}
+    
+{%endfor%}
+	{%for ne in form.non_field_errors%}
+	 	<li>{{ne}}</li>
+	{%endfor%}
+</ul>
 
 <form method="post">{% csrf_token %}
 
 <table>
-   <legend>Contact US </legend>
+   <legend>Contact Us </legend>
    
    
    
@@ -36,14 +38,11 @@
    </tr>
    
    <tr>
-   <td>{{contact_form.message.label}} <sup>*</sup></td>
+   <td valign="top">{{contact_form.message.label}} <sup>*</sup></td>
    <td>{{contact_form.message}}</td>
    </tr>
    
-   <tr>
-   <td colspan="2">{{contact_form.message.label}} <sup>*</sup></td>
-   <td>{{contact_form.message}}</td>
-   </tr>
+   
    
    <tr>
    <td colspan="2"><br/></td>

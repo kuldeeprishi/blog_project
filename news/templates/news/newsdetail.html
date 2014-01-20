@@ -1,63 +1,17 @@
 {% extends 'base_with_structure.html' %}
-
+{% load staticfiles %}
 {%block content%}
 <h1>{{news_detail.title|title}}</h1>
 
 {%if news_detail.image %}
-<img src="/static/assets/{{news_detail.image}}" alt="Image" width=600px; \><br>
+<img src="{% static news_detail.image %}" alt="Image" width=600px; \><br>
 {% endif %}
 <br>
 <p>Published on: {{news_detail.posted_on}}</p>
-<p>{{news_detail.description}}</p>
+<p>{{news_detail.description|safe}}</p>
 
 <hr>
 
 {%endblock%}
 
 
-{% block popular_posts %}
-    {% for post in popular_posts %}
-        <div class="cat_style_item cat_style_3_item">
-            <div class="cat_style_image">
-                <div class="cat_style_photo">
-                    <a href="#123">
-                        <img src="/static/assets/{{post.image}}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
-                    </a>
-                </div>
-            </div>
-            <div class="speacer"></div>
-            <div class="cat_style_info">
-                <h3>
-                    <a href="#123">{{post.title|title|truncatewords_html:"6"}}</a>
-                </h3>
-                <div class="meta-info">&nbsp;&nbsp;{{post.pub_date|timesince}}&nbsp;&nbsp;</div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    {% endfor %}
-{% endblock %}
-
-
-{% block recent_comments %}
-    {% for comment in recent_comments %}
-        <div class="cat_style_item cat_style_3_item comment_style_item">
-            <div class="cat_style_image">
-                <div class="cat_style_photo">
-                    <a href="#123">
-                        <img src="static/assets/images/comments.png" alt="Comment" title="Merrasse Mouhcine" />
-                    </a>
-                </div>
-            </div>
-            <div class="speacer"></div>
-            <div class="cat_style_info">
-                <h3>
-                    <a href="#123">{{comment.body}}</a>
-                </h3>
-                <div class="meta-info">
-                    <span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{comment.pub_date|date:"F j, Y"}}
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    {% endfor %}
-{% endblock %}

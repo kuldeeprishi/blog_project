@@ -10,7 +10,7 @@ post = get_template('popularpost.html')
 
 
 def populartags():
-	popular=Tag.objects.annotate(no_of_post=Count('post')).order_by('-no_of_post')
+	popular=Tag.objects.annotate(no_of_post=Count('post')).order_by('-no_of_post').filter(no_of_post__gt=0)[:15]
 	return {'popular' : popular}
 
 

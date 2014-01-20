@@ -1,0 +1,57 @@
+
+<script>
+
+function validate(email,pwd)
+{
+
+try{
+alert('in');
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    
+    alert(xmlhttp.responseText);
+    arr=xmlhttp.responseText.split(":");
+    alert(arr);
+    for(var x=0;x<arr.length-1;x++)
+    {
+    alert(arr[x]);
+    }
+    }
+  }
+
+url="/validate?email="+email+"&password="+pwd
+alert(url);
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+
+}
+catch(e)
+{alert(e);}
+   
+}
+
+</script>
+
+
+
+
+
+
+
+
+<p id="id_data"></p>
+<input type="button" name="email" value="validate" onclick="validate('user3@gmail.com','12321');"/>
+

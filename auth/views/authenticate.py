@@ -118,8 +118,29 @@ def v_resetPassword(request):
         return HttpResponseRedirect('/')
     
 
+def v_validate(req):
+    email=req.GET.get('email','')
+    password=req.GET.get('password','')
     
+    errors=[]
+    user = authenticate(username=email, password=password)
+    if user is not None:
+        if user.is_active:
+            login(req, user)
+            return HttpResponse(email+':'+password)
+        else:
+            errors.append("Your account is  temporary disabled . ")
+    else:
+        errors.append("Invalid email Or password . ")
     
+    temp=""
+    for e in errors:
+        temp=temp+e+":"
+        
+    return HttpResponse(temp)
     
+
+def v_test(req):
+    return render_to_response('test.html',locals(),context_instance=RequestContext(req))
     
     

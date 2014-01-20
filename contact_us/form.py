@@ -4,12 +4,13 @@
 from django import forms
 
 class ContactUsForm(forms.Form):
-    name=forms.CharField()
-    contact_no=forms.CharField()
-    email=forms.EmailField()
-    message=forms.CharField(widget=forms.Textarea())
+    name=forms.CharField(error_messages={'required':'please enter name .'},widget=forms.TextInput(attrs={'required':'True'}))
+    contact_no=forms.IntegerField(required=False,error_messages={'invalid':'please enter valid contact no .'})
+    email=forms.EmailField(error_messages={'required':'please enter email .'},widget=forms.TextInput(attrs={'required':'True'}))
+    message=forms.CharField(error_messages={'required':'please enter message .'},widget=forms.Textarea(attrs={'required':'True','cols':'50','rows':'10'}))
+
+    
+        
 
 
-
-
-print ContactUsForm()
+#print ContactUsForm()
