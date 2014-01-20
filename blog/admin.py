@@ -20,6 +20,7 @@ class PostAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('title',)}
 	ordering = ('-pub_date',)
 	filter_horizontal = ('tags',)
+	exclude = ['no_views']
 
 
 
@@ -32,4 +33,4 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Post, PostAdmin)
-admin.site.register(Comment, CommentAdmin)
+#admin.site.register(Comment, CommentAdmin)

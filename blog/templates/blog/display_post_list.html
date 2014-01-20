@@ -2,7 +2,7 @@
 
 {% load blog_tags %}
 {% load staticfiles %}
-
+{% load imagefit %}
 
 {% block content %}
  <div class="breadcrumbs_block">
@@ -15,8 +15,9 @@
             <div class="blogs">
                 <!-- Post image begin -->
                 <div class="cat_style_image">
+
                     {% if post.image %}
-                    <img src="{% static post.image.url %}">
+                    <img src="{% static post.image|resize:"600x400,C" %}">
                     {% else %}
                     <img src="/static/images/default.png">
                     {% endif %}
@@ -25,11 +26,16 @@
                 <div class="speacer"></div>
                 <div class="cat_style_info">
                     <h3>
+                        {% if post.featured %}
+                           <i class="fa fa-bookmark" title="Featured Post"></i>   
+                        {% endif %}
                         {{post.title|title}}
                     </h3>
 
                     <p>
+
                         {{post.body|truncatewords_html:"15" |safe|capfirst}}
+
                     </p>
                     <div class="readmore">
                         <a href="{{post.get_absolute_url}}">Read More </a>

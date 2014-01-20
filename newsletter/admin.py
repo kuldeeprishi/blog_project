@@ -486,7 +486,7 @@ class SubscriptionAdmin(admin.ModelAdmin, ExtendibleModelAdminMixin):
         return my_urls + urls
 
 
-admin.site.register(Newsletter, NewsletterAdmin)
-admin.site.register(Submission, SubmissionAdmin)
-admin.site.register(Message, MessageAdmin)
-admin.site.register(Subscription, SubscriptionAdmin)
+# admin.site.register(Newsletter, NewsletterAdmin)
+# admin.site.register(Submission, SubmissionAdmin)
+# admin.site.register(Message, MessageAdmin)
+# admin.site.register(Subscription, SubscriptionAdmin)

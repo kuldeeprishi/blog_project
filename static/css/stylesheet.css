@@ -84,7 +84,7 @@ ul.list03 li {
 .header-right
 {
 	float:right !important;
-	width:390px!important;
+	width:262px!important;
 }
 form#search
 {
@@ -645,7 +645,7 @@ input#searchsubmit {
 	font-family: 'Oswald',sans-serif;
 	padding-bottom:10px;
 	border-bottom:#CCC solid 1px;
-	margin-bottom:30px;
+	margin-bottom:10px;
 }
 
 .comments h3
@@ -689,9 +689,19 @@ input#searchsubmit {
 }
 
 
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
 
-
-
+#wrapper {
+	/* Center wrapper perfectly */
+	width: 300px;
+	height: 400px;
+	margin: 70px auto;
+}
 
 /* Download Button (Demo Only) */
 .download {
@@ -950,6 +960,10 @@ FOOTER
 {
 	color: #9D231F !important;
     opacity: 1 !important;
+}
+.margin-top20
+{
+	margin-top:20px;
 }
 
 

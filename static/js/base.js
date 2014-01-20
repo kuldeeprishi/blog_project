@@ -69,10 +69,16 @@ function validateEmail($email) {
 }
 
 
+
 $("#submit-button").click(function(e){
 
     var email_field = $('#id_email_field').val();
+
+
     if (email_field==""){ 
+
+
+
 
         $(".errormsg").css({'color':'red'});
         $(".errormsg").text('This field id required');
@@ -108,7 +114,9 @@ $(".errormsg").css({'color':'red'});
         url: "/subscribe/",
         data: {'email_field': email_field},
         success: function(data){
+
             console.log(data) ; 
+
             }
                
     });

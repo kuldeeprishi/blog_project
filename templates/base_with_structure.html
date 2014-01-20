@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {%load popular%}
 {% load staticfiles %}
-
+{% load imagefit %}
 
 {% load blog_tags %}
 
@@ -37,9 +37,11 @@
 			<div class="cat_style_3" id="popular_posts_01">
 			
 			<!-- Popular Post begins -->
-{% popularposts %}
-			</div>
+				{% popularposts %}
 			<!-- Popular post ends -->
+
+			</div>
+			
 
 
 			<!-- Recent comments begins -->
@@ -52,7 +54,7 @@
 							<div class="cat_style_photo">
 								<a href="#">
 									<img src= {% if comment.user.profile.image.url %}
-											"{% static comment.user.profile.image %}"
+											"{% static comment.user.profile.image|resize:"62x62,C" %}"
 										{% else %}
 										"/static/images/comments.png"
 									{% endif %}
@@ -66,7 +68,7 @@
 								<a href="{{comment.post.get_absolute_url}}">{{comment.body|truncatewords_html:"4"|safe}}</a>
 							</h3>
 							<div class="meta-info">
-								<span class="fa fa-clock-o"></span>&nbsp;&nbsp;{{comment.pub_date|date:"F j, Y"}}
+								<span class="fa fa-clock-o"></span>&nbsp;&nbsp;On {{comment.pub_date|date:"F j, Y"}}
 							</div>
 						</div>
 						<div class="clear"></div>
