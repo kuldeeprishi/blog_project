@@ -1,24 +1,16 @@
 {% extends "base_with_structure.html" %}
-{%load staticfiles %}
+
 {%load popular%}
 
 {% load blog_tags %}
+{% load staticfiles %}
 
 {% block content %}
 
-                        <div class="breadcrumbs_block">
-                            <p id="breadcrumbs">
-                                <a href="{% url 'homepage' %}">Home</a> / <a href="/blog/">Blog</a> / <strong>Post with comments</strong>
-                            </p>
-                        </div>
-                                        <pre>
-
-                    
-</pre>
 
             <!-- post title -->
             <h1>
-                <a href="#123" title="Post with comments">{{post.title|upper}}</a>
+                <a href="#123" title="{{post.title}}">{{post.title|upper}}</a>
             </h1>
                 <div class="meta-info">
                     Posted on {{post.pub_date}}
@@ -32,7 +24,7 @@
                 </div>
             <br/>
             {%if post.image %}
-            <img src="/static/assets/{{post.image}}" alt="Post Image" width='inherit'; />
+            <img src="{% static post.image %}" alt="Post Image" width='inherit'; />
             {% endif %}
             
 
@@ -59,32 +51,55 @@
     </section>
     <!-- /section -->
 
+  
+
+
+<div class="comments">
     {% if post.comment_set.all %}
-    <h3>Comments:</h3>
-    <div class="commentbody">
-    {% for comment in post.comment_set.all %}
-            <li><img scr="{% static comment.user.profile.image.url %}"/><b>{{comment.user.username}}</b><br> <span>{{comment.body}}</span><br></li>
-    {% endfor %}
-    </div>
-    {% else %}
-        <p>No Comments yet. Add yours now.</p>
-    {% endif %}
-    <br>
+<h1>Comments</h1>
+<!-- comment begin -->
+{% for comment in post.comment_set.all %}
 
-<!-- Posting Comment -->
-    {% if user.is_authenticated %}
-        <form method="POST" action="/blog/add_comment/{{post.id}}/">
-            {{form.as_p}}
-        <input type="submit" value="Comment">
-        <input type="button" id="{{post.id}}" value="Ajax Submit" class="addcomment" \>
-        </form>
-    {% else %}
-    <p>Kindly login/signup to add comments </p>
-    {% endif %}
 
+
+<div class="floatL w18">
+    <a href="#">
+        <img src= {% if comment.user.profile.image.url %}
+                "{% static comment.user.profile.image %}"
+            {% else %}
+            "/static/images/comments.png"
+        {% endif %}
+            
+         alt="Comment" title="{{comment.user.username}}" />
+    </a>
+</div>
+
+
+  <div class="floatL w80">
+
+  <h3>{{comment.user.username}}</h3>
+  <div class="meta-info">
+<span class="fa fa-clock-o"></span>
+ {%if comment.time_hours > 0  %} 
+    {{comment.pub_date}}                 
+{%else%}
+    {{comment.pub_date|timesince}} ago 
+{%endif%}
+<span class="fa fa-comments"></span>
+
+</div>
+  <p>{{comment.body | safe}}</p>
+  </div>
+
+  {% endfor %}
+{% endif %}
+<!-- comments end-->
+
+
+  <form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
+<textarea aria-required="true" rows="5" cols="35" name="comment" id="comment"></textarea>
+<input type="submit" value="Comments" class="submit-button" name="" id="submit-button">
+  </form>
+</div>
 
     {% endblock %}
-
-
-
-

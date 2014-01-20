@@ -9,10 +9,10 @@
             <h3>Results</h3>
 
             {% for result in page.object_list %}
-                {%if  result.object.get_class_name == "Post"%}<img src="/static/assets/images/b.png" width=20px /> 
-                        {%else%}  <img src="/static/assets/images/n.png " width=20p/ >{%endif%}
+                {%if  result.object.get_class_name == "Post"%}<img src="/static/images/b.png" width=20px /> 
+                        {%else%}  <img src="/static/images/n.png " width=20p/ >{%endif%}
                 <p>
-                <a href="{{ result.object.get_absolute_url }}"> {{ result.object.title | capfirst}}</a> <br>
+                <a href="{{ result.object.get_absolute_url }}">      {{ result.object.title | capfirst}}</a> <br>
                     {{ result.object.body |truncatewords_html:13 | safe |capfirst }}
                     {{ result.object.description |truncatewords_html:13 | safe |capfirst}}
                 </p>

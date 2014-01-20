@@ -4,15 +4,15 @@
 		<title>
 			{% block title %}Brentwoods Education{% endblock %}
 		</title>
-		<link rel='stylesheet' href='/static/assets/css/font-awesome.css' type="text/css">
-		<link rel='stylesheet' href='/static/assets/css/bootstrap-responsive.css' type="text/css">
-		<link rel='stylesheet' href='/static/assets/css/style.min.css' type="text/css">
-		<link rel='stylesheet' href='/static/assets/css/stylesheet.css' type="text/css">
-		<link rel='stylesheet' href='/static/assets/css/bootstrap.css' type="text/css">
-		<link rel='stylesheet' href='/static/assets/css/jquery.mCustomScrollbar.css' type="text/css">
+		<link rel='stylesheet' href='/static/css/font-awesome.css' type="text/css">
+		<link rel='stylesheet' href='/static/css/bootstrap-responsive.css' type="text/css">
+		<link rel='stylesheet' href='/static/css/style.min.css' type="text/css">
+		<link rel='stylesheet' href='/static/css/stylesheet.css' type="text/css">
+		<link rel='stylesheet' href='/static/css/bootstrap.css' type="text/css">
+		<link rel='stylesheet' href='/static/css/jquery.mCustomScrollbar.css' type="text/css">
 		<script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
-		<script type='text/javascript' src='/static/assets/js/jquery-1.8.2.min.js'></script>
+		<script type='text/javascript' src='/static/js/jquery-1.8.2.min.js'></script>
 	</head>
 	<body>
 		<div class="all_container">
@@ -22,18 +22,18 @@
 					<div id="content">
 						<div class="header_main">
 							<div class="span3 logo">
-								<a href="/" title="Brentwoods Education"><img src="/static/assets/images/logo.png" alt="Brentwoods Education"></a>
+								<a href="/" title="Brentwoods Education"><img src="/static/images/logo.png" alt="Brentwoods Education"></a>
 							</div>
 							<div class="span9 header-right">
 								<a href="/blog/">
 									<div class="top_box color_orange">
-									<img src="/static/assets/images/blog_icon.png">
+									<img src="/static/images/blog_icon.png">
 									<span>Blog</span>
 									</div>
 								</a>
 									<a href="/news/">
 								<div class="top_box color_green">
-									<img src="/static/assets/images/news_icon.png">
+									<img src="/static/images/news_icon.png">
 									<span>News</span>
 								</div>
 								</a>
@@ -70,7 +70,7 @@
 							<input placeholder="Enter your search term..." type="text" id="id_q" name="q" class="field">
 
 							<div class="search_icon">
-								<img src="/static/assets/images/search_icon.jpg">
+								<img src="/static/images/search_icon.jpg">
 							</div>
 							<div class="clear"></div>
 						</form>
@@ -117,13 +117,13 @@
 			</footer>
 			{% endblock %}
 		</div>
-		<script type='text/javascript' src='/static/assets/js/bootstrap.min.js'></script>
-		<script type='text/javascript' src='/static/assets/js/jquery.mCustomScrollbar.js'></script>
-		<script type='text/javascript' src='/static/assets/js/jquery.fitvids.js'></script>
-		<script type='text/javascript' src='/static/assets/js/jquery-ui.js'></script>
-		<script type='text/javascript' src='/static/assets/js/magnific-popup.js'></script>
-		<script type='text/javascript' src='/static/assets/js/jquery.bxslider.min.js'></script>
-		<script type='text/javascript' src='/static/assets/js/base.js'></script>
+		<script type='text/javascript' src='/static/js/bootstrap.min.js'></script>
+		<script type='text/javascript' src='/static/js/jquery.mCustomScrollbar.js'></script>
+		<script type='text/javascript' src='/static/js/jquery.fitvids.js'></script>
+		<script type='text/javascript' src='/static/js/jquery-ui.js'></script>
+		<script type='text/javascript' src='/static/js/magnific-popup.js'></script>
+		<script type='text/javascript' src='/static/js/jquery.bxslider.min.js'></script>
+		<script type='text/javascript' src='/static/js/base.js'></script>
 		<script type="text/javascript">
 			var $j=jQuery.noConflict();$j(function(){var b=0;var a=$j(".bxslider_2").show().bxSlider({pagerCustom:".bxslider-pager, .featured_vids",auto:true,speed:500,pause:5000,autoHover:true,easing:"easeOutCirc",useCSS:false,onSliderLoad:function(){$j(".featured_item").removeClass("current_slide");$j('.featured_item h3 a[data-slide-index="'+b+'"]').parents(".featured_item").addClass("current_slide");$j(".featured_vids").mCustomScrollbar("scrollTo",'.featured_item[data-slide-index="'+b+'"]')},onSlideAfter:function(){var c=a.getCurrentSlide();$j(".featured_item").removeClass("current_slide");$j('.featured_item h3 a[data-slide-index="'+c+'"]').parents(".featured_item").addClass("current_slide");$j(".featured_vids").mCustomScrollbar("scrollTo",'.featured_item[data-slide-index="'+c+'"]')},});$j("#bxslider_next").click(function(){a.goToNextSlide();return false});$j("#bxslider_prev").click(function(){a.goToPrevSlide();return false})});$j(function(){$j(".featured_vids").mCustomScrollbar({theme:"light-thick"})});
 		</script>

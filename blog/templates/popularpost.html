@@ -1,16 +1,15 @@
-{%for post in popular_posts%}
+{% load staticfiles %}
+
+{%for post in popular_posts %}
  <div class="cat_style_item cat_style_3_item">
             <div class="cat_style_image">
                 <div class="cat_style_photo">
                     <a href="#123">
-                        <img src=
-                        {%if post.image%}
-
-                        "/static/assets/{{post.image}}" 
-                        {%else%}
-                        "/static/assets/images/default.png"
-                        {%endif%}
-                        class="attachment-mini wp-post-image" alt="Popular" title="Post with comments">
+                        {% if post.image %}
+                        <img src="{% static post.image.url %}" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments" />
+                        {% else %}
+                        <img src="/static/images/default.png" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments" />
+                        {% endif %}
                     </a>
                 </div>
             </div>

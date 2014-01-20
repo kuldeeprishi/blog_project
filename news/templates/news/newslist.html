@@ -1,5 +1,7 @@
 {% extends "base_with_structure.html" %}
+
 {% load blog_tags %}
+{% load staticfiles %}
 
 {% block content %}
   <div class="breadcrumbs_block">
@@ -7,19 +9,16 @@
                                 <a href="{% url 'homepage' %}">Home</a> / <strong>News</strong>
                             </p>
                         </div>
-                                        <pre>
-
-                    
-</pre>
+                                       
     {% for news in news_list %}
         <div class="blog_section">
             <div class="blogs">
                 <!-- news image begin -->
                 <div class="cat_style_image">
                     {% if news.image %}
-                    <img src="/static/assets/{{news.image}}">
+                    <img src="{% static news.image %}">
                     {% else %}
-                    <img src="/static/assets/images/default.png">
+                    <img src="images/default.png">
                     {% endif %}
                 </div>
                 <!-- news image end -->
@@ -30,7 +29,7 @@
                     </h3>
                     <span>{{news.posted|date:"F j, Y @ f a"}}</span>
                     <p>
-                        {{news.description|truncatewords_html:"20"|safe}}
+                        {{news.description|truncatewords_html:"20"|safe|escape}}
                     </p>
                     <div class="readmore">
                         <a href="/news/detail/{{news.id}}">Read More </a>

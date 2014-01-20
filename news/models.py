@@ -24,7 +24,7 @@ class News(models.Model):
     image=models.ImageField(upload_to=get_upload_file_name,blank = True , null= True)
     description = models.TextField()
     status = models.CharField(max_length=10, choices=STATUS , default='pub')
-    posted_on = models.DateTimeField(auto_now=True)
+    posted_on = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
     get_published = PublishedManager()
 
@@ -36,6 +36,13 @@ class News(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('newsdetail', (), {'pk': self.id})
+
+
+    @register.filter
+    def time_hours(self):
+        t= (datetime.datetime.now().replace(tzinfo=utc)-self.posted_on).days
+        return t
+
 
     class Meta:
 	verbose_name_plural = "News"

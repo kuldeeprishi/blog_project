@@ -30,7 +30,7 @@ def post_archive_index(request):
 
 
 class CommentForm(forms.Form):
-    comment = forms.CharField(widget=TinyMCE(attrs={'cols': 30, 'rows': 10}))
+    comment = forms.CharField(widget=forms.Textarea(attrs={'cols': 90, 'rows': 5}))
 
 
 def detail_view(request ,year, month, day, slug):
