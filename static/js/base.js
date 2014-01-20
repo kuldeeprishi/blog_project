@@ -32,7 +32,8 @@ jQuery.ajaxSetup({
 
  
 $(".addcomment").click(function(e){
-    var post_id = this.id;
+    var post_id = $(this).attr("name");
+    alert(post_id);
     var comment = $("#id_comment").val(); 
     $("#id_comment").val('');
     $.ajax({
@@ -53,6 +54,21 @@ $('#id_comment').keypress(function(e){
         e.preventDefault();
     }
      });
+
+
+// $('#id_q').keypress(function(e){
+    
+//             var data =$(this).val()
+//             if(e.which == 13){
+
+
+//             if(data == ""){
+                
+//              e.preventDefault();
+//        }
+//     }
+//      });
+
 
 
 });

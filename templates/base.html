@@ -67,11 +67,12 @@
 						</ul>
 
 						<form action="/search/" method="get" id="search" name="contact-form">{% csrf_token %}
-							<input placeholder="Enter your search term..." type="text" id="id_q" name="q" class="field">
+							<input placeholder="Enter your search term..." type="text" id="id_q" name="q" class="field" style="display:inline;" required=true>
 
-							<div class="search_icon">
-								<img src="/static/images/search_icon.jpg">
-							</div>
+							<input type="submit" value="Search" id="searchsubmit">
+
+
+						
 							<div class="clear"></div>
 						</form>
 						<div class="login-txt">

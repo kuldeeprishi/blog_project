@@ -98,11 +98,11 @@
 <!-- comments end-->
 
 
-  <form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
+<form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
 <textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment"></textarea>
 <input type="submit" value="Comments" class="submit-button" name="" id="submit-button">
 
-<input type="button" value="Comments" class="addcomment submit-button" name="" id="{{post.id}}">
+<input type="button" value="Comments" class="addcomment submit-button" name="{{post.id}}" id="submit-button">
   </form>
 </div>
 
