@@ -37,7 +37,7 @@
         </div> 
 
         <div class="content_content">
-            {{post.body|safe|linebreaks}}
+            {{post.body|safe|linebreaks|title}}
         </div>
         </article>
         {% if post.tags.count %}
@@ -52,58 +52,43 @@
     <!-- /section -->
 
   
-
-
 <div class="comments">
-    {% if post.comment_set.all %}
 <h1>Comments</h1>
-<!-- comment begin -->
-<ul class="commentbody">
+
+<div class="floatL">
 {% for comment in post.comment_set.all %}
-
-<li style="list-style:none;">
-
-    <div class="floatL w18">
-    <a href="#">
-        <img width=90 src= {% if comment.user.profile.image.url %}
-                "{% static comment.user.profile.image %}" w
-            {% else %}
-            "/static/images/comments.png"
-        {% endif %}
-            
-         alt="Comment" title="{{comment.user.username}}" width=92 />
-    </a>
-</div>
-
-
-  <div class="floatL w80">
-
-      <h3>{{comment.user.username}}</h3>
-        <div class="meta-info">
-            <span class="fa fa-clock-o"></span>
-            {%if comment.time_hours > 0  %} 
-                {{comment.pub_date}}                 
-            {%else%}
-                {{comment.pub_date|timesince}} ago 
-            {%endif%}
-            <span class="fa fa-comments"></span>
+<div class="floatL margin-top20">
+  <div class="floatL w18"><a href="#123"><img src="images/popular_img02.jpg" class="attachment-mini wp-post-image" alt="Popular" title="Post with comments" /></a></div>
+          <div class="floatL w80">
+          <h3>marzirk</h3>
+          <div class="meta-info">
+        <span class="fa fa-clock-o"></span>
+        3 weeks ago
+        <span class="fa fa-comments"></span>
+        <a href="#123" title="No comments">No comments</a>
         </div>
-      <p>{{comment.body | safe}}</p>
+          <p>Ut in eleifend est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer lacus ante, tempus at risus id, tempor congue elit. Sed ac hendrerit dui. Ut in convallis sapien. Aliquam tincidunt sem a dui ...</p>
+          </div>
   </div>
-</li>
   {% endfor %}
-</ul>
-{% endif %}
-<!-- comments end-->
-
-
-
-<form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
+  
+  <form action="blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
 <textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment"></textarea>
-<!-- <input type="submit" value="Comment" class="submit-button" name="" id="submit-button"> -->
-
 <input type="submit" value="Comment" class="addcomment submit-button" name="" id="{{post.id}}">
   </form>
+
+
+
+
+
 </div>
 
-    {% endblock %}
+
+
+
+</div>
+
+
+
+
+{% endblock %}

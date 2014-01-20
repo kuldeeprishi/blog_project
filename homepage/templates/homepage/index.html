@@ -1,5 +1,6 @@
 {% extends "base_with_structure.html" %}
 {% load staticfiles %}
+{% load imagefit %}
 
 
 
@@ -19,7 +20,7 @@
 									{% for news in news_list %}
 
 										<div class="bxslider_item">
-										<div class="bxslider_photo"> <img src="{% static news.image.url %}" class="attachment-very-large wp-post-image" alt="Image" />
+										<div class="bxslider_photo"> <img src="{% static news.image %}" class="attachment-very-large wp-post-image" alt="Image" />
 										<div class="bxslider_info">
 										<div class="date">
 										<table>
@@ -43,7 +44,7 @@
 
 									<div class="featured_item" data-slide-index="{{forloop.counter0}}">
 										<div class="featured_item_photo">
-											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="{% static news.image.url %}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
+											<a data-slide-index="{{forloop.counter0}}" href="#"><img src="{% static news.image|resize:"100x60,C" %}" class="attachment-small wp-post-image" alt="Slider Image 01"></a>
 										</div>
 										<div class="featured_item_info">
 											<h3>
@@ -97,7 +98,7 @@
 
 
                     {% if post.image %}
-                    <img src="{% static post.image.url %}">
+                    <img src="{% static post.image|resize:"600x400,C" %}">
                     {% else %}
                     <img src="/static/images/default.png">
                     {% endif %}
@@ -108,11 +109,15 @@
                 <div class="speacer"></div>
                 <div class="cat_style_info">
                     <h3>
-                       <a href="{{post.get_absolute_url}}"> {{post.title|title}}</a>
+                       <a href="{{post.get_absolute_url}}"> 
+                        {% if post.featured %}
+                           <i class="fa fa-bookmark" title="Featured Post"></i>   
+                        {% endif %}
+                        {{post.title|title}}</a>
                     </h3>
 
                     <p>
-                        {{post.body|truncatewords_html:"20"|safe}}
+                        {{post.body|truncatewords_html:"20"|safe|title}}
                     </p>
                     <div class="readmore">
                         <a href="{{post.get_absolute_url}}">Read More </a>

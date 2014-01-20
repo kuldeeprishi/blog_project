@@ -2,6 +2,8 @@
 
 {% load blog_tags %}
 {% load staticfiles %}
+{% load imagefit %}
+
 
 {% block content %}
   <div class="breadcrumbs_block">
@@ -16,7 +18,7 @@
                 <!-- news image begin -->
                 <div class="cat_style_image">
                     {% if news.image %}
-                    <img src="{% static news.image %}">
+                    <img src="{% static news.image|resize:"600x400,C" %}">
                     {% else %}
                     <img src="images/default.png">
                     {% endif %}
@@ -29,7 +31,7 @@
                     </h3>
                     <span>{{news.posted|date:"F j, Y @ f a"}}</span>
                     <p>
-                        {{news.description|truncatewords_html:"20"|safe|escape}}
+                        {{news.description|truncatewords_html:"20"|safe|escape|title}}
                     </p>
                     <div class="readmore">
                         <a href="/news/detail/{{news.id}}">Read More </a>
