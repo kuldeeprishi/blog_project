@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, include, url
 from auth import urls
-
+from django.conf import settings
 from django.views.generic import TemplateView
-
+from django.conf.urls.static import static
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -18,14 +18,14 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-
+      url(r'^commnet/$', 'blog.views.comment',name="jbdk"),  
     # url(r'^auth/', include('auth.urls')),
     (r'^search/', include('haystack.urls')),
     (r'^tinymce/', include('tinymce.urls')),    
     url(r'^news/', include('news.urls')),
     url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),  url(r'^admin/', include(admin.site.urls)),
 
     url(r'^newsletter/', include('newsletter.urls')),
     url(r'^subscribe', 'homepage.views.add_subscriber'),
@@ -34,9 +34,11 @@ urlpatterns = patterns('',
     url(r'^$', include('homepage.urls'), name='homepage'),
     url(r'^about/', TemplateView.as_view(template_name='about.html'), name='about'),
     url(r'^contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
-)
+)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += urls.urlpatterns
+
+
 
 
 

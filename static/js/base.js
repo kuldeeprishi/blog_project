@@ -37,14 +37,18 @@ $(".addcomment").click(function(e){
     var post_id = this.id;
 
     var comment = $("#id_comment").val(); 
+    $("#id_comment").val(""); 
     $.ajax({
             type: "POST",
             url: "/blog/add_comment/"+post_id+"/",
             data: {'comment':comment} ,
+            datatype:"image/jpg",
             success: function(data){
+              
                     // alert(data);
-                    $( ".commentbody li:last" ).after( "<li>"+data+"</li>" );
+                    $( ".commentbody li:last" ).html( "<li>"+data+"</li>" );
                     },
+                
 
     });
 });
