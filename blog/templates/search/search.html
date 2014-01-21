@@ -9,13 +9,24 @@
             <h3>Results</h3>
 
             {% for result in page.object_list %}
-                {%if  result.object.get_class_name == "Post"%}<img src="/static/images/b.png" width=20px /> 
-                        {%else%}  <img src="/static/images/n.png " width=20p/ >{%endif%}
-                <p>
-                <a href="{{ result.object.get_absolute_url }}">      {{ result.object.title | capfirst}}</a> <br>
-                    {{ result.object.body |truncatewords_html:13 | safe |capfirst }}
-                    {{ result.object.description |truncatewords_html:13 | safe |capfirst}}
-                </p>
+                {%if  result.object.get_class_name == "Post"%}
+                <img src="/static/images/b.png" width=20px /> 
+                     <a href="{{ result.object.get_absolute_url }}"> 
+                       {{ result.object.title | capfirst}}</a><br>                    
+                    {{ result.object.body |truncatewords_html:13 | safe |capfirst }}<br><br>
+                    
+                        {%else%}  
+                        <img src="/static/images/n.png " width=20px >
+                        <a href="{{ result.object.get_absolute_url }}"> 
+                       {{ result.object.title | capfirst}}</a> <br>
+
+                  
+                    {{ result.object.description |truncatewords_html:13 | safe |capfirst}}<br><br>
+                   
+            
+                        {%endif%}
+                       
+               
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}
