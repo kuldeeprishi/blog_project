@@ -44,6 +44,7 @@ $(".addcomment").click(function(e){
 
     var comment = $("#id_comment").val(); 
     $("#id_comment").val(""); 
+    if(comment != ""){
     $.ajax({
             type: "POST",
             url: "/blog/add_comment/"+post_id+"/",
@@ -57,6 +58,7 @@ $(".addcomment").click(function(e){
                 
 
     });
+}
 });
 $('#id_comment').keypress(function(e){
 	$('.addcomment').attr('disabled',false);
@@ -65,6 +67,19 @@ $('#id_comment').keypress(function(e){
         e.preventDefault();
     }
      });
+
+$(".login-required").click(function(){
+
+   window.open('/login/','_self'); 
+
+});
+
+$(".login-required").keypress(function(){
+
+   window.open('/login/','_self'); 
+
+});
+
 
 
 

@@ -87,9 +87,17 @@
 </li>
   {% endfor %}
 </ul>  
+
 <form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
-<textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment"></textarea>
+{% if user.is_authenticated %}  
+<textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment" required></textarea>
 <input type="submit" value="Comment" class="addcomment submit-button" name="" id="{{post.id}}">
+{% else %}
+<textarea aria-required="true" class="login-required" rows="5" cols="35" name="comment" id="id_comment"></textarea>
+<input type="submit" value="Comment" class="submit-button login-required" name="" >
+
+{% endif %}
+
   </form>
 
 
