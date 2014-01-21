@@ -1,31 +1,26 @@
 {% load staticfiles %}
+{% load imagefit %}
 
 
-<div class="floatL w18">
-    <a href="#">
-        <img src= {% if comment.user.profile.image %}
-                "{% static comment.user.profile.image %}"
-            {% else %}
-            "/static/images/comments.png"
-        {% endif %}
-            
-         alt="Comment" title="{{comment.user.username}}" />
-    </a>
+<div class="floatL w100 margin-top20">
+<div class="floatL w18"><a href="#"><img src=
+  {% if comment.user.profile.image %}
+          "{% static comment.user.profile.image|resize:"65x65,C" %}"
+      {% else %}
+      "/static/images/comments.png"
+      {% endif %}
+
+ class="attachment-mini wp-post-image" alt="Popular" title="Post with comments" /></a>
+</div>
+      
+
+      <div class="floatL w80">
+            <h3>{{comment.user.username}}</h3>
+                <div class="meta-info">
+                  <span class="fa fa-clock-o"></span>
+                  {{comment.pub_date|timesince}} ago
+                </div>
+            <p>{{comment.body|safe|capfirst}}</p>
+      </div>
 </div>
 
-
-  <div class="floatL w80">
-
-  <h3>{{comment.user.username}}</h3>
-  <div class="meta-info">
-<span class="fa fa-clock-o"></span>
- {%if comment.time_hours > 0  %} 
-    {{comment.pub_date}}                 
-{%else%}
-    {{comment.pub_date|timesince}} ago 
-{%endif%}
-<span class="fa fa-comments"></span>
-
-</div>
-  <p>{{comment.body | safe}}</p>
-  </div>

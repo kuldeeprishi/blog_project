@@ -17,11 +17,14 @@ def get_upload_file_name(instance, filename):
 	return 'uploaded_files/%s_%s'%(str(time()).replace('.','_'), filename)
 
 
+
 class Tag(models.Model):
 	name = models.CharField(max_length=30, unique=True)
 	
 	def __unicode__(self):
 		return self.name
+
+
 
 class PostManager(models.Manager):
 	def get_query_set(self):
@@ -42,8 +45,10 @@ class Post(models.Model):
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='l')
 	allow_comment = models.BooleanField(default=True, help_text='Allow Users to Comment on this Post?')
 	featured = models.BooleanField(default=False, verbose_name="Is Featured Article?", help_text='Check if this Post has to be Featured on Home Page!')
-	tags = models.ManyToManyField(Tag, blank=True, null=True, help_text='Descriptive Tags let user search your article with ease.')
-	slug = models.SlugField(max_length=20, unique=True, help_text="Slug Value is unique and generated automatically. If Slug error occur on save, please try to make it unique but keeping it meaningful.")
+	tags = models.ManyToManyField(Tag, blank=True, null=True,  help_text='Descriptive Tags let user search your article with ease.')
+	slug = models.SlugField(max_length=20, unique=True, 
+		verbose_name=u'Unique Identifier For Post Url.',
+		help_text="Slug Value is unique and generated automatically. If Slug error occur on save, please try to make it unique but keeping it meaningful.")
 	no_views = models.IntegerField(max_length = 5 , verbose_name ="No of views " , default=0)
 	objects = models.Manager()
 	published_objects = PostManager()
@@ -59,6 +64,11 @@ class Post(models.Model):
 
 	def __unicode__(self):
 		return self.title
+
+	def tagged(self):
+		return ', '.join([t.name for t in self.tags.all()])
+    	#admin_names.short_description = "Admin Names"
+
 	@register.filter
 	def time_hours(self):
 		t= (datetime.datetime.now().replace(tzinfo=utc)-self.pub_date).days
@@ -95,3 +105,4 @@ class Comment(models.Model):
 	def time_hours(self):
 		t= (datetime.datetime.now().replace(tzinfo=utc)-self.pub_date).days
 		return t
+

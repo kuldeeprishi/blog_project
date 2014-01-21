@@ -41,7 +41,6 @@ $(".addcomment").click(function(e){
     e.preventDefault();
     var post_id = this.id;
     var comment = $("#id_comment").val(); 
-    $("#id_comment").val('');
     $.ajax({
             type: "POST",
             url: "/blog/add_comment/"+post_id+"/",
@@ -65,8 +64,11 @@ $('#id_comment').keypress(function(e){
 $("#submit-button").click(function(e){
 
     var email_field = $('#id_email_field').val();
+
     
-    $('#id_email_field').fadeOut(1000);
+    $('#id_email_field').animate({
+        height: '0'
+    }, 500, function(){});
 
     $.ajax({
         type: "POST",
@@ -76,7 +78,7 @@ $("#submit-button").click(function(e){
               
             if(data==""){
              $(".errormsg").text('plaese enter a valid email id ');
-            $(".errormsg").fadeIn(2000).fadeOut("1000");
+             $(".errormsg").fadeIn(2000).fadeOut("1000");
            
            
            

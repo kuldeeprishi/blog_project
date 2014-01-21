@@ -7,7 +7,10 @@ import django.conf.global_settings as DEFAULT_SETTINGS
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'auth.processor.current_user',
     'auth.processor.mkmonth_lst',
+    'django.core.context_processors.request',
 )
+
+
 
 here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
@@ -93,8 +96,8 @@ STATICFILES_DIRS = (
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -115,8 +118,8 @@ SECRET_KEY = 'blx1ppeqn%5&^xj&5h-7yu8-9!p&t$(q+twp_*j-##i=73-n#9'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.filesystem.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
 
@@ -150,6 +153,7 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
+    'suit',
     'django.contrib.admin',
     'haystack',
     # Uncomment the next line to enable admin documentation:
@@ -171,6 +175,7 @@ THIRD_PARTY_APPS = (
     'django_extensions',
     'sorl.thumbnail',
     'newsletter',
+    'imagefit',
 )
 
 
@@ -234,3 +239,34 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
+
+
+IMAGEFIT_ROOT = here("../../static")
+
+
+
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'MOOCS Magazine',
+    'MENU': (
+
+        # Keep original label and models
+        
+
+        # Rename app and set icon
+        {'app': 'blog', 'label': 'Blog', 'icon':'icon-chevron-right'},
+
+        {'app': 'news', 'label': 'News', 'icon':'icon-chevron-right'},
+
+        # Custom app, with models
+        {'app': 'homepage', 'label': 'Newsletter Subscribers', 'icon':'icon-chevron-right'},
+
+        # Reorder app models
+        {'app': 'auth', 'label': 'Users', 'models': ('bloguser', 'user', 'group')},
+
+
+        'sites',
+        # Separator
+        '-',
+    )
+}
