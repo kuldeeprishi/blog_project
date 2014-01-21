@@ -60,8 +60,9 @@ def add_comment(request, post_id):
         if request.method=="POST":
             comment=request.POST.get("comment",'')
             if comment:
+
                 c = Comment.objects.create(post=post,user=user,body=comment)
-                args = {'comment': c}
+                args = {'comment': c ,'profile':user.profile.image}
             else:
                 args = {'error': 'Comment cannot be blank'}
             return render_to_response("blog/comment.html", args, ci)
@@ -84,3 +85,7 @@ def get_blog_by_tag(request, tag):
     posts = Post.objects.filter(tags__name=tag)
     return render_to_response('blog/display_post_list.html', {'posts':posts, 'tag': tag})
 	
+
+def comment(request):
+    c=Comment.objects.get(id=33)
+    return render_to_response("blog/comment.html",{'comment':c},)

@@ -87,8 +87,8 @@
 
 		{% block newletter %}
 
-		<div class="join_newsletter">
-			<div class="nice_heading">
+		<div class="join_newsletter" >
+			<div class="nice_heading" >
 				<h3>
 					Join our Newsletter
 				</h3>
@@ -99,8 +99,15 @@
 				<p>
 					Subscribe to our free weekly newsletter for news and new courses
 				</p>
-				<div class="errormsg" style="display:none;">plaease enter a valid email</div>
-				<input placeholder="Enter your email address" type="text" id="id_email_field" name="email_field" class="field"> <input type="submit" value="Subscribe" class="submit-button" name="" id="submit-button">
+				<div style="height:80px">
+					
+				<p class="errormsg" style="color:red;"></p>
+				<input placeholder="Enter your email address" type="text" id="id_email_field" name="email_field" class="field"> 
+				
+				</div>
+				<input type="submit" value="Subscribe" class="submit-button" name="" id="submit-button"
+				>
+			
 				<div class="clear"></div>
 			</form>
 		</div>

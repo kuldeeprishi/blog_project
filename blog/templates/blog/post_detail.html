@@ -8,6 +8,8 @@
 {% block content %}
 
 
+
+
             <!-- post title -->
             <h1>
                 <a href="#123" title="{{post.title}}">{{post.title|upper}}</a>
@@ -57,6 +59,7 @@
 
 <div class="floatL">
 <ul class="commentbody" style="list-style:none">
+    <li></li>
 {% for comment in post.comment_set.all %}
 <li>
 <div class="floatL w100 margin-top20">
@@ -84,7 +87,7 @@
 </li>
   {% endfor %}
 </ul>  
-<form action="blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
+<form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
 <textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment"></textarea>
 <input type="submit" value="Comment" class="addcomment submit-button" name="" id="{{post.id}}">
   </form>
@@ -94,4 +97,7 @@
 </div>
 </div>
 
+
 {% endblock %}
+
+

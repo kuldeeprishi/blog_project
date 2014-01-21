@@ -38,17 +38,23 @@ jQuery.ajaxSetup({
 
  
 $(".addcomment").click(function(e){
+
     e.preventDefault();
     var post_id = this.id;
+
     var comment = $("#id_comment").val(); 
+    $("#id_comment").val(""); 
     $.ajax({
             type: "POST",
             url: "/blog/add_comment/"+post_id+"/",
             data: {'comment':comment} ,
+            datatype:"image/jpg",
             success: function(data){
+              
                     // alert(data);
-                    $( ".commentbody li:last" ).after( "<li>"+data+"</li>" );
+                    $( ".commentbody li:last" ).html( "<li>"+data+"</li>" );
                     },
+                
 
     });
 });
@@ -61,41 +67,78 @@ $('#id_comment').keypress(function(e){
      });
 
 
+
+function validateEmail($email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  if( !emailReg.test( $email ) ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+
+
 $("#submit-button").click(function(e){
 
     var email_field = $('#id_email_field').val();
 
-    
-    $('#id_email_field').animate({
-        height: '0'
-    }, 500, function(){});
 
-    $.ajax({
+    if (email_field==""){ 
+
+
+
+
+        $(".errormsg").css({'color':'red'});
+        $(".errormsg").text('This field id required');
+        $(".errormsg").show(500) ;
+    e.preventDefault();
+    return false;
+};
+
+
+    if( !validateEmail(email_field)) {  
+$(".errormsg").css({'color':'red'});
+        $(".errormsg").text('Please enter a valid email id');
+        $(".errormsg").show(500) ;
+    e.preventDefault();
+    return false;
+
+    }
+  if( validateEmail(email_field))  {
+            
+    $('#id_email_field').slideUp(500);
+
+        $(".errormsg").css({'color':'green'});
+       $(".errormsg").text('Your request has been send for subcription');
+            $(".errormsg").show(00,function(){ 
+                $(".errormsg").delay(3000).fadeOut(500 ,function(){
+                $('#id_email_field').val("");
+                $('#id_email_field').slideDown(1000); 
+                });
+                });
+
+            $.ajax({
         type: "POST",
         url: "/subscribe/",
         data: {'email_field': email_field},
         success: function(data){
-              
-            if(data==""){
-             $(".errormsg").text('plaese enter a valid email id ');
-             $(".errormsg").fadeIn(2000).fadeOut("1000");
-           
-           
-           
-        }
-            else{
-                $(".errormsg").text('Thanks for subcription');
-                 $(".errormsg").fadeIn(2000).fadeOut("1000");
-            }
-        },
-    })
-    $('#id_email_field').val("");
-    $('#id_email_field').fadeIn(1000);
 
-    e.preventDefault();
+            console.log(data) ; 
+
+            }
+               
+    });
+   
+e.preventDefault();
+}
+
+    
+
 });
 
 
+<<<<<<< HEAD
 $("#login_button_id").click(function(e){
     e.preventDefault();
     
@@ -111,6 +154,9 @@ $("#login_button_id").click(function(e){
                     },
 
     });
+=======
+
+>>>>>>> f05a5cbbc348be5ee2c04e3761af500aa726e3e0
 });
 
 
