@@ -5,6 +5,11 @@
 
 
 {% block content %}
+ <div class="breadcrumbs_block">
+                            <p id="breadcrumbs">
+                                <a href="{% url 'homepage' %}">Home</a> /  <strong>Posts</strong>
+                            </p>
+                        </div>
     {% for post in posts %}
         <div class="blog_section">
             <div class="blogs">
@@ -32,12 +37,19 @@
                     </div>
                     <div class="meta-info">
                         <span class="fa fa-clock-o"></span> 
+                          {%if post.time_hours > 0  %} 
+                        {{post.pub_date}} 
+                       
+                        {%else%}
                         {{post.pub_date|timesince}} ago 
+           
+                        {%endif%}
+
                         <span class="fa fa-comments"></span>
                         {% if post.comment_set.all.count > 0 %}
                         <a href="{{post.get_absolute_url}}" title="{{post.comment_set.all.count}} comments">{{post.comment_set.all.count}} comment{{comment|pluralize}}</a>
                         {% else %}
-                            No Comments
+                           <a href="{{post.get_absolute_url}}"> No Comments</a>
                         {% endif %}
                     </div>
                 </div>

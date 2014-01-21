@@ -35,7 +35,7 @@ class Post(models.Model):
 	)
 	title = models.CharField(max_length=200, help_text='Give a Short and Meaningful Title')
 	body = models.TextField(blank=True, null=True)
-	image = ImageField(upload_to=get_upload_file_name, default='', blank=True, null=True, help_text='\
+	image = models.FileField(upload_to=get_upload_file_name, default='', blank=True, null=True, help_text='\
 		Post with Descriptive Image attract more Visitors.')
 	pub_date = models.DateTimeField(auto_now_add=True, verbose_name='Publish Date')
 	last_modified = models.DateTimeField(auto_now=True)
@@ -81,11 +81,11 @@ class Comment(models.Model):
 	post = models.ForeignKey(Post)
 	user = models.ForeignKey(User)
 	body = models.TextField()
-	pub_date = models.DateTimeField(auto_now=True)
+	pub_date = models.DateTimeField(auto_now_add=True)
 	visible = models.BooleanField(default=True)
 	
 	class Meta:
-		ordering = ["-pub_date"]
+		ordering = ["pub_date"]
 
 	def __unicode__(self):
 		return self.user.username

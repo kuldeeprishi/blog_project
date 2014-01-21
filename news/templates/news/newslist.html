@@ -4,13 +4,19 @@
 {% load staticfiles %}
 
 {% block content %}
+  <div class="breadcrumbs_block">
+                            <p id="breadcrumbs">
+                                <a href="{% url 'homepage' %}">Home</a> / <strong>News</strong>
+                            </p>
+                        </div>
+                                       
     {% for news in news_list %}
         <div class="blog_section">
             <div class="blogs">
                 <!-- news image begin -->
                 <div class="cat_style_image">
                     {% if news.image %}
-                    <img src="{% static news.image %}">
+                    <img src="{% static news.image.url %}">
                     {% else %}
                     <img src="images/default.png">
                     {% endif %}

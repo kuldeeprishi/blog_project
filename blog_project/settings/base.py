@@ -84,7 +84,9 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+
     ('' ,  here("../..", "static")),
+
    
 )
 
@@ -217,9 +219,18 @@ LOGGING = {
 # Newsletter Setting
 
 # Email subscription confirmation setting
-NEWSLETTER_CONFIRM_EMAIL = False
+# NEWSLETTER_CONFIRM_EMAIL = False
 # NEWSLETTER_CONFIRM_EMAIL_SUBSCRIBE = True
 # NEWSLETTER_CONFIRM_EMAIL_UNSUBSCRIBE = True
 # NEWSLETTER_CONFIRM_EMAIL_UPDATE = True
 
 
+THUMBNAIL_DEBUG = True
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)

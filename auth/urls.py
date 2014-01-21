@@ -15,6 +15,8 @@ urlpatterns = patterns('auth.views',
     url(r'^signup/$','user.v_add_user'),
     url(r'^setting/$','user.v_edit_user'),
     
-    url(r'^validate$','authenticate.v_validate'),      
-    url(r'^test$','authenticate.v_test'),
+    url(r'^validate$','authenticate.v_validate'),
+    url(r'^recoverPassword$','authenticate.v_recoverPassword'),
+    #url(r'^validate2/$','authenticate.v_validate2'),      
+    #url(r'^test$','authenticate.v_test'),
 )

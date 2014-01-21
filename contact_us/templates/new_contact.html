@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {%block content%}
 
-<br/><br/>
+
 <ul style="color:red;">
 {%for field in contact_form %}
     {% for e in field.errors %}
@@ -19,9 +19,6 @@
 
 <table>
    <legend>Contact Us </legend>
-   
-   
-   
    <tr>
    <td>{{contact_form.name.label}} <sup>*</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td>{{contact_form.name}}</td>
@@ -45,7 +42,7 @@
    
    
    <tr>
-   <td colspan="2"><br/></td>
+   <td colspan="2"><hr/></td>
    
    </tr>
    <tr>
