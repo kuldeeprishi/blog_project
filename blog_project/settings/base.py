@@ -249,23 +249,24 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'MOOCS Magazine',
     'MENU': (
 
-        # Keep original label and models
-        
+       
 
         # Rename app and set icon
         {'app': 'blog', 'label': 'Blog', 'icon':'icon-chevron-right'},
 
-        {'app': 'news', 'label': 'News', 'icon':'icon-chevron-right'},
+        {'app': 'news', 'label': 'News', 'icon':'icon-bullhorn'},
+        # Separator
+        '-',
 
         # Custom app, with models
         {'app': 'homepage', 'label': 'Newsletter Subscribers', 'icon':'icon-chevron-right'},
-
-        # Reorder app models
-        {'app': 'auth', 'label': 'Users', 'models': ('bloguser', 'user', 'group')},
-
+        # Separator
+        '-',
+        'auth',
 
         'sites',
         # Separator
         '-',
     )
 }
+

@@ -14,8 +14,8 @@ class PostAdmin(admin.ModelAdmin):
 	list_display = ('title', 'pub_date', 'status','allow_comment', 'tagged')
 	list_display_links = ['title',]
 	list_editable = ['status', 'allow_comment',]
-	search_fields = ('title', 'body')
-	list_filter = ('pub_date','tags',)
+	search_fields = ('title', 'body',)
+	list_filter = ('pub_date','tags','status')
 	prepopulated_fields = {'slug': ('title',)}
 	ordering = ('-pub_date',)
 	filter_horizontal = ('tags',)
@@ -23,15 +23,11 @@ class PostAdmin(admin.ModelAdmin):
 	exclude = ['no_views', 'featured']
 
 
-
-
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('post', 'user', 'body', 'pub_date', 'visible')
 	search_fields = ('body','pub_date')
 	list_editable = ['visible',]
 	list_filter = ('pub_date','post')
-
-
 
 
 admin.site.register(Tag, TagAdmin)

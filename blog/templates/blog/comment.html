@@ -5,7 +5,7 @@
 <div class="floatL w100 margin-top20">
 <div class="floatL w18"><a href="#"><img src=
   {% if comment.user.profile.image %}
-          "{% static comment.user.profile.image|resize:"65x65,C" %}"
+          "{% static post.comment.user.profile.image.url|resize:"65x65,C" %}"
       {% else %}
       "/static/images/comments.png"
       {% endif %}
@@ -20,7 +20,9 @@
                   <span class="fa fa-clock-o"></span>
                   {{comment.pub_date|timesince}} ago
                 </div>
-            <p>{{comment.body|safe|capfirst}}</p>
+            <p>{{comment.user.profile}}
+              <br>
+              {{comment.body|safe|capfirst}}</p>
       </div>
 </div>
 

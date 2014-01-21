@@ -668,12 +668,12 @@ input#searchsubmit {
 {
  	float: right;
     margin-top: 20px;
-    width: 80%;
+    width: 75%;
 }
 #comments input[type="submit"] {
     clear: left;
     float: left;
-    margin-left: 18%;
+    margin-left: 22%;
     padding: 9px 15px !important;
 	margin-top:20px;
 }
