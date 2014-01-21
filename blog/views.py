@@ -44,7 +44,7 @@ def detail_view(request ,year, month, day, slug):
     return render_to_response(template_name ,{'form':form, 'post':post} , ci )
 
 
-@login_required
+
 @csrf_exempt
 def add_comment(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
