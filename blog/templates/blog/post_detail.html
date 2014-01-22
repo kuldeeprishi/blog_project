@@ -8,6 +8,8 @@
 {% block content %}
 
 
+
+
             <!-- post title -->
             <h1>
                 <a href="#123" title="{{post.title}}">{{post.title|upper}}</a>
@@ -24,7 +26,7 @@
                 </div>
             <br/>
             {%if post.image %}
-            <img src="{% static post.image %}" alt="Post Image" width='inherit'; />
+            <img src="{% static post.image.url %}" alt="Post Image" width='inherit'; />
             {% endif %}
             
 
@@ -59,11 +61,12 @@
 
 <div class="floatL">
 <ul class="commentbody" style="list-style:none">
+    <li></li>
 {% for comment in post.comment_set.all %}
 <li>
 <div class="floatL w100 margin-top20">
   <div class="floatL w18"><a href="#"><img src=
-    {% if comment.user.profile.image.url %}
+    {% if comment.user.profile.image %}
             "{% static comment.user.profile.image|resize:"65x65,C" %}"
         {% else %}
         "/static/images/comments.png"
@@ -86,9 +89,17 @@
 </li>
   {% endfor %}
 </ul>  
-<form action="blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
-<textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment"></textarea>
+
+<form action="/blog/add_comment/{{post.id}}/" method="post" id="comments" name="contact-form">
+{% if user.is_authenticated %}  
+<textarea aria-required="true" rows="5" cols="35" name="comment" id="id_comment" required></textarea>
 <input type="submit" value="Comment" class="addcomment submit-button" name="" id="{{post.id}}">
+{% else %}
+<textarea aria-required="true" class="login-required" rows="5" cols="35" name="comment" id="id_comment"></textarea>
+<input type="submit" value="Comment" class="submit-button login-required" name="" >
+
+{% endif %}
+
   </form>
 
 
@@ -96,4 +107,7 @@
 </div>
 </div>
 
+
 {% endblock %}
+
+

@@ -166,6 +166,7 @@ CUSTOM_APPS = (
     'news',
     'homepage',
     'auth',
+    'contact_us'
 )
 
 THIRD_PARTY_APPS = (
@@ -189,7 +190,7 @@ HAYSTACK_CONNECTIONS = {
         'INDEX_NAME': 'haystack',
     },
 }
-
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -240,7 +241,7 @@ THUMBNAIL_PROCESSORS = (
 )
 
 
-IMAGEFIT_ROOT = here("../../static")
+IMAGEFIT_ROOT = here("../../static/")
 
 
 

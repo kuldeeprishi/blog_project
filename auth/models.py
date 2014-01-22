@@ -13,6 +13,17 @@ class UserProfile(models.Model):
 	
 	def __unicode__(self):
 		return self.user.username
+	
+	def isActive(self):
+		if self.user.is_active:
+			return True
+		else:
+			return False
+	
+	def display_name(self):
+		return self.user.email.split('@')[0]
+		
+
 
 
 

@@ -3,10 +3,14 @@ from django.contrib.auth.models import User
 
 #,widget=forms.TextInput(attrs={'class':'special'})
 class RegistrationForm(forms.Form):
-    username = forms.CharField(error_messages={'required': 'please enter username .'})
-    password = forms.CharField(error_messages={'required': 'please enter password .'},widget=forms.PasswordInput())
-    cpassword = forms.CharField(error_messages={'required': 'please enter confirm password .'},widget=forms.PasswordInput())
-    email=forms.EmailField(error_messages={'required': 'please enter email Id .'})
+    
+    #username = forms.CharField(error_messages={'required': 'please enter username .'},widget=forms.TextInput(attrs={'required':'True'}))
+    email=forms.EmailField(error_messages={'required': 'please enter email Id .'},widget=forms.TextInput(attrs={'required':'True'}))
+    password = forms.CharField(error_messages={'required': 'please enter password .'},widget=forms.PasswordInput(attrs={'required':'True'}))
+    cpassword = forms.CharField(error_messages={'required': 'please enter confirm password .'},widget=forms.PasswordInput(attrs={'required':'True'}))
+    
+    
+    
     first_name=forms.CharField(required=False)
     last_name=forms.CharField(required=False)
     image=forms.ImageField(required=False)
@@ -30,21 +34,21 @@ class RegistrationForm(forms.Form):
                 pass
         return cleaned_data['email']
     
-    def clean_username(self):
-        cleaned_data = super(RegistrationForm, self).clean()
-        if not self.errors:
-            try:
-                if User.objects.get(username=cleaned_data.get("username")):
-                    raise forms.ValidationError("Username already registered, please enter different username .")
-            except User.DoesNotExist:
-                pass
-        return cleaned_data['username']
+#     def clean_username(self):
+#         cleaned_data = super(RegistrationForm, self).clean()
+#         if not self.errors:
+#             try:
+#                 if User.objects.get(username=cleaned_data.get("username")):
+#                     raise forms.ValidationError("display name already taken, please enter different display name .")
+#             except User.DoesNotExist:
+#                 pass
+#         return cleaned_data['username']
    
 
 class EditRegistrationForm(forms.Form):
-    oldEmail_=None
+    #oldEmail_=None
     
-    email=forms.EmailField(error_messages={'required': 'please enter email Id .'})
+    #email=forms.EmailField(error_messages={'required': 'please enter email Id .'},widget=forms.TextInput(attrs={'required':'True'}))
     first_name=forms.CharField(required=False)
     last_name=forms.CharField(required=False)
     image=forms.ImageField(required=False)
@@ -53,16 +57,16 @@ class EditRegistrationForm(forms.Form):
         print "in setter"
         self.oldEmail_=oldEmail
 
-    def clean_email(self):
-        cleaned_data = super(EditRegistrationForm, self).clean()
-        if not self.errors:
-            #print ">>",User.objects.get(email=cleaned_data.get("email")).email!=self.oldEmail_
-            try:
-                if User.objects.get(email=cleaned_data.get("email")).email!=self.oldEmail_:
-                    raise forms.ValidationError("Email Id already registered .")
-            except User.DoesNotExist:
-                pass
-        return cleaned_data['email']
+#     def clean_email(self):
+#         cleaned_data = super(EditRegistrationForm, self).clean()
+#         if not self.errors:
+#             #print ">>",User.objects.get(email=cleaned_data.get("email")).email!=self.oldEmail_
+#             try:
+#                 if User.objects.get(email=cleaned_data.get("email")).email!=self.oldEmail_:
+#                     raise forms.ValidationError("Email Id already registered .")
+#             except User.DoesNotExist:
+#                 pass
+#         return cleaned_data['email']
     
 # 
 # f=EditRegistrationForm({'email':'imran@gmail.com'})

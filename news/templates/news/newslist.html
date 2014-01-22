@@ -19,7 +19,7 @@
                 <div class="cat_style_image">
                     {% if news.image %}
                     <img src="{% static news.image|resize:"600x400,C" %}">
-                    {% else %}
+					{% else %}
                     <img src="images/default.png">
                     {% endif %}
                 </div>
