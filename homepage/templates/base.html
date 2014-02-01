@@ -1,4 +1,6 @@
 {%load staticfiles %}
+{%load url from future%}
+	{% load socialaccount %}
 <!DOCTYPE html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -86,17 +88,38 @@
 						</form>
 						
 			
-			
+			{% load account %}
 			<div class="login-txt" id="login">
-			    {% if UP %}
-					    	Welcome, {{UP.display_name}} <a href="/logout"> &nbsp;&nbsp;&nbsp;Logout</a>
-				{%else%}
-				<a ><p>Login </p> / <span><a href="/signup/"> Sign up</span></a>
-				
+				{% if request.user.is_authenticated %}
+    			Welcome,
+   					 {% if request.user.first_name or request.user.last_name %}
+		     					   {{ request.user.first_name }} {{ request.user.last_name }}
+		   							 {% else %}
+      				  		{{ request.user.username }}
+   				 			{% endif %}
+   				 <a href="/logout"> &nbsp;&nbsp;&nbsp;Logout</a>
+   
+
+
+
+
+			   
+		 	{% else %}
+		 		<a ><p>Login </p> / <span><a href="/signup/"> Sign up</span></a>
+	
+
 				<div id="login-form">
 					<form name="login-form" action="#" class="login-form" method="post">
 						<div class="content">
-							<a href="#">facebook</a><a herf="#">twitter</a>
+						
+						<div class="socialaccount_ballot">
+
+  						<ul class="socialaccount_providers">
+  				  			{% include "socialaccount/snippets/provider_list.html" with process="login" %}
+ 					 </ul>
+
+ 					</div>
+							
 							<input  type="text" class="input username" placeholder="Email" id="login_email"/>
 				
 			                <div class="user-icon"></div>

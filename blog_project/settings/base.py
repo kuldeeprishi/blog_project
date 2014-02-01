@@ -1,13 +1,22 @@
 import os
 import django.conf.global_settings as DEFAULT_SETTINGS
-
+    
 
 # here() gives us file paths from the root of the system to the directory
 # holding the current file.
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+    "django.contrib.auth.context_processors.auth",
+     "allauth.socialaccount.context_processors.socialaccount",
+    # allauth specific context processors
+    "allauth.account.context_processors.account",
+   
     'auth.processor.current_user',
     'auth.processor.mkmonth_lst',
-    'django.core.context_processors.request',
+
+
+    
+
 )
 
 
@@ -47,7 +56,7 @@ TIME_ZONE = 'Asia/Calcutta'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-SITE_ID = 1
+SITE_ID = 2
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -176,10 +185,76 @@ THIRD_PARTY_APPS = (
     'sorl.thumbnail',
     'newsletter',
     'imagefit',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.linkedin_oauth2',
+    'allauth.socialaccount.providers.twitter',
 )
 
 
-INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
+
+INSTALLED_APPS = DJANGO_APPS       + CUSTOM_APPS   + THIRD_PARTY_APPS
+
+
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+
+)
+
+
+SOCIALACCOUNT_PROVIDERS = {
+'google':
+        { 'SCOPE': ['https://www.googleapis.com/auth/userinfo.profile'],
+          'AUTH_PARAMS': { 'access_type': 'online' } },
+'facebook':
+       {'SCOPE': ['email', 'publish_stream'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'METHOD': 'oauth2',
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False},
+
+    'linkedin':
+            {'SCOPE': ['r_emailaddress'],
+             },
+
+ 'twitter':
+    { 'SCOPE': ['r_emailaddress'] } ,
+
+ }
+#LOGIN_REDIRECT_URL='/'
+#LOGIN_REDIRECT_URLNAME='/'
+ACCOUNT_ADAPTER ="allauth.account.adapter.DefaultAccountAdapter"
+ACCOUNT_AUTHENTICATION_METHOD ="username_email"
+ACCOUNT_CONFIRM_EMAIL_ON_GET =False
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL =None
+#ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URLN_ANONYMOUS_REDIRECT_URL =settings.LOGIN_URL
+ACCOUNT_EMAIL_SUBJECT_PREFIX ="example.com"
+ACCOUNT_LOGOUT_REDIRECT_URL ="/"
+SOCIALACCOUNT_AUTO_SIGNUP=True
+
+ACCOUNT_EMAIL_REQUIRED=False
+SOCIALACCOUNT_ADAPTER ="allauth.socialaccount.adapter.DefaultSocialAccountAdapter"
+SOCIALACCOUNT_QUERY_EMAIL =ACCOUNT_EMAIL_REQUIRED
+SOCIALACCOUNT_AUTO_SIGNUP =True
+SOCIALACCOUNT_EMAIL_REQUIRED =False
+
+
+
+
+
+
+
+
+
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
@@ -190,6 +265,8 @@ HAYSTACK_CONNECTIONS = {
         'INDEX_NAME': 'haystack',
     },
 }
+
+
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

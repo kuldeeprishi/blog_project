@@ -52,16 +52,18 @@
 					<div class="cat_style_item cat_style_3_item comment_style_item">
 						<div class="cat_style_image">
 							<div class="cat_style_photo">
+
+								
 								<a href="#">
 
 
 
-									<img src= {% if comment.user.userprofile.image %}
-											"{% static comment.user.userprofile.image.url %}"
-
-										{% else %}
-										"/static/images/comments.png"
-									{% endif %}
+									<img src= 
+								{% if comment.user.profile.image %}
+            "{% static comment.user.profile.image|resize:"65x65,C" %}"
+        {% else %}
+        "/static/images/comments.png"
+        {% endif %}
 									 alt="Comment" title="{{comment.user.username}}" />
 								</a>
 							</div>

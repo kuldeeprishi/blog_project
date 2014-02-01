@@ -153,7 +153,7 @@ e.preventDefault();
 });
 
 
-<<<<<<< HEAD
+
 $("#login_button_id").click(function(e){
     e.preventDefault();
     
@@ -169,9 +169,7 @@ $("#login_button_id").click(function(e){
                     },
 
     });
-=======
 
->>>>>>> f05a5cbbc348be5ee2c04e3761af500aa726e3e0
 });
 
 
