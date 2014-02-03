@@ -13,12 +13,7 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
    
     'auth.processor.current_user',
     'auth.processor.mkmonth_lst',
-
-
-    
-
 )
-
 
 
 here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
@@ -31,20 +26,17 @@ root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 
 # Django settings for blog_project project.
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Aditya Saxena', 'aditya.saxena@iuc.org.in'),
+    ('Mohd. Irshad', 'mohd.irshad@iuc.org.in'),
+    ('Kuldeep K. Rishi', 'kuldeep.rishi@iuc.org.in'),
+    ('Irfan Ansari', 'irfan.ansari@iuc.org.in'),
 )
 
 MANAGERS = ADMINS
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -56,7 +48,7 @@ TIME_ZONE = 'Asia/Calcutta'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-SITE_ID = 2
+SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -85,7 +77,8 @@ ADMIN_MEDIA_PREFIX = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(PROJECT_ROOT, '../staticfiles/')
+
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -197,7 +190,7 @@ THIRD_PARTY_APPS = (
 
 
 
-INSTALLED_APPS = DJANGO_APPS       + CUSTOM_APPS   + THIRD_PARTY_APPS
+INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 
 AUTHENTICATION_BACKENDS = (
@@ -207,7 +200,6 @@ AUTHENTICATION_BACKENDS = (
 
     # `allauth` specific authentication methods, such as login by e-mail
     "allauth.account.auth_backends.AuthenticationBackend",
-
 )
 
 
@@ -246,13 +238,6 @@ SOCIALACCOUNT_ADAPTER ="allauth.socialaccount.adapter.DefaultSocialAccountAdapte
 SOCIALACCOUNT_QUERY_EMAIL =ACCOUNT_EMAIL_REQUIRED
 SOCIALACCOUNT_AUTO_SIGNUP =True
 SOCIALACCOUNT_EMAIL_REQUIRED =False
-
-
-
-
-
-
-
 
 
 

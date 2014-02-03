@@ -1,0 +1,13 @@
+server {
+    listen localhost:8000;
+
+    location / {
+        proxy_pass http://127.0.0.1:8001;
+    }
+
+    location /static/ {
+        autoindex on;
+        alias /home/kuldeeprishi/project/blog_project/blog_project/staticfiles/;
+    }
+}
+
