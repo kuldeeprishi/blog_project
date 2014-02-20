@@ -5,7 +5,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>
-			{% block title %}Brentwoods Education{% endblock %}
+			{% block title %}MOOCS Magazine{% endblock %}
 		</title>
 		<link rel='stylesheet' href='/static/css/font-awesome.css' type="text/css">
 		<link rel='stylesheet' href='/static/css/bootstrap-responsive.css' type="text/css">
@@ -32,7 +32,7 @@
 					<div id="content">
 						<div class="header_main">
 							<div class="span4 logo">
-								<a href="/" title="Brentwoods Education"><img src="/static/images/logo.png" alt="Brentwoods Education"></a>
+								<a href="/" title="MOOCS Magazine"><img src="/static/images/logo.png" alt="Brentwoods Education"></a>
 							</div>
 							
 							<div class="span8 header-right">
@@ -92,22 +92,14 @@
 			<div class="login-txt" id="login">
 				{% if request.user.is_authenticated %}
     			Welcome,
-   					 {% if request.user.first_name or request.user.last_name %}
-		     					   {{ request.user.first_name }} {{ request.user.last_name }}
-		   							 {% else %}
-      				  		{{ request.user.username }}
-   				 			{% endif %}
+   					{% if request.user.first_name or request.user.last_name %}
+		     					   {{ request.user.first_name|upper }} {{ request.user.last_name|upper }}
+		   			{% else %}
+      				  		{{ request.user.username|upper }}
+   				 {% endif %}
    				 <a href="/logout"> &nbsp;&nbsp;&nbsp;Logout</a>
-   
-
-
-
-
-			   
 		 	{% else %}
 		 		<a ><p>Login </p> / <span><a href="/signup/"> Sign up</span></a>
-	
-
 				<div id="login-form">
 					<form name="login-form" action="#" class="login-form" method="post">
 						<div class="content">
@@ -138,7 +130,7 @@
 				        <div class="footer">
 				        	<input type="button"  value="Login" class="button" onclick="validate(document.getElementById('login_email').value,document.getElementById('login_pwd').value);"/>
 				
-				            <p class="forpass"> <a >forget password</a></p>
+				            <p class="forpass"> <input type="button"  value="Forget Password" class="button"/>
 				       </div>
 				       
 				    </form>

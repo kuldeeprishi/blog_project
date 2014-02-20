@@ -4,7 +4,8 @@ from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.http.response import  HttpResponseRedirect
 from contact_us.models import ContactUs
-
+from django.core.mail import send_mail
+from django.conf import settings
 
 def v_add_contact(req):
     form=ContactUsForm()
@@ -16,12 +17,12 @@ def v_add_contact(req):
                                      email=form.cleaned_data['email'],
                                      message=form.cleaned_data['message']
                                      )
+            subject = 'Message from - {0}'.format(form.cleaned_data['name'])
+            send_mail(subject, form.cleaned_data['message'], 'visitor@moocsmagzine.com', settings.CONTACTUS)
             return HttpResponseRedirect('/')
             
     return render_to_response('new_contact.html',{'contact_form':form},context_instance=RequestContext(req))
     
     
-# def v_test(req):
-#     if req.method=="POST":
-#         return HttpResponse(req.POST.get('var','XXX'))
-#     return render_to_response('test.html',context_instance=RequestContext(req))
+# send_mail(subject, message, from_email, recipient_list, 
+# fail_silently=False, auth_user=None, auth_password=None, connection=None, html_message=None)

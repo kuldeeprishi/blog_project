@@ -53,7 +53,7 @@ $(".addcomment").click(function(e){
             success: function(data){
               
                     // alert(data);
-                    $( ".commentbody li:last" ).html( "<li>"+data+"</li>" );
+                    $( ".commentbody li:last" ).append( data );
                     },
                 
 
