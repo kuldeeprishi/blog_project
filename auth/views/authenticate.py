@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.conf import settings
 
 # 
 # def if_login(f):
@@ -82,7 +83,7 @@ def v_forgotPassword(request):
             Your New Password is inside double quotes, "{password}" .
             
             Thanks & Regards,
-            Moocs Mentors Team
+            Moocs Magazine Team
             '''.format(
                        name=user.username,
                        password=password
@@ -160,22 +161,22 @@ def v_recoverPassword(req):
         import os
         user=User.objects.get(email=email)
         password=os.urandom(5).encode('hex')
-        #user.set_password(password) 
-        #user.save()
+        user.set_password(password) 
+        user.save()
         msg='''
         Hi {name},
         
         Your New Password is inside double quotes, "{password}" .
         
         Thanks & Regards,
-        Moocs Mentors Team
+        Moocs Magazine Team
         '''.format(
                    name=user.username,
                    password=password
                    )
         from threading import Thread
         #send_mail('Your new password',msg,'BRENTWOOD',[user.email])
-        Thread(target=send_mail,args=['Your new password',msg,'BRENTWOOD',[user.email]]).start()
+        Thread(target=send_mail,args=['Your new password',msg,settings.EMAIL_HOST_USER,[user.email]]).start()
         return HttpResponse('200:Password Successfully sent .')
     else:
         temp=""

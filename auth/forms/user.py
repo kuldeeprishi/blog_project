@@ -78,3 +78,5 @@ class EditRegistrationForm(forms.Form):
 # 
 #  
 # print list(f.errors.values())
+
+    
