@@ -7,3 +7,9 @@ staticfiles
 .pydevproject
 *.swp
 UPLOADED
+.ini~
+.ini
+.conf
+.conf~
+staticfiles
+example

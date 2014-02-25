@@ -51,3 +51,7 @@ exit
 git add .
 sudo git add .
 exit
+supervisor reread
+ls
+cd blog_project/
+ls

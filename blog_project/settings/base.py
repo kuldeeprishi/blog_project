@@ -27,7 +27,7 @@ root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
 # Django settings for blog_project project.
 
 ADMINS = (
-    ('Aditya Saxena', 'aditya.saxena@iuc.org.in'),
+    #('Aditya Saxena', 'aditya.saxena@iuc.org.in'),
     ('Mohd. Irshad', 'mohd.irshad@iuc.org.in'),
     ('Kuldeep K. Rishi', 'kuldeep.rishi@iuc.org.in'),
     ('Irfan Ansari', 'irfan.ansari@iuc.org.in'),
@@ -35,7 +35,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-
+CONTACTUS = ['kuldeep.rishi@iuc.org.in',
+             'donotreply@iuc.org.in',
+             'mohd.irshad@iuc.org.in',
+             'irfan.ansari@iuc.org.in']
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Local time zone for this installation. Choices can be found here:

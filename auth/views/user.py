@@ -53,7 +53,7 @@ def v_add_user(request):
             if request.FILES.get('image'):
                 image=upload(form.cleaned_data['image'],email+".jpg",USER_UPLOAD_DIR)
                 
-            user=User.objects.create_user(username=email,email=email,password=password)
+            user=User.objects.create_user(username=email.split('@')[0],email=email,password=password)
             user.first_name = first_name
             user.last_name = last_name
             user.save()
