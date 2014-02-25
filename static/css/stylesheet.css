@@ -1403,9 +1403,37 @@ input[type="submit"]
 	
 }
 
+li.gplus a
+{
+	background:url(../images/social-icons.png) no-repeat -165px -43px;
+	text-indent:-9999px;
+	display:block;
+	width:37px;
+	height:35px;
+}
+li.gplus a:hover
+
+{
+	background:url(../images/social-icons.png) no-repeat -165px 1px;
+}
+
+li.youtube a
+{
+	background:url(../images/social-icons.png) no-repeat -127px -43px;
+	text-indent:-9999px;
+	display:block;
+	width:37px;
+	height:35px;
+}
+li.youtube a:hover
+
+{
+	background:url(../images/social-icons.png) no-repeat -127px 1px;
+}
+
 li.facebook a
 {
-	background:url(../images/social-icons.png) no-repeat -45px -43px;
+	background:url(../images/social-icons.png) no-repeat 3px -43px;
 	text-indent:-9999px;
 	display:block;
 	width:37px;
@@ -1413,12 +1441,12 @@ li.facebook a
 }
 li.facebook a:hover
 {
-	background:url(../images/social-icons.png) no-repeat -45px -8px;
+	background:url(../images/social-icons.png) no-repeat 3px 1px;
 }
 
 li.twitter a
 {
-	background:url(../images/social-icons.png) no-repeat -4px -43px;
+	background:url(../images/social-icons.png) no-repeat -41px -43px;
 	text-indent:-9999px;
 	display:block;
 	width:37px;
@@ -1426,49 +1454,37 @@ li.twitter a
 }
 li.twitter a:hover
 {
-	background:url(../images/social-icons.png) no-repeat -4px -8px;
+	background:url(../images/social-icons.png) no-repeat -41px 1px;
 }
 
-
-li.google_plus a
+li.linkedin a
 {
-	background:url(../images/social-icons.png) no-repeat -211px -43px;
+	background:url(../images/social-icons.png) no-repeat -85px -43px;
 	text-indent:-9999px;
 	display:block;
 	width:37px;
 	height:35px;
 }
-li.google_plus a:hover
+li.linkedin a:hover
+
 {
-	background:url(../images/social-icons.png) no-repeat -211px -8px;
+	background:url(../images/social-icons.png) no-repeat -85px 1px;
 }
 
 
-li.flickr a
+li.pintrest a
 {
-	background:url(../images/social-icons.png) no-repeat -253px -43px;
+	background:url(../images/social-icons.png) no-repeat -213px -43px;
 	text-indent:-9999px;
 	display:block;
 	width:37px;
 	height:35px;
 }
-li.flickr a:hover
+li.pintrest a:hover
 {
-	background:url(../images/social-icons.png) no-repeat -253px -8px;
+	background:url(../images/social-icons.png) no-repeat -213px 1px;
 }
 
-li.rss a
-{
-	background:url(../images/social-icons.png) no-repeat -129px -43px;
-	text-indent:-9999px;
-	display:block;
-	width:37px;
-	height:35px;
-}
-li.rss a:hover
-{
-	background:url(../images/social-icons.png) no-repeat -129px -8px;
-}
 .margin-top40
 {
 	margin-top:40px !important;

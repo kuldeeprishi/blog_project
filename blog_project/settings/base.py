@@ -225,8 +225,8 @@ SOCIALACCOUNT_PROVIDERS = {
     { 'SCOPE': ['r_emailaddress'] } ,
 
  }
-#LOGIN_REDIRECT_URL='/'
-#LOGIN_REDIRECT_URLNAME='/'
+LOGIN_REDIRECT_URL='/'
+# LOGIN_REDIRECT_URLNAME='/'
 ACCOUNT_ADAPTER ="allauth.account.adapter.DefaultAccountAdapter"
 ACCOUNT_AUTHENTICATION_METHOD ="username_email"
 ACCOUNT_CONFIRM_EMAIL_ON_GET =False
