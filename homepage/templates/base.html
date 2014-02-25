@@ -36,7 +36,14 @@
 							</div>
 							
 							<div class="span8 header-right">
-								<a href="/blog/">
+								<form action="/search/" method="get" id="search" name="contact-form">
+								{% csrf_token %}
+									<input placeholder="Enter your search term..." type="text" id="id_q" name="q" class="field" style="display:inline;" required=true>
+
+									<input type="submit" value="Search" id="searchsubmit">
+									<div class="clear"></div>
+								</form>
+								<!--<a href="/blog/">
 									<div class="top_box color_orange">
 									<img src="/static/images/blog_icon.png">
 									<span>Blog</span>
@@ -47,9 +54,9 @@
 									<img src="/static/images/news_icon.png">
 									<span>News</span>
 								</div>
-								</a>
+								</a> -->
 								
-							</div>
+							</div> 
 						</div>
 					</div>
 				</div>
@@ -72,20 +79,21 @@
 
 								<a href="{% url 'about' %}">About Us</a>
 							</li>
+							<li {% if page == '/blog/' %}class="active"{% endif %}>
+
+								<a href="{% url 'blog' %}">Blog</a>
+							</li>
+							<li {% if page == '/news/' %}class="active"{% endif %}>
+
+								<a href="{% url 'newslist' %}">News</a>
+							</li>
 							<li {% if page == '/contact/' %}class="active"{% endif %}>
-								<a href="{% url 'contact' %}">Contact Us</a>
+
+								<a href="{% url 'contact' %}">Contact</a>
 							</li>
 						</ul>
 
-						<form action="/search/" method="get" id="search" name="contact-form">{% csrf_token %}
-							<input placeholder="Enter your search term..." type="text" id="id_q" name="q" class="field" style="display:inline;" required=true>
-
-							<input type="submit" value="Search" id="searchsubmit">
-
-
 						
-							<div class="clear"></div>
-						</form>
 						
 			
 			{% load account %}
@@ -104,14 +112,6 @@
 					<form name="login-form" action="#" class="login-form" method="post">
 						<div class="content">
 						
-						<div class="socialaccount_ballot">
-
-  						<ul class="socialaccount_providers">
-  				  			{% include "socialaccount/snippets/provider_list.html" with process="login" %}
- 					 </ul>
-
- 					</div>
-							
 							<input  type="text" class="input username" placeholder="Email" id="login_email"/>
 				
 			                <div class="user-icon"></div>
@@ -123,9 +123,18 @@
 							<div id="login_error_div">
 							
 							</div>
-							
-							<br class="clear">
 				        </div>
+
+						<div class='or'>
+							<img src="/static/images/or_img01.jpg" alt="OR">
+						</div>
+
+				        <div class="socialaccount_ballot">
+	  						<ul class="socialaccount_providers">
+	  				  			{% include "socialaccount/snippets/provider_list.html" with process="login" %}
+	 					 	</ul>
+ 						</div>
+ 						<br class="clear">
 				        
 				        <div class="footer">
 				        	<input type="button"  value="Login" class="button" onclick="validate(document.getElementById('login_email').value,document.getElementById('login_pwd').value);"/>
@@ -186,16 +195,29 @@
 				<div id="footer">
 					<div id="content">
 						<div class="copyrights">
-							© 2014 Brentwoods Education All rights reserved
+							© 2014 MOOCs Magazine All rights reserved
 						</div>
 						<div class="social_footer">
 							<ul>
+								<li class="gplus">
+									<a title="" href="https://plus.google.com/102859397629005539608/">Google+</a>
+								</li>
+								<li class="youtube">
+									<a title="" href="http://www.youtube.com/channel/UCAHNU_1HcnHBuuamXZl0nYA">Youtube</a>
+								</li>
 								<li class="facebook">
-									<a title="" href="https://www.facebook.com/BrentwoodsEducation">Facebook</a>
+									<a title="" href="https://www.facebook.com/moocsm.magz">Facebook</a>
 								</li>
 								<li class="twitter">
-									<a title="" href="https://twitter.com/MoocsEngine">Twitter</a>
+									<a title="" href="https://twitter.com/Moocs_Magazine">Twitter</a>
 								</li>
+								<li class="linkedin">
+									<a title="" href="http://www.linkedin.com/pub/moocs-magazine/91/266/470">Linkedin</a>
+								</li>
+								<li class="pintrest">
+									<a title="" href="http://www.linkedin.com/pub/moocs-magazine/91/266/470">Pintrest</a>
+								</li>
+								
 
 							</ul>
 						</div><br class="clear">

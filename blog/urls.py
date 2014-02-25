@@ -16,7 +16,7 @@ post_info_dict = {
 urlpatterns = patterns('',
 
     # All post listing
-    url(r'^$', 'blog.views.post_archive_index', name='post_archive_index'),
+    url(r'^$', 'blog.views.post_archive_index', name='blog'),
 
     # Yearly Archieve
     url(r'^(?P<year>\d{4})/$', YearArchiveView.as_view(make_object_list = True, allow_future = True, **post_info_dict), name='post_archive_year'),

@@ -487,6 +487,19 @@ li.twitter a:hover
 	background:url(../images/social-icons.png) no-repeat -4px -8px;
 }
 
+li.youtube a
+{
+	background:url(../images/social-icons.png) no-repeat -4px -43px;
+	text-indent:-9999px;
+	display:block;
+	width:37px;
+	height:35px;
+}
+li.youtube a:hover
+{
+	background:url(../images/social-icons.png) no-repeat -4px -8px;
+}
+
 
 li.google_plus a
 {
@@ -574,7 +587,7 @@ nav#login {
     margin:0;
     padding-left:24px;
     cursor:pointer;
-    background-image:url('../img/open.png');
+    /*background-image:url('../images/logo.png');*/
     background-position:left;
     background-repeat:no-repeat;
 	float:left;
@@ -586,7 +599,7 @@ nav#login {
 }
 
 #login p.close {
-    background-image:url('../img/close.png');
+    /*background-image:url('../img/close.png');*/
 	font-weight: 400;
     line-height: 26px;
     padding-right: 5px;
