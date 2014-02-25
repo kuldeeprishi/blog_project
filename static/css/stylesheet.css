@@ -75,7 +75,7 @@ ul.list03 li {
 }
 .logo
 {
-	margin-top:30px;
+	margin-top:10px;
 }
 .padtop-bottom20
 {
@@ -89,7 +89,7 @@ ul.list03 li {
 }
 form#search
 {
-	margin:0px;
+	margin:8px 0px 0px 0px;
 	float:right;
 	position:relative;
 }
@@ -202,7 +202,7 @@ input, textarea, .uneditable-input {
 #navigation li a {
     color: #2b2a29;
     text-decoration: none;
-	padding:15px 18px;
+	padding:15px 30px;
 }
 #navigation li a:hover {
 	background:#9d231f;
@@ -442,7 +442,7 @@ input[type="submit"]
 }
 #header #content
 {
-	padding:20px 0px;
+	padding:0px;
 }
 .social_footer
 {
@@ -486,6 +486,19 @@ li.twitter a
 li.twitter a:hover
 {
 	background:url(../images/social-icons.png) no-repeat -4px -8px;
+}
+
+li.youtube a
+{
+	background:url(../images/social-icons.png) no-repeat -88px -43px;
+	text-indent:-9999px;
+	display:block;
+	width:37px;
+	height:35px;
+}
+li.youtube a:hover
+{
+	background:url(../images/social-icons.png) no-repeat -88px -8px;
 }
 
 
@@ -575,7 +588,7 @@ nav#login {
     margin:0;
     padding-left:24px;
     cursor:pointer;
-    background-image:url('../img/open.png');
+    /*background-image:url('../img/logo.png');*/
     background-position:left;
     background-repeat:no-repeat;
 	float:left;
@@ -587,7 +600,7 @@ nav#login {
 }
 
 #login p.close {
-    background-image:url('../img/close.png');
+    /*background-image:url('../img/close.png');*/
 	font-weight: 400;
     line-height: 26px;
     padding-right: 5px;
@@ -603,7 +616,7 @@ nav#login {
 	box-shadow:1px 1px 4px rgb(220,220,220);*/
     padding:12px 12px 12px 0;
     top:40px;
-    left:0;
+    right:-24px;
     display:none;
 }
 
@@ -632,11 +645,11 @@ SELECTION STYLING
 
 ::selection {
 	color: #fff;
-	background: #f676b2; /* Safari */
+	background: #9D231F; /* Safari */
 }
 ::-moz-selection {
 	color: #fff;
-	background: #f676b2; /* Firefox */
+	background: #9D231F; /* Firefox */
 }
 
 /*******************
@@ -872,7 +885,7 @@ FOOTER
 /* Login button */
 .login-form .footer .button {
 	float:left;
-	padding: 7px 20px;
+	padding: 7px 15px;
 	font-family: 'Open Sans',sans-serif;
 	font-weight: normal;
 	font-size: 16px;
@@ -890,7 +903,7 @@ FOOTER
 .login-form .footer .button:focus {
 	position: relative;
 	bottom: -1px;
-	background: #56c2e1;
+	background: #9D231F;
 }
 
 /* Register button */
@@ -1003,7 +1016,7 @@ ul.list03 li {
 }
 .logo
 {
-	margin-top:30px;
+	margin-top:10px;
 }
 .padtop-bottom20
 {
@@ -1017,7 +1030,7 @@ ul.list03 li {
 }
 form#search
 {
-	margin:0px;
+	margin:8px 0px 0px 0px;
 	float:right;
 	position:relative;
 }
@@ -1130,7 +1143,7 @@ input, textarea, .uneditable-input {
 #navigation li a {
     color: #2b2a29;
     text-decoration: none;
-	padding:15px 18px;
+	padding:15px 30px;
 }
 #navigation li a:hover {
 	background:#9d231f;
@@ -1370,7 +1383,7 @@ input[type="submit"]
 }
 #header #content
 {
-	padding:20px 0px;
+	padding:0px;
 }
 .social_footer
 {
@@ -1503,7 +1516,7 @@ nav#login {
     margin:0;
     padding-left:24px;
     cursor:pointer;
-    background-image:url('../img/open.png');
+    /*background-image:url('../images/logo.png');*/
     background-position:left;
     background-repeat:no-repeat;
 	float:left;
@@ -1515,7 +1528,7 @@ nav#login {
 }
 
 #login p.close {
-    background-image:url('../img/close.png');
+    /*background-image:url('../images/close.png');*/
 	font-weight: 400;
     line-height: 26px;
     padding-right: 5px;
@@ -1531,7 +1544,7 @@ nav#login {
 	box-shadow:1px 1px 4px rgb(220,220,220);*/
     padding:12px 12px 12px 0;
     top:40px;
-    left:0;
+    right:-24px;
     display:none;
 }
 
@@ -1838,7 +1851,7 @@ FOOTER
 /* Login button */
 .login-form .footer .button {
 	float:left;
-	padding: 7px 20px;
+	padding: 7px 15px;
 	font-family: 'Open Sans',sans-serif;
 	font-weight: normal;
 	font-size: 16px;
@@ -1856,7 +1869,7 @@ FOOTER
 .login-form .footer .button:focus {
 	position: relative;
 	bottom: -1px;
-	background: #56c2e1;
+	background: #9D231F;
 }
 
 /* Register button */
@@ -1913,7 +1926,7 @@ padding-right:30px!important;
 
 #forget-form
 {
-left: 0;
+right: -24px;
 padding: 12px 12px 12px 0;
 position: absolute;
 top: 40px;
@@ -1937,3 +1950,35 @@ margin-top:15px;
 line-height:20px!important;
 font-family:'Open Sans', sans-serif!important;
 }
+
+ul.socialaccount_providers li a
+{
+	padding: 0px!important;
+	margin-bottom: 30px;
+	display: block;
+}
+ul.socialaccount_providers li a:hover
+{
+	background:none!important;
+}
+.socialaccount_ballot
+{
+	padding: 0px 30px 25px 30px;
+	
+}
+.pad-right15{
+	padding-right: 15px;
+}
+.pad-right15:last-child{
+	padding-right: 0 ;
+
+}
+
+
+
+.or {
+	text-align: center;
+	padding-bottom: 15px;
+	margin-top: -6px;
+}
+ 

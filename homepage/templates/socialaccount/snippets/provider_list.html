@@ -11,9 +11,9 @@
 </li>
 {% endfor %}
 {% endif %}
-<li>
+<li class='pad-right15'>
   <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
-     href="{% provider_login_url provider.id process=process  %}" >{{provider.name}}</a>
+     href="{% provider_login_url provider.id process=process  %}" ><img src="/static/images/{{provider.name|lower}}_icon.jpg" alt="{{provider.name}}"></a>
 </li>
 {% endfor %}
 

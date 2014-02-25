@@ -22,7 +22,3 @@ def v_add_contact(req):
             return HttpResponseRedirect('/')
             
     return render_to_response('new_contact.html',{'contact_form':form},context_instance=RequestContext(req))
-    
-    
-# send_mail(subject, message, from_email, recipient_list, 
-# fail_silently=False, auth_user=None, auth_password=None, connection=None, html_message=None)
