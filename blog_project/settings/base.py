@@ -67,7 +67,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 
-MEDIA_ROOT = here("../..", "static")
+MEDIA_ROOT = here("../..", "staticfiles")
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -81,7 +81,6 @@ ADMIN_MEDIA_PREFIX = '/media/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, '../staticfiles/')
-
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -244,7 +243,7 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://127.0.0.1:9200/',
+        'URL': 'http://localhost:9200/',
         'INDEX_NAME': 'haystack',
     },
 }
@@ -301,7 +300,7 @@ THUMBNAIL_PROCESSORS = (
 )
 
 
-IMAGEFIT_ROOT = here("../../static/")
+IMAGEFIT_ROOT = here("../../staticfiles/")
 
 
 

@@ -1,0 +1,135 @@
+Downloading/unpacking setproctitle
+  Getting page https://pypi.python.org/simple/setproctitle/
+  URLs to search for versions for setproctitle:
+  * https://pypi.python.org/simple/setproctitle/
+  Analyzing links from page https://pypi.python.org/simple/setproctitle/
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-0.1.tar.gz#md5=656e7c494510067445d1386a2ebc5498 (from https://pypi.python.org/simple/setproctitle/), version: 0.1
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-0.2.tar.gz#md5=4448b3246f43ce69afb597e8fa48ff1f (from https://pypi.python.org/simple/setproctitle/), version: 0.2
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-0.3.tar.gz#md5=5be99f78c6b526cd6e238ff78d6694b1 (from https://pypi.python.org/simple/setproctitle/), version: 0.3
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-0.4.tar.gz#md5=b6a4855a0e9087fd1c30da148468fe07 (from https://pypi.python.org/simple/setproctitle/), version: 0.4
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-0.4.zip#md5=beb7c2d15946412cce5c6edf858a1d1a (from https://pypi.python.org/simple/setproctitle/), version: 0.4
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.0.1.tar.gz#md5=1e7522e32cc1d7045d97fcc12324a67e (from https://pypi.python.org/simple/setproctitle/), version: 1.0.1
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.0.1.zip#md5=27a63e1cc2dda078baa14cb44aab95c9 (from https://pypi.python.org/simple/setproctitle/), version: 1.0.1
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.0.tar.gz#md5=27504766d1a0ea30a88d8eaf1e311fa3 (from https://pypi.python.org/simple/setproctitle/), version: 1.0
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.0.zip#md5=491203e6d17cd327006477c0c0a13c07 (from https://pypi.python.org/simple/setproctitle/), version: 1.0
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.1.tar.gz#md5=0bc31db1596de1386a5ed5ab418dc3a2 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.1
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.1.zip#md5=c8cc499251edee1e74168004b14760a5 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.1
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.2.tar.gz#md5=d90d8e396f372e69ea85c98cec7a1027 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.2
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.2.zip#md5=52f99a78cbdd1b0036bf41b4512442e7 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.2
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.3.tar.gz#md5=64028521850dc68c5b90d45377de3f5c (from https://pypi.python.org/simple/setproctitle/), version: 1.1.3
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.3.zip#md5=6e9b9e0069bcdbc093fcd5700a751525 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.3
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.4.tar.gz#md5=8261eed6523735921600c3b5b4a33c64 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.4
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.4.zip#md5=2fbba09d74a5fe27534d1accd0930f62 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.4
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.5.tar.gz#md5=8dc236c23727a4aca031fcd29b7f8a73 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.5
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.5.zip#md5=707865ef445cc559784c559239f8cae6 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.5
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.6.tar.gz#md5=1e42e43b440214b971f4b33c21eac369 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.6
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.6.zip#md5=5427ff7f51b44c55d2f352d11e8e1fe5 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.6
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.7.tar.gz#md5=b6a46974133016e16f4b8571d6c2afdb (from https://pypi.python.org/simple/setproctitle/), version: 1.1.7
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.7.zip#md5=e89a27ed9c355d4849f2522b293e2129 (from https://pypi.python.org/simple/setproctitle/), version: 1.1.7
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.8.tar.gz#md5=728f4c8c6031bbe56083a48594027edd (from https://pypi.python.org/simple/setproctitle/), version: 1.1.8
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.8.zip#md5=99bd5957546846660a61f30bb87ba24a (from https://pypi.python.org/simple/setproctitle/), version: 1.1.8
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.tar.gz#md5=d9e064c974d5b59b7cb00dab53be34c9 (from https://pypi.python.org/simple/setproctitle/), version: 1.1
+    Found link https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.zip#md5=dd797b7edbe61a6c5d6cfeb35e9aac3b (from https://pypi.python.org/simple/setproctitle/), version: 1.1
+    Skipping link http://bugs.python.org/issue5672 (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://code.google.com/p/procname/ (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://code.google.com/p/py-setproctitle/ (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://code.google.com/p/py-setproctitle/issues/list (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://doxygen.postgresql.org/ps__status_8c-source.html (from https://pypi.python.org/simple/setproctitle/); unknown archive format: .html
+    Skipping link http://doxygen.postgresql.org/ps__status_8c_source.html (from https://pypi.python.org/simple/setproctitle/); unknown archive format: .html
+    Skipping link http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx (from https://pypi.python.org/simple/setproctitle/); unknown archive format: .aspx
+    Skipping link http://www.develer.com/ (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://www.develer.com/oss/GccWinBinaries (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://www.logsign.net (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://www.openssh.com/ (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link http://www.postgresql.org (from https://pypi.python.org/simple/setproctitle/); not a file
+    Skipping link https://github.com/dvarrazzo/py-setproctitle (from https://pypi.python.org/simple/setproctitle/); not a file
+  Using version 1.1.8 (newest of versions: 1.1.8, 1.1.8, 1.1.7, 1.1.7, 1.1.6, 1.1.6, 1.1.5, 1.1.5, 1.1.4, 1.1.4, 1.1.3, 1.1.3, 1.1.2, 1.1.2, 1.1.1, 1.1.1, 1.1, 1.1, 1.0.1, 1.0.1, 1.0, 1.0, 0.4, 0.4, 0.3, 0.2, 0.1)
+  Downloading setproctitle-1.1.8.tar.gz
+  Downloading from URL https://pypi.python.org/packages/source/s/setproctitle/setproctitle-1.1.8.tar.gz#md5=728f4c8c6031bbe56083a48594027edd (from https://pypi.python.org/simple/setproctitle/)
+  Running setup.py (path:/tmp/pip_build_bloguser/setproctitle/setup.py) egg_info for package setproctitle
+    running egg_info
+    creating pip-egg-info/setproctitle.egg-info
+    writing pip-egg-info/setproctitle.egg-info/PKG-INFO
+    writing top-level names to pip-egg-info/setproctitle.egg-info/top_level.txt
+    writing dependency_links to pip-egg-info/setproctitle.egg-info/dependency_links.txt
+    writing pip-egg-info/setproctitle.egg-info/PKG-INFO
+    writing top-level names to pip-egg-info/setproctitle.egg-info/top_level.txt
+    writing dependency_links to pip-egg-info/setproctitle.egg-info/dependency_links.txt
+    writing manifest file 'pip-egg-info/setproctitle.egg-info/SOURCES.txt'
+    warning: manifest_maker: standard file '-c' not found
+    
+    reading manifest file 'pip-egg-info/setproctitle.egg-info/SOURCES.txt'
+    writing manifest file 'pip-egg-info/setproctitle.egg-info/SOURCES.txt'
+  Source in /tmp/pip_build_bloguser/setproctitle has version 1.1.8, which satisfies requirement setproctitle
+Installing collected packages: setproctitle
+  Running setup.py install for setproctitle
+    Running command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_bloguser/setproctitle/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-Owdv2d-record/install-record.txt --single-version-externally-managed --compile
+    running install
+    running build
+    running build_ext
+    building 'setproctitle' extension
+    creating build
+    creating build/temp.linux-x86_64-2.7
+    creating build/temp.linux-x86_64-2.7/src
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/setproctitle.c -o build/temp.linux-x86_64-2.7/src/setproctitle.o
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_debug.c -o build/temp.linux-x86_64-2.7/src/spt_debug.o
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_setup.c -o build/temp.linux-x86_64-2.7/src/spt_setup.o
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_status.c -o build/temp.linux-x86_64-2.7/src/spt_status.o
+    gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_strlcpy.c -o build/temp.linux-x86_64-2.7/src/spt_strlcpy.o
+    creating build/lib.linux-x86_64-2.7
+    gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro build/temp.linux-x86_64-2.7/src/setproctitle.o build/temp.linux-x86_64-2.7/src/spt_debug.o build/temp.linux-x86_64-2.7/src/spt_setup.o build/temp.linux-x86_64-2.7/src/spt_status.o build/temp.linux-x86_64-2.7/src/spt_strlcpy.o -o build/lib.linux-x86_64-2.7/setproctitle.so
+    running install_lib
+    copying build/lib.linux-x86_64-2.7/setproctitle.so -> /usr/local/lib/python2.7/dist-packages
+    error: /usr/local/lib/python2.7/dist-packages/setproctitle.so: Permission denied
+    Complete output from command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_bloguser/setproctitle/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-Owdv2d-record/install-record.txt --single-version-externally-managed --compile:
+    running install
+
+running build
+
+running build_ext
+
+building 'setproctitle' extension
+
+creating build
+
+creating build/temp.linux-x86_64-2.7
+
+creating build/temp.linux-x86_64-2.7/src
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/setproctitle.c -o build/temp.linux-x86_64-2.7/src/setproctitle.o
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_debug.c -o build/temp.linux-x86_64-2.7/src/spt_debug.o
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_setup.c -o build/temp.linux-x86_64-2.7/src/spt_setup.o
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_status.c -o build/temp.linux-x86_64-2.7/src/spt_status.o
+
+gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_SYS_PRCTL_H=1 -DSPT_VERSION=1.1.8 -I/usr/include/python2.7 -c src/spt_strlcpy.c -o build/temp.linux-x86_64-2.7/src/spt_strlcpy.o
+
+creating build/lib.linux-x86_64-2.7
+
+gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro build/temp.linux-x86_64-2.7/src/setproctitle.o build/temp.linux-x86_64-2.7/src/spt_debug.o build/temp.linux-x86_64-2.7/src/spt_setup.o build/temp.linux-x86_64-2.7/src/spt_status.o build/temp.linux-x86_64-2.7/src/spt_strlcpy.o -o build/lib.linux-x86_64-2.7/setproctitle.so
+
+running install_lib
+
+copying build/lib.linux-x86_64-2.7/setproctitle.so -> /usr/local/lib/python2.7/dist-packages
+
+error: /usr/local/lib/python2.7/dist-packages/setproctitle.so: Permission denied
+
+----------------------------------------
+Cleaning up...
+  Removing temporary dir /tmp/pip_build_bloguser...
+Command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_bloguser/setproctitle/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-Owdv2d-record/install-record.txt --single-version-externally-managed --compile failed with error code 1 in /tmp/pip_build_bloguser/setproctitle
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/pip/basecommand.py", line 122, in main
+    status = self.run(options, args)
+  File "/usr/local/lib/python2.7/dist-packages/pip/commands/install.py", line 279, in run
+    requirement_set.install(install_options, global_options, root=options.root_path)
+  File "/usr/local/lib/python2.7/dist-packages/pip/req.py", line 1380, in install
+    requirement.install(install_options, global_options, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/pip/req.py", line 699, in install
+    cwd=self.source_dir, filter_stdout=self._filter_install, show_stdout=False)
+  File "/usr/local/lib/python2.7/dist-packages/pip/util.py", line 697, in call_subprocess
+    % (command_desc, proc.returncode, cwd))
+InstallationError: Command /usr/bin/python -c "import setuptools, tokenize;__file__='/tmp/pip_build_bloguser/setproctitle/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-Owdv2d-record/install-record.txt --single-version-externally-managed --compile failed with error code 1 in /tmp/pip_build_bloguser/setproctitle

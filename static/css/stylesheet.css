@@ -1998,3 +1998,25 @@ ul.socialaccount_providers li a:hover
 	margin-top: -6px;
 }
  
+.socialaccount_ballot ul {
+	list-style:None;
+	margin: 0;
+}
+
+.socialaccount_ballot ul li {
+        float: left;
+}
+
+.socialaccount_ballot {
+    border-left: 1px solid #CCCCCC;
+    float: right;
+    padding: 15px 30px 20px;
+}
+sup
+{
+margin-right: 25px; 
+}
+
+.cat_style_info h3 {
+    line-height: 28px;
+}
