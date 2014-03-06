@@ -22,13 +22,13 @@ from django.contrib.auth import authenticate
 def upload(file_,fileName,subDir):
     import os
     try:
-        with open(AUTH_ROOT+'static/UPLOADED/'+subDir+'/'+str(fileName), 'w') as destination:
+        with open(AUTH_ROOT+'UPLOADED/'+subDir+'/'+str(fileName), 'w') as destination:
             for chunk in file_.chunks():
                 destination.write(chunk)
         return "UPLOADED/"+subDir+'/'+fileName
     except:
-        os.makedirs(AUTH_ROOT+'static/UPLOADED/'+subDir)
-        with open(AUTH_ROOT+'static/UPLOADED/'+subDir+'/'+str(fileName), 'w') as destination:
+        os.makedirs(AUTH_ROOT+'UPLOADED/'+subDir)
+        with open(AUTH_ROOT+'UPLOADED/'+subDir+'/'+str(fileName), 'w') as destination:
             for chunk in file_.chunks():
                 destination.write(chunk)
         return "UPLOADED/"+subDir+'/'+fileName
@@ -51,7 +51,7 @@ def v_add_user(request):
             image=None
             
             if request.FILES.get('image'):
-                image=upload(form.cleaned_data['image'],email+".jpg",USER_UPLOAD_DIR)
+                image=upload(form.cleaned_data['image'],email.split('@')[0].replace('.','_')+".jpg",USER_UPLOAD_DIR)
                 
             user=User.objects.create_user(username=email.split('@')[0],email=email,password=password)
             user.first_name = first_name

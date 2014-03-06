@@ -67,7 +67,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 
-MEDIA_ROOT = here("../..", "static")
+MEDIA_ROOT = here("../..", "staticfiles")
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -305,7 +305,7 @@ THUMBNAIL_PROCESSORS = (
 )
 
 
-IMAGEFIT_ROOT = here("../../static/")
+IMAGEFIT_ROOT = here("../../staticfiles/")
 
 
 
