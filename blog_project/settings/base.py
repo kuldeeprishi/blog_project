@@ -207,22 +207,17 @@ AUTHENTICATION_BACKENDS = (
 
 
 SOCIALACCOUNT_PROVIDERS = {
-'google':
-        { 'SCOPE': ['https://www.googleapis.com/auth/userinfo.profile'],
-          'AUTH_PARAMS': { 'access_type': 'online' } },
-'facebook':
-       {'SCOPE': ['email', 'publish_stream'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-        'METHOD': 'oauth2',
-        'LOCALE_FUNC': 'path.to.callable',
-        'VERIFIED_EMAIL': False},
-
-    'linkedin':
-            {'SCOPE': ['r_emailaddress'],
-             },
-
- 'twitter':
-    { 'SCOPE': ['r_emailaddress'] } ,
+    'google': { 'SCOPE': ['https://www.googleapis.com/auth/userinfo.profile'],
+                'AUTH_PARAMS': { 'access_type': 'online' }
+              }
+    # 'facebook': {'SCOPE': ['email', 'publish_stream'],
+    #              'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+    #              'METHOD': 'oauth2',
+    #              'LOCALE_FUNC': 'path.to.callable',
+    #              'VERIFIED_EMAIL': False
+    #              },
+    # 'linkedin': {'SCOPE': ['r_emailaddress']},
+    # 'twitter': { 'SCOPE': ['r_emailaddress']},
 
  }
 LOGIN_REDIRECT_URL='/'
