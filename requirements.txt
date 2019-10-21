@@ -1,4 +1,4 @@
-Django==1.5.5
+Django==1.11.23
 PIL==1.1.7
 Pillow==2.3.0
 WebOb==1.3.1
